@@ -36,7 +36,7 @@ The functional overview of the Operational Tools is depicted in the Figure below
 
 
 
-![PIXEL OT Architecture](img/ot_diagram.jng)
+![PIXEL OT Architecture](img/ot_diagram.jpg)
 
 
 ## Components
