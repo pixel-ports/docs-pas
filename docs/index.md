@@ -5,8 +5,10 @@
 ---
 
 ## Overview
-
+<div align="justify">
 The PIXEL Operational Tools are one component of the the PIXEL project (https://pixel-ports.eu/). 
+
+> *PIXEL is the first smart, flexible and scalable solution for reducing environmental impacts while enabling the optimization of operations in port ecosystems through IoT.*
 
 The Operational Tools (OT) are mainly in charge of bringing closer to the user both the models and predictive algorithms developed within the PIXEL project. By user here we mean administrators and managers analysing port operations by means of simulation models and predictive algorithms. In order to reach that goal, a set of high-level operational tools are defined: 
 
@@ -19,10 +21,13 @@ The Operational Tools (OT) are mainly in charge of bringing closer to the user b
    - Get the trends of a model and/or predictive algorithm (e.g. historical data)
    - Detect anomalies and raise alarms
 
-
+PIXEL has been financed by the Horizon 2020 initiative of the European Commission, contract 769355  
+</div>
+<br/><br/>
 
 ## Architecture
-
+<div align="justify">
+   
 The functional overview of the Operational Tools is depicted in the Figure below. Several internal components can be identified:
 
    - OT UI: this is the graphical interface to access (most of) the underlying functionalities. This component provides independence and autonomy, but it can be later integrated as part of the PIXEL dashboard to provide a single-entry point for administrators
@@ -33,13 +38,10 @@ The functional overview of the Operational Tools is depicted in the Figure below
    - Event processing: this component is responsible for real-time monitoring of indicators and conditions and trigger specific actions depending on previously configured rules. It includes a bridge to integrate with an external notification system
    - Database: the database includes description of the models and predictive algorithms that can be used, KPI description, rules as well as other configuration and output related parameters necessary for the correct behaviour of the internal building blocks. Some execution results might be stored internally besides being provided to the information hub.
 
-
-
-
-![PIXEL OT Architecture](img/ot_diagram.jpg)
-
-
-## Components
+<p align="center">
+<img src="img/ot_diagram.jpg" alt="PIXEL OT diagram" align="center" />
+<!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
+</p>
 
 The Operational Tools has been developed into the following modules 
 
@@ -47,17 +49,26 @@ The Operational Tools has been developed into the following modules
   - Check [ot-planner](https://inter-iot.readthedocs.io/projects/gateway/en/latest/)
   - Check [ot-ui](https://inter-iot.readthedocs.io/projects/gateway/en/latest/)
 
+<br/><br/>
+
+</div>
 
 
-## API
+## Developers
+<div align="justify">
+   
+General Info about development for developers
+<br/>
+</div>
 
-The PIXEL Operational Tools provides an OpenAPI specification 
 
-   - TBC
+### API
+
+The PIXEL Operational Tools provides an OpenAPI specification (TODO)
 
 
-## Integration with PIXEL models
-
+### Integration with PIXEL models
+<div align="justify">
 The Operational Tools have as mission the adaptation, execution (and orchestration) of the models developed within the project to let the rest of platform components and PIXEL users to manage, control and obtain results out of the models. The same applies for the predictive algorithms and also for the PEI that is conceived also as a model. This implies the exposition of two interfaces: one interface to wrap the heterogeneous models into a common format (standardization) and a second to expose the module features for the rest of components and users.  However, the whole process requires to be decomposed into several steps to guarantee modularity and flexibility.
 
 The process is depicted in the Figure below. 
@@ -67,7 +78,11 @@ The initial model is then converted into a service (see service X in figure belo
 
 The containerised version of the service enters then in the PIXEL platform through the OT, at publication phase. A new entry in the PIXEL data model is added, representing the model (as a service). The entity includes different attributes (name, inputs, outputs, endpoints, etc.) that can be later queried. The publication API in the Operational Tools allows publishing the service as a Docker image or as an external service (the Docker instance is already deployed). 
 
-![Integration with models](img/ot_integration.jpg)
+<p align="center">
+<img src="img/ot_integration.jpg" alt="OT integration" align="center" />
+</p>
+<br/>
+</div>
 
 ## Code and Docker instances
 
