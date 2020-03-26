@@ -1,23 +1,33 @@
-site_name: PIXEL Operational Tools Documentation Hub
+site_name: Operational Tools
 site_description: 'PIXEL Operational Tools Documentation Hub'
 site_author: 'Benjamin Molina'
 
+# this allows visualizing content in github as anonympus user without having to log in
+edit_uri: blob/master/docs/
+
 theme: readthedocs
+
+# we will use the same style as for the general PIXEL documentation hub (based on FIWARE and a readthedocs theme)
+extra_css:
+    - css/pixel_a.css
+    - css/pixel_b.css
+    - css/monokai_sublime_.css
+    - css/pigments-monokai.css
 
 repo_url: https://github.com/pixel-ports/ot-docs-hub
 
 
 pages:
     - MkDocs: index.md
-    - User Guide:
-        - Instructions: user-guide/instructions.md
-        - Configuration: user-guide/configuration.md
-        - Custom themes: user-guide/custom-themes.md
-        - Plugins: user-guide/plugins.md
-    - About:
-        - Release Notes: about/release-notes.md
-        - Contributing: about/contributing.md
-        - License: about/license.md
+#    - User Guide:
+#        - Instructions: user-guide/instructions.md
+#        - Configuration: user-guide/configuration.md
+#        - Custom themes: user-guide/custom-themes.md
+#        - Plugins: user-guide/plugins.md
+#    - About:
+#        - Release Notes: about/release-notes.md
+#        - Contributing: about/contributing.md
+#        - License: about/license.md
 
 copyright: Apache License 2.0
 
