@@ -31,6 +31,10 @@ The Operational Tools (OT) are mainly in charge of bringing closer to the user b
    - Establish some **pattern detection** mechanism. The most basic one is the use of **triggers**. 
    - Get the **trends** of a model and/or predictive algorithm (e.g. historical data)
 
+<p align="center">
+<img src="img/ot_main_concept.JPG" alt="PIXEL OT diagram" align="center" />
+<!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
+</p>
 
 The functional overview of the Operational Tools is depicted in the Figure below. Several internal components can be identified:
 
@@ -43,7 +47,7 @@ The functional overview of the Operational Tools is depicted in the Figure below
    - Database: the database includes description of the models and predictive algorithms that can be used, KPI description, rules as well as other configuration and output related parameters necessary for the correct behaviour of the internal building blocks. Some execution results might be stored internally besides being provided to the information hub.
 
 <p align="center">
-<img src="img/ot_diagram.jpg" alt="PIXEL OT diagram" align="center" />
+<img src="img/ot_arch.JPG" alt="PIXEL OT diagram" align="center" />
 <!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
 </p>
 
