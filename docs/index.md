@@ -64,6 +64,7 @@ Models are entities in the PIXEL platform than will be used by port administrato
    - **Predicitve algorithms**: predictive algorithms relate to estimating time of arrival in ports, traffic at gates and use of AIS data. For more information about the models, please check the **PIXEL main documentation repository** by clicking [here](https://pixel-ports.readthedocs.io/en/latest/).
 
 The Figure below shows the process experienced by any model or predictive algorithm that is going to be used inside the PIXEL platform:
+
 - The model or predictive algorithm is first drafted as algorithm and **implemented as program**.
 - The model is encapsulated into a **Docker container** to convert it into a portable component. Additionaly, an OT adaptor is attached to his Docker container in order to be integrated into the PIXEL platform.
 - Through the **publication process** the model or predictive algorithm becomes aware into the PIXEL platform. The **Docker image** is pulled from the (open) github repository and can be used internally.
