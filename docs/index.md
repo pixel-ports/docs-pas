@@ -58,8 +58,26 @@ The functional overview of the Operational Tools is depicted in the Figure below
 
 ## Models
 
-TBC (TODO)
+Models are entities in the PIXEL platform than will be used by port administrators to run and simulate models and predictive algorithms with different input parameters. As every model and predictive algorithm is different from each other and has its own specifities, there is a need to homogenize a common abstract model entity to be the internal representation in the PIXEL platform. It encompasses two different types of developments that have been done within the PIXEL project:
 
+   - **Models**: models relate to energy, traffic and environment. A specific model is the Port Environmental Index (PEI). For more information about the models, please check the PIXEL main documentation repository by clicking [here](https://pixel-ports.readthedocs.io/en/latest/).
+   - **Predicitve algorithms**: predictive algorithms relate to estimating time of arrival in ports, traffic at gates and use of AIS data. For more information about the models, please check the PIXEL main documentation repository by clicking [here](https://pixel-ports.readthedocs.io/en/latest/).
+
+The Figure below shows the process experienced by any model or predictive algorithm that is going to be used inside the PIXEL platform:
+- The model or predictive algorithm is first drafted as algorithm and implemented as program.
+- The model is encapsulated into a Docker container to convert it into a portable component. Additionaly, an OT adaptor is attached to his Docker container in order to be integrated into the PIXEL platform.
+- Through the publication process the model or predictive algorithm becomes aware into the PIXEL platform. The Docker image is pulled from the (open) github repository and can be used internally.
+- After published, the model or predictive algorithm can be executed by passing the appropiate arguments (parameters) as JSON file. The description of this JSON file will be described in future sections. The execution can run immediately (real time) or it can be scheduled to be performed periodically (e.g. every day or week).
+- The results of the model are stored into the PIXEL Information Hub, which can be queried by the PIXEL dashboard to visualize them in form of particular graphs depending on the model or predictive algorithm. 
+
+<p align="center">
+<img src="img/ot_models.jpg" alt="PIXEL model flow" align="center" />
+<!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
+</p>
+
+<br/><br/>
+
+</div>
 
 ## KPIs
 
