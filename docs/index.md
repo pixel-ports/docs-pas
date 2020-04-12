@@ -57,7 +57,7 @@ The functional overview of the Operational Tools is depicted in the Figure below
 
 
 ## Models
-
+<div align="justify">
 Models are entities in the PIXEL platform than will be used by port administrators to run and simulate models and predictive algorithms with different input parameters. As every model and predictive algorithm is different from each other and has its own specifities, there is a need to homogenize a common abstract model entity to be the internal representation in the PIXEL platform. It encompasses two different types of developments that have been done within the PIXEL project:
 
    - **Models**: models relate to energy, traffic and environment. A specific model is the Port Environmental Index (PEI). For more information about the models, please check the PIXEL main documentation repository by clicking [here](https://pixel-ports.readthedocs.io/en/latest/).
