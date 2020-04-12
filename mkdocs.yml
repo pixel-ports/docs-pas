@@ -19,15 +19,22 @@ repo_url: https://github.com/pixel-ports/ot-docs-hub
 
 pages:
     - MkDocs: index.md
-#    - User Guide:
-#        - Instructions: user-guide/instructions.md
-#        - Configuration: user-guide/configuration.md
-#        - Custom themes: user-guide/custom-themes.md
-#        - Plugins: user-guide/plugins.md
-#    - About:
-#        - Release Notes: about/release-notes.md
-#        - Contributing: about/contributing.md
-#        - License: about/license.md
+    - Getting Started: 'getting_started.md'
+    - Installation/Administration Guide:
+        - Introduction: 'admin/introduction.md'
+        - Installation: 'admin/installation.md'
+        - Configuration: 'admin/configuration.md'
+        - Environment Variables: 'admin/environment_variables.md'
+        - System Administration: 'admin/system_administration.md'
+        - Sanity Check Procedures: 'admin/sanity_check.md'
+    - Developers Guide:
+        - Introduction: 'api/introduction.md'
+        - API-Paths: 'api/paths.md'
+        - API-Models: 'api/models.md'
+        - Extensions: 'api/extensions.md'
+        - Additional Notes: 'api/additional_notes.md'
+
+        
 
 copyright: Apache License 2.0
 
