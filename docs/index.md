@@ -1,4 +1,4 @@
-# PIXEL Operational Tools Documentation Page 
+# PIXEL OT Documentation Page 
 
 
 
@@ -6,11 +6,23 @@
 
 ## Overview
 <div align="justify">
-The PIXEL Operational Tools are one component of the the PIXEL project (https://pixel-ports.eu/). 
+This is the documents hub for the PIXEL project (see [website](https://pixel-ports.eu/)).
 
 > *PIXEL is the first smart, flexible and scalable solution for reducing environmental impacts while enabling the optimization of operations in port ecosystems through IoT.*
 
-The Operational Tools (OT) are mainly in charge of bringing closer to the user both the models and predictive algorithms developed within the PIXEL project. By user here we mean administrators and managers analysing port operations by means of simulation models and predictive algorithms. In order to reach that goal, a set of high-level operational tools are defined: 
+PIXEL enables a two-way collaboration of ports, multimodal transport agents and cities for **optimal use of internal and external resources, sustainable economic growth and environmental impact mitigation, towards the Ports of the Future**. Built on top of the state-of-the art interoperability technologies, PIXEL centralises data from the different information silos where internal and external stakeholders store their operational information. PIXEL leverages an **IoT based communication infrastructure** to voluntarily exchange data among ports and stakeholders to achieve an efficient use of resources in ports.
+
+This documentation explores in detail the PIXEL Operational Tools as one of the main components of the PIXEL architecture. To access the main documentation repository of PIXEL, please access [here](https://pixel-ports.readthedocs.io/en/latest/)
+
+PIXEL has been financed by the Horizon 2020 initiative of the European Commission, contract 769355  
+</div>
+<br/><br/>
+
+
+## Main concepts and Architecture
+<div align="justify">
+
+The Operational Tools (OT) are mainly in charge of bringing closer to the user both the **models and predictive algorithms** developed within the PIXEL project. By user here we mean administrators and managers analysing port operations by means of **simulation models and predictive algorithms**. In order to reach that goal, a set of high-level operational tools are defined: 
 
    - Publish models and/or predictive algorithms
    - Edit and configure the models and/or predictive algorithms
@@ -21,13 +33,7 @@ The Operational Tools (OT) are mainly in charge of bringing closer to the user b
    - Get the trends of a model and/or predictive algorithm (e.g. historical data)
    - Detect anomalies and raise alarms
 
-PIXEL has been financed by the Horizon 2020 initiative of the European Commission, contract 769355  
-</div>
-<br/><br/>
 
-## Architecture
-<div align="justify">
-   
 The functional overview of the Operational Tools is depicted in the Figure below. Several internal components can be identified:
 
    - OT UI: this is the graphical interface to access (most of) the underlying functionalities. This component provides independence and autonomy, but it can be later integrated as part of the PIXEL dashboard to provide a single-entry point for administrators
