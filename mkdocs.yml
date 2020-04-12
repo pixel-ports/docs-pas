@@ -18,21 +18,21 @@ repo_url: https://github.com/pixel-ports/ot-docs-hub
 
 
 pages:
-    - MkDocs: index.md
+    - Home: index.md
     - Getting Started: 'getting_started.md'
-    - Installation/Administration Guide:
-        - Introduction: 'admin/introduction.md'
-        - Installation: 'admin/installation.md'
-        - Configuration: 'admin/configuration.md'
-        - Environment Variables: 'admin/environment_variables.md'
-        - System Administration: 'admin/system_administration.md'
-        - Sanity Check Procedures: 'admin/sanity_check.md'
-    - Developers Guide:
-        - Introduction: 'api/introduction.md'
-        - API-Paths: 'api/paths.md'
-        - API-Models: 'api/models.md'
-        - Extensions: 'api/extensions.md'
-        - Additional Notes: 'api/additional_notes.md'
+    - Installation/Administration Guide: 'admin_guide.md'
+#        - Introduction: 'admin/introduction.md'
+#        - Installation: 'admin/installation.md'
+#        - Configuration: 'admin/configuration.md'
+#        - Environment Variables: 'admin/environment_variables.md'
+#        - System Administration: 'admin/system_administration.md'
+#        - Sanity Check Procedures: 'admin/sanity_check.md'
+    - Developers Guide: 'devel_guide.md'
+#        - Introduction: 'api/introduction.md'
+#        - API-Paths: 'api/paths.md'
+#        - API-Models: 'api/models.md'
+#        - Extensions: 'api/extensions.md'
+#        - Additional Notes: 'api/additional_notes.md'
 
         
 
