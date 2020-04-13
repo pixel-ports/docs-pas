@@ -81,7 +81,7 @@ The Figure below shows the process experienced by any model or predictive algori
 ## KPIs
 <div align="justify">
    
-According to [Wikipedia](https://en.wikipedia.org/wiki/Performance_indicator) a Key Performance Indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity in which it engages. For the PIXEL project, we envision that basic KPIs will mostly refer to:
+According to [Wikipedia](https://en.wikipedia.org/wiki/Performance_indicator) a **Key Performance Indicator (KPI)** is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity in which it engages. For the PIXEL project, we envision that basic KPIs will mostly refer to:
 
    - **Sensors**: the PIXEL platform encompasses an IoT network and can therefore monitor any integrated sensor. Some of the sensors may represent an important impact on the decsision made from port authorities (e.g. depending on the tide level or the wind speed some cargo type is not recommended to be loaded/unloaded). 
    - **Models and Predicitve algorithms**: models and predictive algorithms are typically complex and provide various different outputs; however, some specific items of the output can be  considered of crucial importance and be characterized as KPIs.
