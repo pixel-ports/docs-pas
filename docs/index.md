@@ -33,7 +33,6 @@ The Operational Tools (OT) are mainly in charge of bringing closer to the user b
 
 <p align="center">
 <img src="img/ot_main_concept.JPG" alt="PIXEL OT diagram" align="center" />
-<!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
 </p>
 
 The functional overview of the Operational Tools is depicted in the Figure below. Several internal components can be identified:
@@ -48,7 +47,6 @@ The functional overview of the Operational Tools is depicted in the Figure below
 
 <p align="center">
 <img src="img/ot_arch.JPG" alt="PIXEL OT diagram" align="center" />
-<!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
 </p>
 
 <br/><br/>
@@ -58,6 +56,7 @@ The functional overview of the Operational Tools is depicted in the Figure below
 
 ## Models
 <div align="justify">
+   
 Models are entities in the PIXEL platform than will be used by port administrators to run and simulate models and predictive algorithms with different input parameters. As every model and predictive algorithm is different from each other and has its own specifities, there is a need to homogenize a common abstract model entity to be the internal representation in the PIXEL platform. It encompasses two different types of developments that have been done within the PIXEL project:
 
    - **Models**: models relate to energy, traffic and environment. A specific model is the Port Environmental Index (PEI). For more information about the models, please check the **PIXEL main documentation repository** by clicking [here](https://pixel-ports.readthedocs.io/en/latest/).
@@ -73,7 +72,6 @@ The Figure below shows the process experienced by any model or predictive algori
 
 <p align="center">
 <img src="img/ot_models.jpg" alt="PIXEL model flow" align="center" />
-<!-- ![PIXEL OT Architecture](img/ot_diagram.jpg) -->
 </p>
 
 <br/><br/>
@@ -81,8 +79,22 @@ The Figure below shows the process experienced by any model or predictive algori
 </div>
 
 ## KPIs
+<div align="justify">
+   
+According to [Wikipedia](https://en.wikipedia.org/wiki/Performance_indicator) a Key Performance Indicator (KPI) is a type of performance measurement. KPIs evaluate the success of an organization or of a particular activity in which it engages. For the PIXEL project, we envision that basic KPIs will mostly refer to:
 
-TBC (TODO)
+   - **Sensors**: the PIXEL platform encompasses an IoT network and can therefore monitor any integrated sensor. Some of the sensors may represent an important impact on the decsision made from port authorities (e.g. depending on the tide level or the wind speed some cargo type is not recommended to be loaded/unloaded). 
+   - **Models and Predicitve algorithms**: models and predictive algorithms are typically complex and provide various different output; however, some specific items of the output can be  considered of crucial importance and be characterized as KPIs
+
+More complex KPIs can be potentially defined by combining previous ones, but there is a need to define a common format for them as data entity. PIXEL has followed the **FIWARE Datamodel**, which specification can be accessed [here](https://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html). Some extension have been added, when needed, to particularize it to port and model needs (e.g environmental KPIs for the PEI calculation). You can find more information on the main documentation repository of PIXEL, click [here](https://pixel-ports.readthedocs.io/en/latest/), as there is a section dedicated to Data Models.
+
+<p align="center">
+<img src="img/ot_kpis.jpg" alt="PIXEL KPIs" align="center" />
+</p>
+
+<br/><br/>
+
+</div>
 
 ## Event Processing
 
