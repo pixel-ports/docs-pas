@@ -107,7 +107,7 @@ From the perspective of the Operational Tools, and considering the current needs
  
 
 <p align="center">
-<img src="img/ot_eventing.jpg" alt="PIXEL KPIs" align="center" height="325"/>
+<img src="img/ot_cep.jpg" alt="PIXEL KPIs" align="center" />
 </p>
 
 <br/><br/>
