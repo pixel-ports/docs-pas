@@ -97,13 +97,13 @@ More complex KPIs can be potentially defined by combining previous ones, but the
 </div>
 
 ## Event Processing
-
 <div align="justify">
    
 According to [Wikipedia](https://en.wikipedia.org/wiki/Complex_event_processing) a **Event Processing** is a method of tracking and analyzing (processing) streams of information (data) about things that happen (events), and deriving a conclusion from them. **Complex event processing**, or CEP, consists of a set of concepts and techniques developed in the early 1990s for processing real-time events and extracting information from event streams as they arrive. The goal of complex event processing is to identify meaningful events (such as opportunities or threats)in real-time situations and respond to them as quickly as possible.
 
 Considering that the PIXEL platform uses as main database **Elasticsearch**, the selected and natural choice as CEP engine refers to **ElastAlert**. You can find detailed information about ElastAlert by clicking [here](https://elastalert.readthedocs.io/en/latest/elastalert.html#overview). Some of its main features are reliability, modularity and easines to set up and configure.
-From the perspective of the Operational Tools, and considering the current needs of the target ports, this will mainly be related to monitored KPIs where some thresholds are reached. For these situations, rules and alerts are 'templatized' to facilitate the configuration to port operators and define proper actions. More complex actions are possible and supported through ElastAlert; this will be commented in the Developer's Guide section, explaining possible extensions.
+
+From the perspective of the **Operational Tools**, and considering the current needs of the target ports, this will mainly be related to **monitored KPIs** where some **threshold**s are reached. For these situations, **rules and alerts** are 'templatized' to facilitate the configuration to port operators and define proper actions. More complex actions are possible and supported through ElastAlert; this will be commented in the **Developer's Guide** subsection, explaining possible extensions.
  
 
 <p align="center">
