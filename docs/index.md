@@ -89,7 +89,7 @@ According to [Wikipedia](https://en.wikipedia.org/wiki/Performance_indicator) a 
 More complex KPIs can be potentially defined by combining previous ones, but there is a need to define a common format for them as data entity. PIXEL has followed the **FIWARE Datamodel**, which specification can be accessed [here](https://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html). Some extension have been added, when needed, to particularize it to port and model needs (e.g environmental KPIs for the PEI calculation). You can find more information on the main documentation repository of PIXEL, clicking [here](https://pixel-ports.readthedocs.io/en/latest/), as there is a section dedicated to Data Models.
 
 <p align="center">
-<img src="img/ot_kpis.jpg" alt="PIXEL KPIs" align="center" height="200"/>
+<img src="img/ot_kpis.jpg" alt="PIXEL KPIs" align="center" height="400"/>
 </p>
 
 <br/><br/>
