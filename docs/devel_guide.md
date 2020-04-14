@@ -61,7 +61,7 @@ PUT /instances/create
 
 
 <a name="model_instanceinputitem"></a>
-##### Instances 
+##### InstanceInputItem 
 
 |Name|Description|Schema|
 |---|---|---|
