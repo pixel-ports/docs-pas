@@ -16,11 +16,6 @@ extra_css:
 
 repo_url: https://github.com/pixel-ports/ot-docs-hub
 
-plugins:
-    - swagger
-extra:
-    swagger_url: 'https://petstore.swagger.io/v2/swagger.json'
-
 pages:
     - Home: index.md
     - Getting Started: 'getting_started.md'
@@ -31,7 +26,7 @@ pages:
 #        - Environment Variables: 'admin/environment_variables.md'
 #        - System Administration: 'admin/system_administration.md'
 #        - Sanity Check Procedures: 'admin/sanity_check.md'
-    - Developers Guide: 'devel_guide2.md'
+    - Developers Guide: 'devel_guide.md'
 #        - Introduction: 'api/introduction.md'
 #        - API-Paths: 'api/paths.md'
 #        - API-Models: 'api/models.md'
