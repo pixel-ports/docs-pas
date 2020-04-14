@@ -40,25 +40,42 @@ PUT /instances/create
 * `application/json`
 
 
-### Models
+### API-Models
 <div align="justify">
-TBC
+
 <br/>
 </div>
 
 <a name="model_instance"></a>
-##### Intances 
+##### Instances 
 
 |Name|Description|Schema|
 |---|---|---|
-|**creator**  <br>*optional*|Alignment creator|string|
-|**description**  <br>*optional*|Alignment description|string|
-|**map**  <br>*required*|map|[map](#alignment-map)|
-|**name**  <br>*required*|Alignment name|string|
-|**onto1**  <br>*required*|onto1|[onto1](#alignment-onto1)|
-|**onto2**  <br>*required*|onto2|[onto2](#alignment-onto2)|
-|**steps**  <br>*required*|Steps|[steps](#alignment-steps)|
-|**version**  <br>*required*|Alignment version|string|
+|**id**  <br>*optional*| id assigned at creation time|string (uuid)|
+|**idRef**  <br>*required*| id of the correspoding model|string (uuid)|
+|**name**  <br>*required*|name of the instance|string|
+|**description**  <br>*optional*|Description of the instance|string|
+|**mode**  <br>*required*|ExecAsync, ExecSync, Subscription|string|
+|**user**  <br>*required*|user/user id|string|
+|**input**  <br>*required*|input configuration|InstanceInputItem(#model_instanceinputitem)|
+
+
+<a name="model_instanceinputitem"></a>
+##### Instances 
+
+|Name|Description|Schema|
+|---|---|---|
+|**id**  <br>*optional*| id assigned at creation time|string (uuid)|
+|**idRef**  <br>*required*| id of the correspoding model|string (uuid)|
+|**name**  <br>*required*|name of the instance|string|
+|**description**  <br>*optional*|Description of the instance|string|
+|**mode**  <br>*required*|ExecAsync, ExecSync, Subscription|string|
+|**user**  <br>*required*|user/user id|string|
+|**input**  <br>*required*|input configuration|string|
+
+
+
+
 
 
 
