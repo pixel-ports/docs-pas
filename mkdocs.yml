@@ -27,7 +27,7 @@ pages:
 #        - Environment Variables: 'admin/environment_variables.md'
 #        - System Administration: 'admin/system_administration.md'
 #        - Sanity Check Procedures: 'admin/sanity_check.md'
-    - Developers Guide: 'devel_guide.md'
+    - Developers Guide: 'devel_guide2.md'
 #        - Introduction: 'api/introduction.md'
 #        - API-Paths: 'api/paths.md'
 #        - API-Models: 'api/models.md'
