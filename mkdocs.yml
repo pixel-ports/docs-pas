@@ -16,9 +16,10 @@ extra_css:
 
 repo_url: https://github.com/pixel-ports/ot-docs-hub
 
-#plugins:
-#    - sphinxcontrib-openapi
-
+plugins:
+    - swagger
+extra:
+    swagger_url: 'https://petstore.swagger.io/v2/swagger.json'
 
 pages:
     - Home: index.md
