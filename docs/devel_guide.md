@@ -1,4 +1,4 @@
-## Overview
+### Overview
 <div align="justify">
 
 The OT uses a **REST API**. A JSON message is returned by all API responses including errors and HTTP response status codes are to designate success and failure.
@@ -9,7 +9,7 @@ to authenticate as a user and have the same permissions that the user itself.
 <br/><br/>
 
 <a name="instance_resource"></a>
-## API-instances
+### API-instances
 <div align="justify">
 
 </div>
@@ -79,7 +79,7 @@ PUT /instances/create
 
 
 
-## Extensions
+### Extensions
 <div align="justify">
    
 TBC
@@ -87,7 +87,7 @@ TBC
 
 </div>
 
-## Additional notes
+### Additional notes
 <div align="justify">
    
 TBC
