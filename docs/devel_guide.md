@@ -25,27 +25,24 @@ to authenticate as a user and have the same permissions that the user itself.
 
 This section shows all the resources that are currently available in APIv1.
 
-<a name="paths"></a>
-## Resources
-
 <a name="alignments_resource"></a>
-### Alignments
+#### Alignments
 
 <a name="alignments-post"></a>
-#### Upload new alignment
+##### Upload new alignment
 ```
 POST /alignments
 ```
 
 
-##### Parameters
+###### Parameters
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
 |**Body**|**conf**  <br>*required*|Alignment configuration|[Alignment](definitions.md#alignment)|
 
 
-##### Responses
+###### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
@@ -55,12 +52,12 @@ POST /alignments
 |**409**|Alignment with the same ID but different definition exists|[Error](definitions.md#error)|
 
 
-##### Consumes
+###### Consumes
 
 * `application/xml`
 
 
-##### Produces
+###### Produces
 
 * `application/json`
 
