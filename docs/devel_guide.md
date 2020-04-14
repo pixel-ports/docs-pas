@@ -13,7 +13,6 @@ to authenticate as a user and have the same permissions that the user itself.
 <div align="justify">
 
 </div>
-<br/><br/>
 
 <a name="instances-put"></a>
 ##### Create new instance
