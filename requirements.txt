@@ -1,1 +1,2 @@
 sphinxcontrib-openapi
+git+https://github.com/allevo/mkdocs-swagger-plugin#egg=SwaggerPlugin
