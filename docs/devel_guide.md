@@ -31,7 +31,7 @@ PUT /instances/create
 ###### Responses
 
 |HTTP Code|Description|
-|---|---|---|
+|---|---|
 |**200**|Instance created successfully|
 |**400**|Instance already uploaded|
 |**500**|Internal error|
