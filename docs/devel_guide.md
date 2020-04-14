@@ -30,19 +30,14 @@ PUT /instances/create
 
 ###### Responses
 
-|HTTP Code|Description|
-|---|---|
-|**200**|Instance created successfully|
-|**400**|Instance already uploaded|
-|**500**|Internal error|
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|Instance created successfully|No content
+|**400**|Instance already uploaded|No content
+|**500**|Internal error|No content
 
 ###### Consumes
 * `application/json`
-
-
-###### Produces
-* `application/json`
-
 
 
 ### Models
@@ -50,6 +45,22 @@ PUT /instances/create
 TBC
 <br/>
 </div>
+
+<a name="model_instance"></a>
+##### Intances 
+
+|Name|Description|Schema|
+|---|---|---|
+|**creator**  <br>*optional*|Alignment creator|string|
+|**description**  <br>*optional*|Alignment description|string|
+|**map**  <br>*required*|map|[map](#alignment-map)|
+|**name**  <br>*required*|Alignment name|string|
+|**onto1**  <br>*required*|onto1|[onto1](#alignment-onto1)|
+|**onto2**  <br>*required*|onto2|[onto2](#alignment-onto2)|
+|**steps**  <br>*required*|Steps|[steps](#alignment-steps)|
+|**version**  <br>*required*|Alignment version|string|
+
+
 
 ## Extensions
 <div align="justify">
