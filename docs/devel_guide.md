@@ -8,7 +8,7 @@ to authenticate as a user and have the same permissions that the user itself.
 <br/><br/>
 
 <a name="instance_resource"></a>
-#### API-instances
+## API-instances
 
 <a name="instances-put"></a>
 ##### Create new instance
