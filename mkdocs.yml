@@ -16,8 +16,8 @@ extra_css:
 
 repo_url: https://github.com/pixel-ports/ot-docs-hub
 
-plugins:
-    - sphinxcontrib-openapi
+#plugins:
+#    - sphinxcontrib-openapi
 
 
 pages:
