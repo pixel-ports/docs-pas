@@ -23,27 +23,24 @@ PUT /instances/create
 
 ###### Parameters
 
-|Type|Name|Description|Schema|
-|---|---|---|---|
-|**Body**|**conf**  <br>*required*|Alignment configuration|[Alignment](definitions.md#alignment)|
+|Type|Description|Schema|
+|---|---|---|
+|**Body**|Instance configuration|[Model](definitions.md#model)|
 
 
 ###### Responses
 
-|HTTP Code|Description|Schema|
+|HTTP Code|Description|
 |---|---|---|
-|**200**|Instance uploaded successfully|[Response](definitions.md#response)|
-|**400**|Instance already uploaded|[Error](definitions.md#error)|
-|**500**|Internal error|[Error](definitions.md#error)|
-
+|**200**|Instance created successfully|
+|**400**|Instance already uploaded|
+|**500**|Internal error|
 
 ###### Consumes
-
 * `application/json`
 
 
 ###### Produces
-
 * `application/json`
 
 
