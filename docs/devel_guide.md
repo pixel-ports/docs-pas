@@ -5,6 +5,8 @@ The OT uses a **REST API**. A JSON message is returned by all API responses incl
 
 All endpoints require authentication. The **Authorization** HTTP header can be specified with ``ApiKey <your-key>``
 to authenticate as a user and have the same permissions that the user itself.
+
+A complete list of all methods is available [here](ot-api.html)
 </div>
 <br/><br/>
 
