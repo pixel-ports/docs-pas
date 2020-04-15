@@ -28,7 +28,7 @@ pages:
 #        - Sanity Check Procedures: 'admin/sanity_check.md'
     - Developers Guide: 'devel_guide.md'
 #        - Introduction: 'api/introduction.md'
-        - API-Paths: 'ot-api.md'
+#        - API-Paths: 'ot-api.html'
 #        - API-Models: 'api/models.md'
 #        - Extensions: 'api/extensions.md'
 #        - Additional Notes: 'api/additional_notes.md'
