@@ -1,4 +1,12 @@
-## Indetification of interfaces
+## Identification of interfaces
+<div align="justify">
+
+
+</div>
+<br/><br/>
+
+
+## Management Interface
 <div align="justify">
 
 The OT uses a **REST API**. A JSON message is returned by all API responses including errors and HTTP response status codes are to designate success and failure.
@@ -7,14 +15,6 @@ All endpoints require authentication. The **Authorization** HTTP header can be s
 to authenticate as a user and have the same permissions that the user itself.
 
 A complete list of all methods is available [here](ot-api.html)
-</div>
-<br/><br/>
-
-
-## Management Interface
-<div align="justify">
-
-TBC
 </div>
 <br/><br/>
 
