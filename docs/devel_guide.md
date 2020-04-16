@@ -8,7 +8,7 @@ As commented in the **Main concepts and Architecture subsection**, the OT intera
   - **Interface 3**: The Operational Tools are somehow divided into a main component, being part of the PIXEL architecture, and also a OT adaptor integrated in each of the models and predictive algorithms to allow its integration and management inside the platform. This interface is developed as part of the Operational Tools and will be described below as **Execution Interface**.
 
 <p align="center">
-<img src="img/ot_interface_1.JPG" alt="PIXEL OT interfaces 1" align="center" />
+<img src="img/ot_interfaces_1.JPG" alt="PIXEL OT interfaces 1" align="center" />
 </p>
 
 
