@@ -1,4 +1,4 @@
-### Overview
+## Indetification of interfaces
 <div align="justify">
 
 The OT uses a **REST API**. A JSON message is returned by all API responses including errors and HTTP response status codes are to designate success and failure.
@@ -10,11 +10,38 @@ A complete list of all methods is available [here](ot-api.html)
 </div>
 <br/><br/>
 
-<a name="instance_resource"></a>
-### API-instances
+
+## Management Interface
 <div align="justify">
 
+TBC
 </div>
+<br/><br/>
+
+## Execution Interface
+<div align="justify">
+
+TBC
+</div>
+<br/><br/>
+
+## Software Extensions
+<div align="justify">
+   
+TBC
+<br/><br/>
+
+</div>
+
+### Additional notes
+<div align="justify">
+   
+TBC
+<br/><br/>
+
+</div>
+
+
 
 <a name="instances-put"></a>
 ##### Create new instance
@@ -81,19 +108,5 @@ PUT /instances/create
 
 
 
-### Extensions
-<div align="justify">
-   
-TBC
-<br/><br/>
 
-</div>
-
-### Additional notes
-<div align="justify">
-   
-TBC
-<br/><br/>
-
-</div>
  
