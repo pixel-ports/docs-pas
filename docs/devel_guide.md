@@ -51,7 +51,11 @@ Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoin
 <img src="img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
 </p>
 
-A complete list of all methods is available as a standalone HTML page [here](ot-api.html), containing examples of code for various programming languages
+A complete list of all methods is available as a standalone HTML page [here](ot-api.html), containing examples of code for various programming languages.
+
+<p align="center">
+<img src="img/otapi_hrml.jpg" alt="OT_swaggerUI" align="center" />
+</p>
 
 
 </div>
