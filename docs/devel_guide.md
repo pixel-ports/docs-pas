@@ -1,6 +1,16 @@
 ## Identification of interfaces
 <div align="justify">
 
+As commented in the **Main concepts and Architecture subsection**, the OT interacts mainly with 3 external entities, as shown in the Figure below:
+
+  - **Interface 1**: This is the interface used by the Operational Tools to obtain information (e.g. eKPIs) from the Information Hub. Here the OT act mainly as user. Therefore, this interface will not be explained in this section, but in the Information Hub chapter as part of the PIXEL documentation.
+  - **Interface 2**: This is the main interface used, typically by the **Dashboard**, to **publish en execute models, instances and scheduledInstances, as well as manage KPIs**. This interface is developed as part of the Operational Tools and will be described below as **Management Interface**.
+  - **Interface 3**: The Operational Tools are somehow divided into a main component, being part of the PIXEL architecture, and also a OT adaptor integrated in each of the models and predictive algorithms to allow its integration and management inside the platform. This interface is developed as part of the Operational Tools and will be described below as **Execution Interface**.
+
+<p align="center">
+<img src="img/ot_interface_1.JPG" alt="PIXEL OT interfaces 1" align="center" />
+</p>
+
 
 </div>
 <br/><br/>
