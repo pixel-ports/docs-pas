@@ -51,10 +51,16 @@ Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoin
 <img src="img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
 </p>
 
-A complete list of all methods is available as a standalone HTML page [here](ot-api.html), containing examples of code for various programming languages.
+A complete list of **all methods** is available as a standalone HTML page [here](ot-api.html), containing **examples of code** for various programming languages (Java, JS, PHP, C#, Python ,etc.). You can also see the different fields of the **dataformats** as well as the **response codes**.
 
 <p align="center">
 <img src="img/otapi_html.jpg" alt="OT_API_HTML" align="center" />
+</p>
+
+Exploiting the potential of Swagger (OpenAPI) specifications, the OT management API has also been ported to **apiary**. You can access the cloud [here](https://pixelot.docs.apiary.io/#). Note that there is no proper real backend server to test the data, but you can see the functions as well as the JSON datatypes.
+
+<p align="center">
+<img src="img/otapi_apiary.jpg" alt="OT_API_HTML" align="center" />
 </p>
 
 
