@@ -40,7 +40,7 @@ Users can perform the following actions through the CRUD (Create, Read, Update, 
 All endpoints require authentication. The **Authorization** HTTP header can be specified with ``ApiKey <your-key>``
 to authenticate as a user and have the same permissions that the user itself. Example:
 
-```text
+```
 GET / HTTP/1.1
 Host: ot_host
 Authorization: ApiKey <your-key>
@@ -51,7 +51,9 @@ Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoin
 <img src="img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
 </p>
 
-A complete list of all methods is available [here](ot-api.html)
+A complete list of all methods is available as a standalone HTML page [here](ot-api.html), containing examples of code for various programming languages
+
+
 </div>
 <br/><br/>
 
