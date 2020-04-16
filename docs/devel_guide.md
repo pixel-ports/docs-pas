@@ -24,10 +24,28 @@ The Figure below depicts these 3 interfaces from the point of view of the intern
 ## Management Interface
 <div align="justify">
 
-The OT uses a **REST API**. A JSON message is returned by all API responses including errors and HTTP response status codes are to designate success and failure.
+This specification is intended for service consumers (with development skills). It provides a full specification of how to interoperate with the OT Management Service API.
+
+The API user should be familiar with:
+  - RESTful web services
+  - HTTP/1.1.
+  - JSON data serialization formats.
+
+Users can perform the following actions through the CRUD (Create, Read, Update, Delete) API:
+  - Manage models (both PIXEL models and predictive algorithms)
+  - Manage instances (executions of models and predictive algorithms)
+  - Manage scheduled instances (scheduled executions of models and predictive algorithms)
+  - Manage KPIs (following the FIWARE KPI data format)
 
 All endpoints require authentication. The **Authorization** HTTP header can be specified with ``ApiKey <your-key>``
-to authenticate as a user and have the same permissions that the user itself.
+to authenticate as a user and have the same permissions that the user itself. Example:
+
+```text
+GET / HTTP/1.1
+Host: ot_host
+Authorization: ApiKey <your-key>
+```
+
 
 A complete list of all methods is available [here](ot-api.html)
 </div>
