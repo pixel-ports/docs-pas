@@ -32,10 +32,10 @@ The API user should be familiar with:
   - JSON data serialization formats.
 
 Users can perform the following actions through the CRUD (Create, Read, Update, Delete) API:
-  - Manage models (both PIXEL models and predictive algorithms)
-  - Manage instances (executions of models and predictive algorithms)
-  - Manage scheduled instances (scheduled executions of models and predictive algorithms)
-  - Manage KPIs (following the FIWARE KPI data format)
+  - Manage **models** (both PIXEL models and predictive algorithms)
+  - Manage **instances** (executions of models and predictive algorithms)
+  - Manage **scheduled instances** (scheduled executions of models and predictive algorithms)
+  - Manage **KPIs** (following the FIWARE KPI data format)
 
 All endpoints require authentication. The **Authorization** HTTP header can be specified with ``ApiKey <your-key>``
 to authenticate as a user and have the same permissions that the user itself. Example:
@@ -45,7 +45,11 @@ GET / HTTP/1.1
 Host: ot_host
 Authorization: ApiKey <your-key>
 ```
+Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoint under the path ``http://<your_server>:8080/otpixel/doc/#/`` where you have a Swagger UI to test the API 
 
+<p align="center">
+<img src="img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
+</p>
 
 A complete list of all methods is available [here](ot-api.html)
 </div>
