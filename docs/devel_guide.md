@@ -14,7 +14,7 @@ As commented in the **Main concepts and Architecture subsection**, the OT intera
 The Figure below depicts these 3 interfaces from the point of view of the internal blocks of the main components of the Operational Tools. As can be observed, the PIXEL Dashaboard will invoke **Interface 2** to manage the publication and execution of models. The **Engine block** of the OT, whenever a model or predictive algorithm needs to be executed, invokes the corresponding **Docker instance**, which incorporates an OT adaptor component able to understand the exchange of parameters through the **Interface 3**. The **Interface 1** refers to the use of the **Information Hub API** to retrieve information. Storage of information as output of the execution of models and predictive algorithms is done by the **Docker instanc**e by means of the **OT adaptor**. 
 
 <p align="center">
-<img src="img/ot_interfaces_2.jpg" alt="PIXEL OT interfaces 1" align="center" />
+<img src="img/ot_interfaces_2.jpg" alt="PIXEL OT interfaces 2" align="center" />
 </p>
 
 </div>
