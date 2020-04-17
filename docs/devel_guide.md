@@ -170,7 +170,6 @@ There are several ways in which you may be willling to enhance the provided Dock
 		}			
 	]		
 },
-...
 ```
  
  
@@ -183,7 +182,7 @@ There are several ways in which you may be willling to enhance the provided Dock
 	"supportedConnectors": ["inline"],
 	"description": "indicates the level of verbosity to be used, e.g. [0-5]",
 	},
-        ...
+        
 ```
   
 <br/>
