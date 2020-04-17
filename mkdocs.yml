@@ -9,10 +9,12 @@ theme: readthedocs
 
 # we will use the same style as for the general PIXEL documentation hub (based on FIWARE and a readthedocs theme)
 extra_css:
-    - css/pixel_a.css
-    - css/pixel_b.css
-    - css/monokai_sublime_.css
-    - css/pigments-monokai.css
+     - https://www.fiware.org/style/fiware_readthedocs.css
+     - https://www.fiware.org/style/fiware_readthedocs_security.css
+#    - css/pixel_a.css
+#    - css/pixel_b.css
+#    - css/monokai_sublime_.css
+#    - css/pigments-monokai.css
 
 repo_url: https://github.com/pixel-ports/ot-docs-hub
 
