@@ -70,7 +70,21 @@ Exploiting the potential of Swagger (OpenAPI) specifications, the OT management 
 ## Execution Interface
 <div align="justify">
 
-TBC
+The OT Engine block is able to run Dockerized models and predictive algorithms if they include an specific OT adaptor to allow the integration. The flow is depicted in the Figure below, where several steps can be identified:
+  - **Step 1**: the main OT component launches the model via **instantiating the corresponding Docker** and passing an **instance JSON file** with all needed parameters.
+  - **Step 2**: The controller manages the whole internal execution of the model inside the Docker container following several steps. In step 2 it gets all inputs via the **Input retriever** module. This module should be able to use both the Extractor and the Broker (Kafka) API of the Information Hub to obtain all needed data.
+  - **Step 3**:  If there is a need to transform the input data, the **Input Transformer** is invoked. This might happen when the input dataformats are not natively supported by the model itself, and some adaptation is needed.
+  - **Step 4**: The **model algorithm is launched** passing all the obtained inputs from the Information Hub. The controller shall **monitor stdout, stderr** to check whether the execution is going well or some errors appear.
+  - **Step 5**: If there is a need to transform the output data, the **Output Transformer** is invoked. The required transformations (if any) are mainly conditioned by latter efficient queries (e.g. visualization in the Dashboard).
+  - **Step 6**: The resulting (transformed) **output is written in the IH** via the **Output writer**. This module should be able to use the Extractor and/or the Broker (Kafka) API. 
+
+<p align="center">
+<img src="img/ot_dockerInt.jpg" alt="OT_Docker" align="center" />
+</p>
+
+
+
+
 </div>
 <br/><br/>
 
