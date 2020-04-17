@@ -84,6 +84,8 @@ The OT Engine block is able to run Dockerized models and predictive algorithms i
 
 The controller includes a **logging functionality** in order to monitor all steps. It should log: start, end (with status), and any intermediate information during the process (if any). The latter might be conditioned (level of logging) by some (possible) input verbose parameter.  
 
+In case of error, a typical logging table after an execution will look like
+
 |Timestamp|id_model (UUID)|id_execution (UUID)|type (String)|message (String)|
 |---|---|---|---|---|
 |2020-04-16T18:51:17+00:00|JJUSG676531|JJH6757423|start|-|
@@ -91,7 +93,14 @@ The controller includes a **logging functionality** in order to monitor all step
 |2020-04-16T18:51:20+00:00|JJUSG676531|JJH6757423|error|error message 2|
 |2020-04-16T18:51:21+00:00|JJUSG676531|JJH6757423|end|error|
 
+In case of success, a typical logging table after an execution will look like
 
+|Timestamp|id_model (UUID)|id_execution (UUID)|type (String)|message (String)|
+|---|---|---|---|---|
+|2020-04-16T18:51:17+00:00|JJUSG676531|JJH6757423|start|-|
+|2020-04-16T18:51:19+00:00|JJUSG676531|JJH6757423|info|info message 1|
+|2020-04-16T18:51:20+00:00|JJUSG676531|JJH6757423|info|info message 2|
+|2020-04-16T18:51:21+00:00|JJUSG676531|JJH6757423|end|success|
 
 
 
