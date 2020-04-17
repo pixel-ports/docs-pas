@@ -112,11 +112,71 @@ In case of success, a typical logging table after an execution will look like
 <div align="justify">
    
 There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
+<br/><br/>
+</div>
 
 ### OT as Docker
+<div align="justify">
+   
+There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
+<br/>
+</div>
 
-<br/><br/>
+### Include an additional resource
+<div align="justify">
+   
+There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
+<br/>
+</div>
 
+### Enhance the Dockerized model
+<div align="justify">
+   
+There are several ways in which you may be willling to enhance the provided Dockerized models and/or predictive algorithms, or just add new functionalities to your newly created ones. Some examples will be:
+
+ - **Add new connector**: currently all models are obtaining the information via the Information Hub, which stores all needed information under a common place. This requires that all needed information to be placed in the Information Hub via NGSI Agents and a connected Data Acquistiion Layer (DAL). However, for a certain model, you are able to add a new **connector** able to retrieve directly opendata from external data sources. In that case, it is the **Input Retriever** component who is in charge of implementing this functionality. From the point of view of the Dashboard and the OT main component it should be a seamless upgrade, as long as the connector is well defined in the **GetInfo.json** and **instance.json** files.  
+ The connector is defined in the **GetInfo.json** file. A possible example will be something like
+ 
+ ```
+  "name": "env_model",
+	"version": "0.9",
+	"description": "Environmental model from yout company",
+	"supportSubscription": false,
+	"supportExecSync": false,
+	"supportExecAsync": true,
+	"type": "model",
+	"category": "environment",
+	"system": {
+		"connectors": [{
+				"type": "opendata-api",
+				"description": "this connector allows connecting to Opendata repo X",
+				"options": [{
+						"name": "url",
+						"type": "string",
+						"description": "",
+						"required": true
+					}, {
+						"name": "reqParams",
+						"type": "string",
+						"description": "request parameters (if any)",
+						"required": false
+					}, {
+						"name": "headers",
+						"type": "headersObject",
+						"description": "necessary headers (if any)",
+						"required": false
+					}
+				]
+			}			
+		]		
+	},
+...
+```
+ 
+ 
+  - **Add verbosity level**: The controller manages the whole internal execution of the model inside the Docker container following several steps. In step 2 it get
+  
+<br/>
 </div>
 
 
