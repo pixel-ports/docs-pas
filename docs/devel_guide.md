@@ -138,7 +138,7 @@ There are several ways in which you may be willling to enhance the provided Dock
  The connector is defined in the **GetInfo.json** file. A possible example will be something like
  
  ```
-  "name": "env_model",
+        "name": "env_model",
 	"version": "0.9",
 	"description": "Environmental model from yout company",
 	"supportSubscription": false,
@@ -174,7 +174,17 @@ There are several ways in which you may be willling to enhance the provided Dock
 ```
  
  
-  - **Add verbosity level**: The controller manages the whole internal execution of the model inside the Docker container following several steps. In step 2 it get
+  - **Add verbosity level**: Typically the model implementation have a way to log and trace the execution of the model, with some log4j or similar functionality to store such information into a file. However, this is stored inside the Docker container and is lost once the exection finishes. Currently Dockerized models are mainly logging start and end of execution, without any intermediate trace being mandatory. A new enhancement could be just adding a new input in the **GetInfo.json** and **instance.json** to declare a verbosity level.  The input is defined in the **GetInfo.json** file. A possible example will be something like
+
+```
+       "input": [{
+		"name": "verbosityLevel",
+		"type": "integer",
+		"supportedConnectors": ["inline"],
+		"description": "indicates the level of verbosity to be used, e.g. [0-5]",
+		},
+		...
+```
   
 <br/>
 </div>
