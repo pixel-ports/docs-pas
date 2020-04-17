@@ -140,6 +140,7 @@ There are several ways in which you may be willling to enhance the provided Dock
  The connector is defined in the **GetInfo.json** file. A possible example will be something like
  
  ```
+ 
 "name": "env_model",
 "version": "0.9",
 "description": "Environmental model from yout company",
@@ -172,6 +173,7 @@ There are several ways in which you may be willling to enhance the provided Dock
 		}			
 	]		
 },
+
 ```
  
  
