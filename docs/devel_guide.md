@@ -82,7 +82,11 @@ The OT Engine block is able to run Dockerized models and predictive algorithms i
 <img src="img/ot_dockerInt.jpg" alt="OT_Docker" align="center" />
 </p>
 
+The controller includes a **logging functionality** in order to monitor all steps. It should log: start, end (with status), and any intermediate information during the process (if any). The latter might be conditioned (level of logging) by some (possible) input verbose parameter.  
 
+<p align="center">
+<img src="img/ot_logging.jpg" alt="OT_logging" align="center" />
+</p>
 
 
 </div>
