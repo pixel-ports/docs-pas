@@ -16,7 +16,7 @@ As commented in the **Main concepts and Architecture subsection**, the OT intera
 The Figure below depicts these 3 interfaces from the point of view of the internal blocks of the main components of the Operational Tools. As can be observed, the PIXEL Dashaboard will invoke **Interface 2** to manage the publication and execution of models. The **Engine block** of the OT, whenever a model or predictive algorithm needs to be executed, invokes the corresponding **Docker instance**, which incorporates an OT adaptor component able to understand the exchange of parameters through the **Interface 3**. The **Interface 1** refers to the use of the **Information Hub API** to retrieve information. Storage of information as output of the execution of models and predictive algorithms is done by the **Docker instanc**e by means of the **OT adaptor**. 
 
 <p align="center">
-<img src="img/ot_interf2.jpg" alt="OT interfaces 2" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_interf2.jpg" alt="OT interfaces 2" align="center" />
 </p>
 
 </div>
@@ -50,7 +50,7 @@ Authorization: ApiKey <your-key>
 Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoint under the path ``http://<your_server>:8080/otpixel/doc/#/`` where you have a Swagger UI to test the API 
 
 <p align="center">
-<img src="img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
 </p>
 
 A complete list of **all methods** is available as a standalone HTML page [here](ot-api.html), containing **examples of code** for various programming languages (Java, JS, PHP, C#, Python ,etc.). You can also see the different fields of the **dataformats** as well as the **response codes**.
@@ -62,7 +62,7 @@ A complete list of **all methods** is available as a standalone HTML page [here]
 Exploiting the potential of Swagger (OpenAPI) specifications, the OT management API has also been ported to **apiary**. You can access the cloud [here](https://pixelot.docs.apiary.io/#). Note that there is no proper real backend server to test the data, but you can see the functions as well as the JSON datatypes.
 
 <p align="center">
-<img src="img/otapi_apiary.jpg" alt="OT_API_HTML" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/otapi_html.jpg" alt="OT_API_HTML" align="center" />
 </p>
 
 
@@ -82,7 +82,7 @@ The OT Engine block is able to run Dockerized models and predictive algorithms i
   - **Step 6**: The resulting (transformed) **output is written in the IH** via the **Output writer**. This module should be able to use the Extractor and/or the Broker (Kafka) API. 
 
 <p align="center">
-<img src="img/ot_dockerInt.jpg" alt="OT_Docker" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_dockerInt.jpg" alt="OT_Docker" align="center" />
 </p>
 
 The controller includes a **logging functionality** in order to monitor all steps. It should log: start, end (with status), and any intermediate information during the process (if any). The latter might be conditioned (level of logging) by some (possible) input verbose parameter.  
