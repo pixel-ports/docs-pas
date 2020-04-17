@@ -140,9 +140,33 @@ There are several ways in which you may be willling to enhance the provided Dock
  The connector is defined in the **GetInfo.json** file. A possible example will be something like
 
 ```
-GET / HTTP/1.1
-Host: ot_host
-Authorization: ApiKey <your-key>
+"supportExecAsync": true,
+"type": "model",
+"category": "environment",
+"system": {
+	"connectors": [{
+		"type": "opendata-api",
+		"description": "this connector allows connecting to Opendata repo X",
+		"options": [{
+				"name": "url",
+				"type": "string",
+				"description": "url",
+				"required": true
+			}, {
+				"name": "reqParams",
+				"type": "string",
+				"description": "request parameters (if any)",
+				"required": false
+			}, {
+				"name": "headers",
+				"type": "headersObject",
+				"description": "necessary headers (if any)",
+				"required": false
+			}
+		   ]
+		}			
+	]		
+},
 ```
  
   - **Add verbosity level**: Typically the model implementation have a way to log and trace the execution of the model, with some log4j or similar functionality to store such information into a file. However, this is stored inside the Docker container and is lost once the exection finishes. Currently Dockerized models are mainly logging start and end of execution, without any intermediate trace being mandatory. A new enhancement could be just adding a new input in the **GetInfo.json** and **instance.json** to declare a verbosity level.  The input is defined in the **GetInfo.json** file. A possible example will be something like
