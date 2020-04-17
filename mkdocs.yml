@@ -21,7 +21,7 @@ repo_url: https://github.com/pixel-ports/ot-docs-hub
 pages:
     - Home: index.md
     - User Guide: 'user_guide.md'
-    - Developers Guide: 'devel_guide.md'
+    - Developer's Guide: 'devel_guide.md'
         
 
 copyright: Apache License 2.0
