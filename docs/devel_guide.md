@@ -70,7 +70,8 @@ Exploiting the potential of Swagger (OpenAPI) specifications, the OT management 
 ## Execution Interface
 <div align="justify">
 
-The OT Engine block is able to run Dockerized models and predictive algorithms if they include an specific OT adaptor to allow the integration. The flow is depicted in the Figure below, where several steps can be identified:
+The OT Engine block is able to run Dockerized models and predictive algorithms if they include an specific OT adaptor to allow the integration. The execution flow is depicted in the Figure below, where several steps can be identified:
+
   - **Step 1**: the main OT component launches the model via **instantiating the corresponding Docker** and passing an **instance JSON file** with all needed parameters.
   - **Step 2**: The controller manages the whole internal execution of the model inside the Docker container following several steps. In step 2 it gets all inputs via the **Input retriever** module. This module should be able to use both the Extractor and the Broker (Kafka) API of the Information Hub to obtain all needed data.
   - **Step 3**:  If there is a need to transform the input data, the **Input Transformer** is invoked. This might happen when the input dataformats are not natively supported by the model itself, and some adaptation is needed.
@@ -110,7 +111,10 @@ In case of success, a typical logging table after an execution will look like
 ## Software Extensions
 <div align="justify">
    
-TBC
+There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
+
+### OT as Docker
+
 <br/><br/>
 
 </div>
