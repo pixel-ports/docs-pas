@@ -138,56 +138,18 @@ There are several ways in which you may be willling to enhance the provided Dock
 
  - **Add new connector**: currently all models are obtaining the information via the Information Hub, which stores all needed information under a common place. This requires that all needed information to be placed in the Information Hub via NGSI Agents and a connected Data Acquistiion Layer (DAL). However, for a certain model, you are able to add a new **connector** able to retrieve directly opendata from external data sources. In that case, it is the **Input Retriever** component who is in charge of implementing this functionality. From the point of view of the Dashboard and the OT main component it should be a seamless upgrade, as long as the connector is well defined in the **GetInfo.json** and **instance.json** files.  
  The connector is defined in the **GetInfo.json** file. A possible example will be something like
- 
- ```
- 
-"name": "env_model",
-"version": "0.9",
-"description": "Environmental model from yout company",
-"supportSubscription": false,
-"supportExecSync": false,
-"supportExecAsync": true,
-"type": "model",
-"category": "environment",
-"system": {
-	"connectors": [{
-		"type": "opendata-api",
-		"description": "this connector allows connecting to Opendata repo X",
-		"options": [{
-				"name": "url",
-				"type": "string",
-				"description": "",
-				"required": true
-			}, {
-				"name": "reqParams",
-				"type": "string",
-				"description": "request parameters (if any)",
-				"required": false
-			}, {
-				"name": "headers",
-				"type": "headersObject",
-				"description": "necessary headers (if any)",
-				"required": false
-			}
-		   ]
-		}			
-	]		
-},
 
 ```
+GET / HTTP/1.1
+Host: ot_host
+Authorization: ApiKey <your-key>
+```
+
  
  
   - **Add verbosity level**: Typically the model implementation have a way to log and trace the execution of the model, with some log4j or similar functionality to store such information into a file. However, this is stored inside the Docker container and is lost once the exection finishes. Currently Dockerized models are mainly logging start and end of execution, without any intermediate trace being mandatory. A new enhancement could be just adding a new input in the **GetInfo.json** and **instance.json** to declare a verbosity level.  The input is defined in the **GetInfo.json** file. A possible example will be something like
 
-```
-"input": [{
-	"name": "verbosityLevel",
-	"type": "integer",
-	"supportedConnectors": ["inline"],
-	"description": "indicates the level of verbosity to be used, e.g. [0-5]",
-	},
-        
-```
+
   
 <br/>
 </div>
