@@ -123,8 +123,13 @@ There are several potential extensions to be added to the existing implementatio
    
 There are several potential extensions to be added to the existing implementation of the Operational Tools. One of the consists in extending the API to include a new resource in its Management API, in case you need it to your specific needs. In this case, and assuming that you have already imported the code from github, you should follow these steps:
 
-- **Add POJO class**: Add new POJO class that represents the new resource in Java resources `eu.pixel.otpixel.model`. It is advisable that the class extends the utility class `eu.pixel.otpixel.model.IdentifiableObject`.
+- **Add POJO class**: Add new POJO class that represents the new resource in Java resources `eu.pixel.otpixel.model`. It is advisable that the class extends the utility class `eu.pixel.otpixel.model.IdentifiableObject`. For example, just copy `Model.java` into `YourClass.java` and adapt it accordingly, then generate Setters/Getters with Eclipse.
+- **Create provide**: Create a new provider interface in the package `eu.pixel.otpixel.datasource.dao.providers` with methods to interact with the new resource. If you want to add CRUD capabilities to the interface it is easier if the interface extends the utility interface `eu.pixel.otpixel.datasource.dao.CRUD<T>` where `T` is your new POJO resource class. Then you can add specific methods to that interface (see `eu.pixel.otpixel.datasource.dao.providers.ModelProvider`).For example, copy `ModelProvider.java` into `YourClassProvider.java` and change the basics to have something like
 
+```
+import eu.pixel.otpixel.model.YourClass; 
+public interface YourClassProvider extends CRUD<YourClass>{..}
+```
 
 <br/>
 </div>
