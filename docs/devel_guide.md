@@ -117,17 +117,15 @@ There are several potential extensions to be added to the existing implementatio
 <br/><br/>
 </div>
 
-### OT as Docker
-<div align="justify">
-   
-There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
-<br/>
-</div>
 
 ### Include an additional resource
 <div align="justify">
    
-There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
+There are several potential extensions to be added to the existing implementation of the Operational Tools. One of the consists in extending the API to include a new resource in its Management API, in case you need it to your specific needs. In this case, and assuming that you have already imported the code from github, you should follow these steps:
+
+- **Add POJO class**: Add new POJO class that represents the new resource in Java resources `eu.pixel.otpixel.model`. It is advisable that the class extends the utility class `eu.pixel.otpixel.model.IdentifiableObject`.
+
+
 <br/>
 </div>
 
