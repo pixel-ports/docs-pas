@@ -193,15 +193,24 @@ There are several ways in which you may be willling to enhance the provided Dock
 },
 ```
  
-  - **Add verbosity level**: Typically the model implementation have a way to log and trace the execution of the model, with some log4j or similar functionality to store such information into a file. However, this is stored inside the Docker container and is lost once the exection finishes. Currently Dockerized models are mainly logging start and end of execution, without any intermediate trace being mandatory. A new enhancement could be just adding a new input in the **GetInfo.json** and **instance.json** to declare a verbosity level.  The input is defined in the **GetInfo.json** file. A possible example will be something like
+  - **Add verbosity level**: Typically, the model implementation has a way to log and trace the execution of the model, with some log4j or similar functionality to store such information into a file. However, this is stored inside the Docker container and is lost once the execution finishes. Currently Dockerized models are mainly logging start and end of execution, without any intermediate trace being mandatory (only errors). However, you could add additional levels in the in the **verbose option field** of the **logging element**. For example, the **GetInfo.json** file could look like
 
 ```
-"input": [{
-	"name": "verbosityLevel",
-	"type": "integer",
-	"supportedConnectors": ["inline"],
-	"description": "indicates the level of verbosity to be used, e.g. [0-5]",
-	},
+"logging": [{
+	"name": "energy-consumption-logging",
+	"supportedConnectors": ["ih-api"],
+	"type": "default-logging-format",
+	"description": "your_description",
+	"required": true,			
+	"options": [{
+		"name": "verbose",
+		"type": "string",
+		"description": "verbosity level (error, warning, info, debug )",
+		"required": false
+		},		
+	   ]
+	}
+ ]
 ```
   
 <br/>
