@@ -1,8 +1,8 @@
 # User's Guide
-<br/><br/>
+<br/>
 
 ## Installation and Deployment
-<br/><br/>
+<br/>
 
 ### Note about Docker
 <div align="justify">
@@ -112,7 +112,7 @@ If you want to verify that the service has been correctly deployed, you can do t
 
 You should see (in green) if the server is active and running properly; otherwise, you will see an error.
 
-If Mongo has been installed elsewhere (not localhost) or as a docker instance, you can use the command **docker-compose ps** to check that the service is in **Up" status, and with the command **telnet IP 27001** that the TCP port is listening.
+If Mongo has been installed elsewhere (not localhost) or as a docker instance, you can use the command **docker-compose ps** to check that the service is in **Up** status, and with the command **telnet IP 27001** that the TCP port is listening.
 *Note*: Remember to configure Mongo server to support non-localhost requests, if necessary 
 
 
@@ -124,11 +124,18 @@ If Mongo has been installed elsewhere (not localhost) or as a docker instance, y
 
 You should see (in green) if the server is active and running properly; otherwise, you will see an error
 
-   - **TOmcat OT application - UI**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/ui*
+   - **Tomcat OT application - UI**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/ui*
 You should be able to see the UI of the application. Even if you cannot see neither models nor predictive algorithms (not yet deployed), you should not see any error in the 'Developer's panel' of the browser.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check.jpg" alt="OT_UI_CHECK" align="center"/>
+</p>
+If you want to perform a more advanced test, then go to 'Models' on the Left Menu and click on the 'Add a new Model' button. Just enter the following:
+•	**Docker name**: pixelh2020/dummypas:0.1
+•	**Label**: getInfo
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check2.jpg" alt="OT_UI_CHECK2" align="center"/>
 </p>
 
 </div>
