@@ -136,6 +136,10 @@ If you want to perform a more advanced test, then go to **Models** on the Left M
 |Docker name|pixelh2020/dummypas:0.1|
 |Label|getInfo|
 
+|Timestamp|id_model (UUID)|id_execution (UUID)|type (String)|message (String)|
+|---|---|---|---|---|
+|2020-04-16T18:51:17+00:00|JJUSG676531|JJH6757423|start|-|
+
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check2.jpg" alt="OT_UI_CHECK2" align="center"/>
 </p>
@@ -158,7 +162,7 @@ You should be able to see the Swagger UI of the application. You can click on **
 <br/><br/>
 
 ## Redeployments and Monitoring 
-
+<br/>
 
 ### Deploy/update a new OT version
 <div align="justify">
