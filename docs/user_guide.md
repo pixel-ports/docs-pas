@@ -28,7 +28,7 @@ The Operational Tools have been developed as a Tomcat application (**WAR file**)
 ### Installation
 <div align="justify">
   
-Download the files under the 'install' folder from the Github repository to your Linux server (3 script files, 1 WAR file, a a config folder with 5 files). Then follow the different steps. 
+Download the files under the ‘install’ folder of the OT **github** repository to your Linux server (3 shell script files, 1 WAR file, and a ‘config’ folder with 5 files). Then follow the different steps below. 
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-installation-files.jpg" alt="OT_INSTALL_FILES" align="center" />
@@ -43,6 +43,11 @@ Download the files under the 'install' folder from the Github repository to your
 Under the 'conf' directory, you will find 5 different files to edit:
 
    - **default.configuration.xml**: Here you will have to edit/change some parameters, such as the location of the Elasticsearch server (elastic element) and the location of the MongoSB server (datasource element). You can leave the other parameters as they are.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-default-config.jpg" alt="OT_DEFAULT_CONFIG" align="center" />
+</p>
+
    - **log4j.xml**: this is the Log4J configuration file. Probably you don't need to configure it at all. All logs are set by default under /var/log/tomcat with various logging files to track different activities of the engine.
    - **settings.js**: Just edit and change here the current IP of the server where you are deploying the OT application, as well as the apiKey you want to use.
    - **swagger.json**: Just edit and change here the current IP of the server where you are deploying the OT application (host element)
