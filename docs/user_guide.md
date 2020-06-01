@@ -159,27 +159,36 @@ You should be able to see the Swagger UI of the application. You can click on **
 </div>
 <br/><br/>
 
-## Integration with models and predictive algorithms
+## Redeployments and Monitoring 
+
+
+### Deploy/update a new OT version
 <div align="justify">
 
-TBC (GetInfo.json, instance.json)
+As commented before, new updates are released a tomcat application (WAR files), therefore the only action to perform consists in redeploying the WAR file in the Tomcat8 server. However, it is recommendable to undeploy the previous OT application first, as it uses several threads to manage different tasks internally. Redeploying on top of a running application does not prevent the previous threads to stop running.
+
+</div>
+<br/><br/>
+
+### Logs and Monitoring
+<div align="justify">
+
+The Operational Tools includes a series of different log files to monitor the activity of different tasks independently:
+
+   - **otpixelAPI.log**: general log file for OT.
+   - **otpixelEngineCreateModels.log**: management thread of the OT Engine to manage the creation of models and predictive algorithms.
+   - **otpixelEngineDeleteModels.log**: management thread of the OT Engine to manage the deletion of models and predictive algorithms.
+   - **otpixelEngineCreateInstances.log**: management thread of the OT Engine to manage the creation of instances.
+   - **•	otpixelEngineCreateScheduledInstances.log**: management thread of the OT Engine to manage the creation of scheduled instances.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-logs-check.jpg" alt="OT_LOGS_CHECK" align="center"/>
+</p>
+
+
 </div>
 <br/><br/>
 
 
-
-## GUI
-<div align="justify">
-
-TBC (VUE ui, dummy examples)
-</div>
-<br/><br/>
-
-## Monitoring
-<div align="justify">
-
-TBC (logs)
-</div>
-<br/><br/>
 
 
