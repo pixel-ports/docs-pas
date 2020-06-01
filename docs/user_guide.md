@@ -45,7 +45,7 @@ Under the 'conf' directory, you will find 5 different files to edit:
    - **default.configuration.xml**: Here you will have to edit/change some parameters, such as the location of the Elasticsearch server (elastic element) and the location of the MongoSB server (datasource element). You can leave the other parameters as they are.
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-default-config.jpg" alt="OT_DEFAULT_CONFIG" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-default-configuration.jpg" alt="OT_DEFAULT_CONFIG" align="center" />
 </p>
 
    - **log4j.xml**: this is the Log4J configuration file. Probably you don't need to configure it at all. All logs are set by default under /var/log/tomcat with various logging files to track different activities of the engine.
