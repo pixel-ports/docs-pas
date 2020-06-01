@@ -37,7 +37,7 @@ Download the files under the ‘install’ folder of the OT **github** repositor
 </div>
 <br/><br/>
 
-#### Edit the configuration
+#### Step 1: Edit the configuration
 <div align="justify">
   
 Under the 'conf' directory, you will find 5 different files to edit:
@@ -50,7 +50,17 @@ Under the 'conf' directory, you will find 5 different files to edit:
 
    - **log4j.xml**: this is the Log4J configuration file. Probably you don't need to configure it at all. All logs are set by default under /var/log/tomcat with various logging files to track different activities of the engine.
    - **settings.js**: Just edit and change here the current IP of the server where you are deploying the OT application, as well as the apiKey you want to use.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-settings.jpg" alt="OT_SETTINGS" align="center" />
+</p>
+
    - **swagger.json**: Just edit and change here the current IP of the server where you are deploying the OT application (host element)
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-swagger.jpg" alt="OT_DEFAULT_CONFIG" align="center" />
+</p>
+
    - **tomcat-users.xml**: Just change and insert here the password you want to use for later updates (redeployments). This is in fact optional but allows doing updates without reinstalling again everything.
 
 Note: In Linux it is difficult to estimate the current IP of a server, as it may have various IPs (localhost, docker interfaces, bridged interfaces, etc.). Therefore, we have opted for inputing the IP in the files 'settings.json' and 'swagger.json'
@@ -58,7 +68,7 @@ Note: In Linux it is difficult to estimate the current IP of a server, as it may
 </div>
 <br/><br/>
 
-###  Run the scripts
+###  Step 2: Run the scripts
 <div align="justify">
   
 After configuring the files, return to the previous ‘install’ folder, and start running the scripts one by one as administrator
