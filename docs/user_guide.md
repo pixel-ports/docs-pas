@@ -143,10 +143,10 @@ If you want to perform a more advanced test, then go to **Models** on the Left M
 
 You will see that the new model should have been entered in the list of models, with a status of **created**. Just wait a couple of minutes (the Docker image needs to be pulled from the Dockerhub repository and this could take a while) and refresh the screen. Now the *status* should have change to one of:
 
-```
-1. deployed: this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details. 
-2. error: there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section
-```
+|Status|Description|
+|---|---|
+|deployed|this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details.|
+|error|there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section.|
 
    - **Tomcat OT application - Swagger**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/doc*
 You should be able to see the Swagger UI of the application. You can click on **Authorize**, enter your **apiKey** and start testing the API. As there are no models or predictive algorithms, you should get an empty array.
