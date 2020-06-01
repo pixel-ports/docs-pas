@@ -52,7 +52,7 @@ Under the 'conf' directory, you will find 5 different files to edit:
    - **settings.js**: Just edit and change here the current IP of the server where you are deploying the OT application, as well as the apiKey you want to use.
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-settings.jpg" alt="OT_SETTINGS" align="center" height="50%"/>
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-settings.jpg" alt="OT_SETTINGS" align="center"/>
 </p>
 
    - **swagger.json**: Just edit and change here the current IP of the server where you are deploying the OT application (host element)
