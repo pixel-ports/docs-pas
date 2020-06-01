@@ -29,6 +29,40 @@ Though it was intended to provide a Docker image for every component of the arch
 </div>
 <br/><br/>
 
+### Requirements
+<div align="justify">
+  
+The Operational Tools have been tested on **Linux Ubuntu Server 18.04 LTS**. Basically, you will need to install **JDK 8**, **Tomcat8** and some additional libraries. Everything is done via **shell scripts** and **configuration files**, that you can edit.
+The Operational Tools have been developed as a Tomcat application (**WAR file**), but this manual will not impose compiling from the sources; instead, it will provide a default precompiled WAR file serving as template to be configured. 
+
+</div>
+<br/><br/>
+
+
+### Requirements
+<div align="justify">
+  
+Download the files under the 'install' folder from the Github repository to your Linux server (3 script files, 1 WAR file, a a config folder with 5 files). Then follow the different steps. 
+
+</div>
+<br/><br/>
+
+#### Edit the configuration
+<div align="justify">
+  
+Under the 'conf' directory, you will find 5 different files to edit:
+
+   - **default.configuration.xml**: Here you will have to edit/change some parameters, such as the location of the Elasticsearch server (elastic element) and the location of the MongoSB server (datasource element). You can leave the other parameters as they are.
+   - **log4j.xml**: this is the Log4J configuration file. Probably you don't need to configure it at all. All logs are set by default under /var/log/tomcat with various logging files to track different activities of the engine.
+   - **settings.js**: Just edit and change here the current IP of the server where you are deploying the OT application, as well as the apiKey you want to use.
+   - **swagger.json**: Just edit and change here the current IP of the server where you are deploying the OT application (host element)
+   - **tomcat-users.xml**: Just change and insert here the password you want to use for later updates (redeployments). This is in fact optional but allows doing updates without reinstalling again everything.
+
+Note: In Linux it is difficult to estimate the current IP of a server, as it may have various IPs (localhost, docker interfaces, bridged interfaces, etc.). Therefore, we have opted for inputing the IP in the files 'settings.json' and 'swagger.json'
+
+</div>
+<br/><br/>
+
 
 ## Configuration
 <div align="justify">
