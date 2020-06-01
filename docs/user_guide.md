@@ -39,7 +39,7 @@ The Operational Tools have been developed as a Tomcat application (**WAR file**)
 <br/><br/>
 
 
-### Requirements
+### Installation
 <div align="justify">
   
 Download the files under the 'install' folder from the Github repository to your Linux server (3 script files, 1 WAR file, a a config folder with 5 files). Then follow the different steps. 
@@ -59,6 +59,30 @@ Under the 'conf' directory, you will find 5 different files to edit:
    - **tomcat-users.xml**: Just change and insert here the password you want to use for later updates (redeployments). This is in fact optional but allows doing updates without reinstalling again everything.
 
 Note: In Linux it is difficult to estimate the current IP of a server, as it may have various IPs (localhost, docker interfaces, bridged interfaces, etc.). Therefore, we have opted for inputing the IP in the files 'settings.json' and 'swagger.json'
+
+</div>
+<br/><br/>
+
+###  Run the scripts
+<div align="justify">
+  
+After configuring the files, return to the previous ‘install’ folder, and start running the scripts one by one as administrator
+
+```bash
+sudo sh 01-install-dependencies
+```
+This will update and upgrade the system, and install all required libraries (e.g. JDK 8, Tomcat 8, etc.). You can edit the script to check all packages.
+
+```bash
+sudo sh 02-system-configuration
+```
+
+This will make some system configuration to allow the *tomcat8* user manage docker instances. As the script includes the tomcat8 user into the 'docker' group (/etc/group file), it typically requires a restart so that the changes become effective.
+
+```bash
+sudo sh 03-tomcat8-configuration
+```
+This will rebuild the WAR taking into account the configuration files under the 'conf' directory and deploy it in Tomcat8.
 
 </div>
 <br/><br/>
