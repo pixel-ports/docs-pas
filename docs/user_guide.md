@@ -125,7 +125,7 @@ If Mongo has been installed elsewhere (not localhost) or as a docker instance, y
 You should see (in green) if the server is active and running properly; otherwise, you will see an error
 
    - **Tomcat OT application - UI**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/ui*
-You should be able to see the UI of the application. Even if you cannot see neither models nor predictive algorithms (not yet deployed), you should not see any error in the 'Developer's panel' of the browser.
+You should be able to see the UI of the application. Even if you cannot see neither models nor predictive algorithms (not yet deployed), you should not see any error in the *Developer's panel* of the browser.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check.jpg" alt="OT_UI_CHECK" align="center"/>
@@ -145,9 +145,16 @@ Label: getInfo
 You will see that the new model should have been entered in the list of models, with a status of **created**. Just wait a couple of minutes (the Docker image needs to be pulled from the Dockerhub repository and this could take a while) and refresh the screen. Now the *status* should have change to one of:
 
 ```
-deployed: this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details. 
-error: there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section
+1. deployed: this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details. 
+2. error: there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section
 ```
+
+   - **Tomcat OT application - Swagger**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/doc*
+You should be able to see the Swagger UI of the application. You can click on **Authorize**, enter your **apiKey** and start testing the API. As there are no models or predictive algorithms, you should get an empty array.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-swagger-check.jpg" alt="OT_SWAGGER_CHECK" align="center"/>
+</p>
 
 </div>
 <br/><br/>
