@@ -130,13 +130,18 @@ You should be able to see the UI of the application. Even if you cannot see neit
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check.jpg" alt="OT_UI_CHECK" align="center"/>
 </p>
-If you want to perform a more advanced test, then go to 'Models' on the Left Menu and click on the 'Add a new Model' button. Just enter the following:
-•	**Docker name**: pixelh2020/dummypas:0.1
-•	**Label**: getInfo
+If you want to perform a more advanced test, then go to **Models** on the Left Menu and click on the **Add a new Model** button. Just enter the following:
+      -	**Docker name**: pixelh2020/dummypas:0.1
+      -	**Label**: getInfo
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check2.jpg" alt="OT_UI_CHECK2" align="center"/>
 </p>
+
+You will see that the new model should have been entered in the list of models, with a status of **created**. Just wait a couple of minutes (the Docker image needs to be pulled from the Dockerhub repository and this could take a while) and refresh the screen. Now the *status* should have change to one of:
+
+      - **deployed**: this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details.          - **error**: there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section
+
 
 </div>
 <br/><br/>
