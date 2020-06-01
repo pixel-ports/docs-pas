@@ -63,6 +63,11 @@ Under the 'conf' directory, you will find 5 different files to edit:
 
    - **tomcat-users.xml**: Just change and insert here the password you want to use for later updates (redeployments). This is in fact optional but allows doing updates without reinstalling again everything.
 
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-tomcat-users.jpg" alt="OT_TOMCAT_USERS" align="center"/>
+</p>
+   
+
 Note: In Linux it is difficult to estimate the current IP of a server, as it may have various IPs (localhost, docker interfaces, bridged interfaces, etc.). Therefore, we have opted for inputing the IP in the files 'settings.json' and 'swagger.json'
 
 </div>
