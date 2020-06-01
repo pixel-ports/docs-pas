@@ -133,10 +133,8 @@ You should be able to see the UI of the application. Even if you cannot see neit
 
 If you want to perform a more advanced test, then go to **Models** on the Left Menu and click on the **Add a new Model** button. Just enter the following:
 
-```
-Docker name: pixelh2020/dummypas:0.1
-Label: getInfo
-```
+|Docker name|pixelh2020/dummypas:0.1|
+|Label|getInfo|
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check2.jpg" alt="OT_UI_CHECK2" align="center"/>
@@ -168,7 +166,7 @@ You should be able to see the Swagger UI of the application. You can click on **
 As commented before, new updates are released a tomcat application (WAR files), therefore the only action to perform consists in redeploying the WAR file in the Tomcat8 server. However, it is recommendable to undeploy the previous OT application first, as it uses several threads to manage different tasks internally. Redeploying on top of a running application does not prevent the previous threads to stop running.
 
 </div>
-<br/><br/>
+<br/>
 
 ### Logs and Monitoring
 <div align="justify">
@@ -179,7 +177,7 @@ The Operational Tools includes a series of different log files to monitor the ac
    - **otpixelEngineCreateModels.log**: management thread of the OT Engine to manage the creation of models and predictive algorithms.
    - **otpixelEngineDeleteModels.log**: management thread of the OT Engine to manage the deletion of models and predictive algorithms.
    - **otpixelEngineCreateInstances.log**: management thread of the OT Engine to manage the creation of instances.
-   - **•	otpixelEngineCreateScheduledInstances.log**: management thread of the OT Engine to manage the creation of scheduled instances.
+   - **otpixelEngineCreateScheduledInstances.log**: management thread of the OT Engine to manage the creation of scheduled instances.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-logs-check.jpg" alt="OT_LOGS_CHECK" align="center"/>
