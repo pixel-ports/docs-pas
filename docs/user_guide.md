@@ -1,21 +1,5 @@
 # User's Guide
 
-## Architecture Overview
-<div align="justify">
-
-TBC (Intro)
-  - **Item 1**: This is the int
-  
-
-<p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_interf1.jpg" alt="OT interfaces 1" align="center" />
-</p>
-
-
-</div>
-<br/><br/>
-
-
 ## Installation and Deployment
 
 ### Note about Docker
