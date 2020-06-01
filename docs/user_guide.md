@@ -1,6 +1,8 @@
 # User's Guide
+<br/><br/>
 
 ## Installation and Deployment
+<br/><br/>
 
 ### Note about Docker
 <div align="justify">
@@ -27,6 +29,10 @@ The Operational Tools have been developed as a Tomcat application (**WAR file**)
 <div align="justify">
   
 Download the files under the 'install' folder from the Github repository to your Linux server (3 script files, 1 WAR file, a a config folder with 5 files). Then follow the different steps. 
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-installation-files.jpg" alt="OT_INSTALL_FILES" align="center" />
+</p>
 
 </div>
 <br/><br/>
