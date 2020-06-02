@@ -255,12 +255,25 @@ Before compiling, you will have to create various configuration files from the g
 </p>
 
 * **server.local.properties**: It should server as template to create a file **server.properties** with the configuration parameters of your project.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/server-local-prop.jpg" alt="OT_server" align="center" />
+</p>
+
 * **log4j.xml**: Located under Java Resources --> resources. Configuration file for Log4j. You may adapt it to your needs (on single log file, or many).
 * **default.local.configuration.xml**: Located under Java Resources --> resources. It should server as template to create a file **default.configuration** with the configuration parameters of your project. 
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/default-config.jpg" alt="OT_defaultConfig" align="center" />
+</p>
 
 Additionally, for the UI, which is developed in Vue (javascript), you will need to configure the following:
 
 * **settings.local.js**: Located under extra --> ui --> cfg. It should server as template to create a file **settings.js** with the configuration parameters of your project.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ui-settings.jpg" alt="OT_uiSettings" align="center" />
+</p>
 
  <br/><br/>
 </div>
