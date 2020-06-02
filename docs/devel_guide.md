@@ -302,9 +302,9 @@ The goal should be **mvn clean compile tomcat7:redeploy**
     
 If you have configured the files properly, the code should be compiled and uploaded directly to your Tomcat server. The process will also generate a Swagger environment to test the backend. Open a browser and check if it works:
 
-    http://*<your_tomcat_server>*:8080/otpixel/ui		(vue UI)
+**http://*<your_tomcat_server>*:8080/otpixel/ui**		(vue UI)
 
-    http://*<your_tomcat_server>*:8080/otpixel/doc		(Swagger UI to test backend API)
+**http://*<your_tomcat_server>*:8080/otpixel/doc**		(Swagger UI to test backend API)
 
 
 
