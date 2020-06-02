@@ -251,7 +251,7 @@ Before compiling, you will have to create various configuration files from the g
 * **build.local.properties**: It should server as template to create a file **build.properties** with the configuration parameters of your project. You can leave everything as it is and just change *localhost* with your server's IP or hostname.
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/build-local-properties.jpg" alt="OT_build" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/build-local-prop.jpg" alt="OT_build" align="center" />
 </p>
 
 * **server.local.properties**: It should server as template to create a file **server.properties** with the configuration parameters of your project.
