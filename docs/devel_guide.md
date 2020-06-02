@@ -254,14 +254,14 @@ Before compiling, you will have to create various configuration files from the g
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/build-local-prop.jpg" alt="OT_build" align="center" />
 </p>
 
-* **server.local.properties**: It should server as template to create a file **server.properties** with the configuration parameters of your project.
+* **server.local.properties**: It should server as template to create a file **server.properties** with the configuration parameters of your project. Here you can set the credentials for accessing your Tomcat8 server for deployment purposes. Please ensure that your Tomcat8 server is able to allow such operation (set up tomcat-user.xml properly if not).
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/server-local-prop.jpg" alt="OT_server" align="center" />
 </p>
 
 * **log4j.xml**: Located under Java Resources --> resources. Configuration file for Log4j. You may adapt it to your needs (on single log file, or many).
-* **default.local.configuration.xml**: Located under Java Resources --> resources. It should server as template to create a file **default.configuration** with the configuration parameters of your project. 
+* **default.local.configuration.xml**: Located under Java Resources --> resources. It should server as template to create a file **default.configuration** with the configuration parameters of your project. You will have to set here your *apiKey*, your Elastic configuration and your Mongo (database) configuration mainly.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/default-config.jpg" alt="OT_defaultConfig" align="center" />
@@ -269,7 +269,7 @@ Before compiling, you will have to create various configuration files from the g
 
 Additionally, for the UI, which is developed in Vue (javascript), you will need to configure the following:
 
-* **settings.local.js**: Located under extra --> ui --> cfg. It should server as template to create a file **settings.js** with the configuration parameters of your project.
+* **settings.local.js**: Located under extra --> ui --> cfg. It should server as template to create a file **settings.js** with the configuration parameters of your project. Just change *localhost* with your server's IP or network hostname.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ui-settings.jpg" alt="OT_uiSettings" align="center" />
@@ -298,7 +298,7 @@ If everything goes well (several warnings might appear) then just replace the co
 
 In order to package the program into a *WAR* file, just right click on the **pom.xml** file --> Run As --> *maven build*:
 
-    mvn clean compile tomcat7:redeploy
+The goal should be **mvn clean compile tomcat7:redeploy**
     
 If you have configured the files properly, the code should be compiled and uploaded directly to your Tomcat server. The process will also generate a Swagger environment to test the backend. Open a browser and check if it works:
 
