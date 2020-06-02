@@ -217,4 +217,79 @@ There are several ways in which you may be willling to enhance the provided Dock
 </div>
 
 
- 
+## Compilation from the sources
+<div align="justify">
+   
+If you just want to install the software without compiling the sources for yourself, then you should check the **User's Guide** in the *Left Menu*.
+<br/><br/>
+</div>
+
+
+### Development environment
+<div align="justify">
+   
+The following requirements apply to this software component (Java part):
+
+- **JDK 1.8+**: you should be able to compile the code both in Linux and Windows environments.
+- **Eclipse IDE 2019**: download and import the project into this IDE and (if not already) convert if into a Maven project.
+- **Apache Tomcat8**: the software component is compiled as a WAR file to be deployed on a Tomcat8 server (tested SO: Ubuntu 18.04 LTS with OpenJDK 1.8).
+- **Mongo database**: the WAR application makes use of Mongo to store/persist information. It is supposed to be located on the same server as Tomcat 8; otherwise, change the configuration files accordingly.
+
+The following requirements apply to this software component (Javascript part for the UI):
+
+- **Nodejs**: v10.16.0
+- **npm**: v6.9.0
+- **VUE**: v3.9.2
+
+ <br/><br/>
+</div>
+
+### Configuration
+<div align="justify">
+   
+Before compiling, you will have to create various configuration files from the given templates:
+
+* **build.local.properties**: It should server as template to create a file **build.properties** with the configuration parameters of your project. 
+* **server.local.properties**: It should server as template to create a file **server.properties** with the configuration parameters of your project.
+* **log4j.xml**: Located under Java Resources --> resources. Configuration file for Log4j. You may adapt it to your needs (on single log file, or many).
+* **default.local.configuration.xml**: Located under Java Resources --> resources. It should server as template to create a file **default.configuration** with the configuration parameters of your project. 
+
+Additionally, for the UI, which is developed in Vue (javascript), you will need to configure the following:
+
+* **settings.local.js**: Located under extra --> ui --> cfg. It should server as template to create a file **settings.js** with the configuration parameters of your project.
+
+ <br/><br/>
+</div>
+
+### Compilation
+<div align="justify">
+   
+**STEP 1**: Compile the UI code. 
+
+If you don't need nor want to compile it, there is already a precompiled version under the folder 'www/ui'. In this case, just adapt the configuration file:
+
+* **settings.local.js**: Located under www --> ui --> cfg. It should serve as template to create a file **settings.js** with the configuration parameters of your project. 
+
+If you want to compile it, just open a command line window on the location of the code (extra/ui) and type
+
+    npm install
+    npm run build
+
+If everything goes well (several warnings might appear) then just replace the content of the 'www/ui' of your Eclipse project with the content of the 'dist' folder you have just compiled.
+
+**STEP 2**: Compile the WAR application. 
+
+In order to package the program into a *WAR* file, just right click on the **pom.xml** file --> Run As --> *maven build*:
+
+    mvn clean compile tomcat7:redeploy
+    
+If you have configured the files properly, the code should be compiled and uploaded directly to your Tomcat server. The process will also generate a Swagger environment to test the backend. Open a browser and check if it works:
+
+    http://*<your_tomcat_server>*:8080/otpixel/ui		(vue UI)
+
+    http://*<your_tomcat_server>*:8080/otpixel/doc		(Swagger UI to test backend API)
+
+
+
+ <br/><br/>
+</div>
