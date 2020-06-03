@@ -124,7 +124,7 @@ If Mongo has been installed elsewhere (not localhost) or as a docker instance, y
 
 You should see (in green) if the server is active and running properly; otherwise, you will see an error
 
-   - **Tomcat OT application - UI**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/ui*
+   - **Tomcat OT application - UI**: Open a web browser and go to *http://your-server-ip:8080/otpixel/ui*
 You should be able to see the UI of the application. Even if you cannot see neither models nor predictive algorithms (not yet deployed), you should not see any error in the *Developer's panel* of the browser.
 
 <p align="center">
@@ -148,7 +148,7 @@ You will see that the new model should have been entered in the list of models, 
 |deployed|this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details.|
 |error|there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section.|
 
-   - **Tomcat OT application - Swagger**: Open a web browser and go to *http://<your-server-ip>:8080/otpixel/doc*
+   - **Tomcat OT application - Swagger**: Open a web browser and go to *http://your-server-ip:8080/otpixel/doc*
 You should be able to see the Swagger UI of the application. You can click on **Authorize**, enter your **apiKey** and start testing the API. As there are no models or predictive algorithms, you should get an empty array.
 
 <p align="center">
@@ -184,10 +184,47 @@ The Operational Tools includes a series of different log files to monitor the ac
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-logs-check.jpg" alt="OT_LOGS_CHECK" align="center"/>
 </p>
 
+</div>
+<br/><br/>
+
+## Backend Interface
+<div align="justify">
+
+The Operational Tools are able to publish models, predictive algorithms and schedule them. Futhermore, there is also support for KPIs and events.The API has been specified as a REST API that includes a Swagger (Open API) interface to be tested. You can also use other developer tools such as Postman. The Swagger UI is very user friendly and allows to easily check all possible requests, its input parameters and the outputs. We will just provide a basic example for a dummy model in order to highlight the process, which should be considered as a scheme for all other requests (analogous process).
+
+Open a web browser and go to *http://your-server-ip:8080/otpixel/doc*
+You should be able to see the Swagger UI of the application. Click first on **Authorize**, and enter your **apiKey**.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-swagger-auth.jpg" alt="ot-user-swagger-auth" align="center"/>
+</p>
+
+At the very beginning after installing the OT component, there is no data in Mongo (database), therefore any request will return an empty response. Let's check. We will take as example the 'models' resource. Click on **/models/list** and the options will expand.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-swagger-list1.jpg" alt="ot-user-swagger-list1" align="center"/>
+</p>
+
+Note here some optional parameters to be inclded in the request:
+
+|Parameter|Description|
+|---|---|
+|otStatus|status of the models to be retrieved, which can be one of: created, deployed, error, deleted. If not given, all are provided|
+|type|type to be considered: model,pa. If not given, all are provided|
+
+Note also that you have an example of a CURL request
+Finally, note that the response is an empty array as there are (yet) no models there.
 
 </div>
 <br/><br/>
 
+
+## Graphical User Interface
+<div align="justify">
+
+   
+</div>
+<br/><br/>
 
 
 
