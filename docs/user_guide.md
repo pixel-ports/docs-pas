@@ -221,7 +221,7 @@ Let's create a new one. Click on **/models/create** and the options will expand.
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-swagger-create1.jpg" alt="ot-user-swagger-create1" align="center"/>
 </p>
 
-You can see a really complex body, but don't worry because there is no need to understand all info. You can just insert as body the following JSON:
+You can see a really complex body, but don't worry because there is no need to understand all info. You can just insert as body the following JSON (we will use a dummy model):
 
 ```
 {  
@@ -232,7 +232,7 @@ You can see a really complex body, but don't worry because there is no need to u
 }
 ```
 
-After pressing the **Execute** button, you should see the following response
+After pressing the **Execute** button, you should see the following response:
 
 ```
 {
@@ -250,6 +250,12 @@ After pressing the **Execute** button, you should see the following response
 
 Right now the model has been created in the Operational Tools. A backend process will retrieve the Docker image from **Dockerhub** and extract all description information. We can see this if we **list** the models again:
 
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-swagger-list2.jpg" alt="ot-user-swagger-list1" align="center"/>
+</p>
+
+You can see now all information related to this model, that has been imported through Dockerhub.
+Other additional CRUD operations related to models are straightforward: deleting a model, updating a model, getting a model (by UUID)
 
 </div>
 <br/><br/>
