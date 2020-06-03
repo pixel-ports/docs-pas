@@ -255,7 +255,11 @@ Right now the model has been created in the Operational Tools. A backend process
 </p>
 
 You can see now all information related to this model, that has been imported through Dockerhub.
-Other additional CRUD operations related to models are straightforward: deleting a model, updating a model, getting a model (by UUID)
+Other additional CRUD operations related to models are straightforward: **deleting a model**, **updating a model**, **getting a model** (by UUID).
+The process with other resources (**instance**, **scheduledInstance** and **KPI**) are also straightforward in terms of CRUD operations. The KPI includes two additional funtions: 
+
+   - **/kpis/get/{id}/lastKPI**: Gets the last value of a KPI by id. It is supposed that the KPI is a timeseries changing throught time. This data is stored in the Information Hub (Elastisearch)
+   - **/kpis/get/{id}/stats**: Gets statistical info from a KPI between a given time interval (optional), such as: min, max, average and std. It also includes an array of KPI values (this is useful for the dashboard to print them on a graph).
 
 </div>
 <br/><br/>
