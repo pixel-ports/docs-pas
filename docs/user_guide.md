@@ -190,7 +190,7 @@ The Operational Tools includes a series of different log files to monitor the ac
 ## Backend Interface
 <div align="justify">
 
-The Operational Tools are able to publish models, predictive algorithms and schedule them. Futhermore, there is also support for KPIs and events.The API has been specified as a REST API that includes a Swagger (Open API) interface to be tested. You can also use other developer tools such as Postman. The Swagger UI is very user friendly and allows to easily check all possible requests, its input parameters and the outputs. We will just provide a basic example for a dummy model in order to highlight the process, which should be considered as a scheme for all other requests (analogous process).
+The Operational Tools are able to publish models, predictive algorithms and schedule them. Furthermore, there is also support for KPIs and events. The API has been specified as a REST API that includes a Swagger (Open API) interface to be tested. You can also use other developer tools such as Postman. The Swagger UI is very user friendly and allows to easily check all possible requests, its input parameters and the outputs. We will just provide a basic example for a dummy model in order to highlight the process, which should be considered as a scheme for all other requests (analogous process).
 
 Open a web browser and go to *http://your-server-ip:8080/otpixel/doc*
 You should be able to see the Swagger UI of the application. Click first on **Authorize**, and enter your **apiKey**.
@@ -205,12 +205,12 @@ At the very beginning after installing the OT component, there is no data in Mon
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-swagger-list1.jpg" alt="ot-user-swagger-list1" align="center"/>
 </p>
 
-Note here some optional parameters to be inclded in the request:
+Note here some optional parameters to be included in the request:
 
 |Parameter|Description|
 |---|---|
 |otStatus|status of the models to be retrieved, which can be one of: created, deployed, error, deleted. If not given, all are provided|
-|type|type to be considered: model,pa. If not given, all are provided|
+|type|type to be considered: **model,pa**. If not given, all are provided|
 
 Note also that you have an example of a CURL request
 Finally, note that the response is an empty array as there are (yet) no models there.
@@ -256,10 +256,10 @@ Right now the model has been created in the Operational Tools. A backend process
 
 You can see now all information related to this model, that has been imported through Dockerhub.
 Other additional CRUD operations related to models are straightforward: **deleting a model**, **updating a model**, **getting a model** (by UUID).
-The process with other resources (**instance**, **scheduledInstance** and **KPI**) are also straightforward in terms of CRUD operations. The KPI includes two additional funtions: 
+The process with other resources (**instance**, **scheduledInstance** and **KPI**) are also straightforward in terms of CRUD operations. The KPI includes two additional functions: 
 
-   - **/kpis/get/{id}/lastKPI**: Gets the last value of a KPI by id. It is supposed that the KPI is a timeseries changing throught time. This data is stored in the Information Hub (Elastisearch)
-   - **/kpis/get/{id}/stats**: Gets statistical info from a KPI between a given time interval (optional), such as: min, max, average and std. It also includes an array of KPI values (this is useful for the dashboard to print them on a graph).
+   - **/kpis/get/{id}/lastKPI**: Gets the last value of a KPI by id. It is supposed that the KPI is a time series changing throughout time. This data is stored in the Information Hub (Elastisearch).
+   - **/kpis/get/{id}/stats**: Gets statistical info from a KPI between a given time interval (optional), such as: *min*, *max*, *average* and *std*. It also includes an array of KPI values (this is useful for the dashboard to print them on a graph).
 
 </div>
 <br/><br/>
