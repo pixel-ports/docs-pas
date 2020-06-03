@@ -215,6 +215,42 @@ Note here some optional parameters to be inclded in the request:
 Note also that you have an example of a CURL request
 Finally, note that the response is an empty array as there are (yet) no models there.
 
+Let's create a new one. Click on **/models/create** and the options will expand.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-swagger-create1.jpg" alt="ot-user-swagger-create1" align="center"/>
+</p>
+
+You can see a really complex body, but don't worry because there is no need to understand all info. You can just insert as body the following JSON:
+
+```
+{  
+  "dockerInfo": {
+    "dockerName": "pixelh2020/dummysei:0.1",
+    "label": "getInfo"    
+  }  
+}
+```
+
+After pressing the **Execute** button, you should see the following response
+
+```
+{
+  "id": "5ed7784971409d0623b6c57a",
+  "generalInfo": null,
+  "dockerInfo": {
+    "dockerName": "pixelh2020/dummysei:0.1",
+    "label": "getInfo",
+    "dockerRepo": null
+  },
+  "creation": 1591179337033,
+  "otStatus": "created"
+}
+```
+
+Right now the model has been created in the Operational Tools. A backend process will retrieve the Docker image from **Dockerhub** and extract all description information. We can see this if we **list** the models again:
+
+
 </div>
 <br/><br/>
 
