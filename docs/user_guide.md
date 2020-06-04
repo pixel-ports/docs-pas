@@ -266,11 +266,43 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 
 
 ## Graphical User Interface
+
+### Models
+<div align="justify">
+
+
+   - **Creating a model**: If you want to create a new model, just click on the main (left) panel on **Models**. You should see a list of already published models, unless it is a fresh installation. 
+   
+   - **Running a model (creating an instance)**: Once you have published and deployed a model (see previous step), you should be able to run the model. For that
+   
+   - **Schedule a model (creating an scheduledInstance)**: Some models are useful every day, every week, etc, and can be run automatically (scheduled), without any reason for user presence. To shedule a model,  
+
+   
+</div>
+<br/>
+
+### Predictive algorithms
 <div align="justify">
 
    
 </div>
-<br/><br/>
+<br/>
 
+
+### KPIs
+<div align="justify">
+
+The management of predictive algorithms is completely **analogous** as for models in the previous section. Note that even the format (when invoking the API) is the same.
+   
+</div>
+<br/>
+
+### Event Detection
+<div align="justify">
+
+There is no UI developed specifically for this purpose and it is considered further work. This is caused because this functionality at user level is offered via the **PIXEL Dashboard**. The reason for that is because both the Operational Tools and PIXEL Dashboard use a **common element** for alerting and notification based on **ElastAlert**.
+   
+</div>
+<br/>
 
 
