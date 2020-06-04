@@ -272,6 +272,38 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 
 
    - **Creating a model**: If you want to create a new model, just click on the main (left) panel on **Models**. You should see a list of already published models, unless it is a fresh installation. 
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM1.jpg" alt="ot-user-crM1" align="center"/>
+</p>
+   
+   Just click on **Add a New Model**. A basic form will appear asking for the name of the model in your Docker repository as well as the label where all descriptive information is included (also in the Docker image). If you don't have one by your side available, let's follow the process with a dummy example. Just enter the following values:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM2.jpg" alt="ot-user-crM2" align="center"/>
+</p>
+
+   As you may deduce, **pixelh2020** is an open (public) repository in Dockerhub, **dummysei:01** is the name and version of the Docker image to be used, and **getInfo** is the included label in the Docker image that described the model with a specific format defined in PIXEL. In a certain way, it is similar to a WSDL for web services. 
+   The web form also includes to point to a private Docker repository, in thet case, you will have to enter the credentials to access.
+   After clicking the **Save** button on the top right corner, you will see the model on the list as **created**:
+ 
+ <p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM3.jpg" alt="ot-user-crM3" align="center"/>
+</p>
+                                                                                                                          
+   Note that there is still no name nor category for the model, as it needs to be first otained (pulled) from the Docker repository. You can track this activity by monitoring the /var/log/tomcat8/otpixelEngineCreateModel.log:
+   
+ <p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM4.jpg" alt="ot-user-crM4" align="center"/>
+</p>
+                                                                                                                        
+   If you refresh now your browser, you should see that model has changed its status to **deployed**. Now there is a name and a category, which has been extracted from the given label of the Docker image.
+ 
+ <p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM5.jpg" alt="ot-user-crM5" align="center"/>
+</p>
+   
+   
    
    - **Running a model (creating an instance)**: Once you have published and deployed a model (see previous step), you should be able to run the model. For that
    
@@ -284,6 +316,7 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 ### Predictive algorithms
 <div align="justify">
 
+The management of predictive algorithms is completely **analogous** as for models in the previous section. Note that even the format (when invoking the API) is the same.
    
 </div>
 <br/>
@@ -292,7 +325,7 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 ### KPIs
 <div align="justify">
 
-The management of predictive algorithms is completely **analogous** as for models in the previous section. Note that even the format (when invoking the API) is the same.
+
    
 </div>
 <br/>
