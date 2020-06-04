@@ -270,6 +270,10 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 ### Models
 <div align="justify">
 
+The Operational Tools include a small basic UI that supports most of the functionalities of its API. It may serve as basis for your own development in case you intend to make your own project only considering this component of the PIXEL architecture, though the PIXEL Dashboard is intended to provide much more options and functionality.
+
+</div>
+<br/>
 
    - **Creating a model**: If you want to create a new model, just click on the main (left) panel on **Models**. You should see a list of already published models, unless it is a fresh installation. 
 
@@ -284,14 +288,14 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 </p>
 
    As you may deduce, **pixelh2020** is an open (public) repository in Dockerhub, **dummysei:01** is the name and version of the Docker image to be used, and **getInfo** is the included label in the Docker image that described the model with a specific format defined in PIXEL. In a certain way, it is similar to a WSDL for web services. 
-   The web form also includes to point to a private Docker repository, in thet case, you will have to enter the credentials to access.
+   The web form also includes the option to point to a private Docker repository, in that case, you will have to enter the credentials to access.
    After clicking the **Save** button on the top right corner, you will see the model on the list as **created**:
  
  <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM3.jpg" alt="ot-user-crM3" align="center"/>
 </p>
                                                                                                                           
-   Note that there is still no name nor category for the model, as it needs to be first otained (pulled) from the Docker repository. You can track this activity by monitoring the /var/log/tomcat8/otpixelEngineCreateModel.log:
+   Note that there is still no name nor category for the model, as it needs to be first otained (pulled) from the Docker repository. You can track this activity by monitoring the **/var/log/tomcat8/otpixelEngineCreateModel.log** file:
    
  <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM4.jpg" alt="ot-user-crM4" align="center"/>
@@ -309,7 +313,7 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM6.jpg" alt="ot-user-crM6" align="center"/>
 </p>
 
-   By clicking on the **Delete Model**, the model enters a **deleted** status. After a short while, if you refresh the menu the model will have disappeared.  The other options (*run*,*schedule*) are commented on the next subsections.
+   By clicking on the **Delete Model** icon, the model enters a **deleted** status. After a short while, if you refresh the browser the model will have disappeared.  The other options (*run*,*schedule*) are commented on the next subsections.
    
    
    - **Running a model (creating an instance)**: Once you have published and deployed a model (see previous step), you should be able to run the model. For that
