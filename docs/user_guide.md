@@ -302,7 +302,14 @@ The process with other resources (**instance**, **scheduledInstance** and **KPI*
  <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM5.jpg" alt="ot-user-crM5" align="center"/>
 </p>
-   
+
+   You should have noticed a list of actions represented by 4 icons: **edit**, **delete**, **run** and **schedule**. Clicking on the **Edit Model** icon will allow you to see the complete description of the model. We will not discuss the format, but basically it describes basic fields, connectors, inputs, outputs and logging configuration.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM6.jpg" alt="ot-user-crM6" align="center"/>
+</p>
+
+   By clicking on the **Delete Model**, the model enters a **deleted** status. After a short while, if you refresh the menu the model will have disappeared.  The other options (*run*,*schedule*) are commented on the next subsections.
    
    
    - **Running a model (creating an instance)**: Once you have published and deployed a model (see previous step), you should be able to run the model. For that
