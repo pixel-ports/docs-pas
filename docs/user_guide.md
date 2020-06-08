@@ -313,7 +313,7 @@ The Operational Tools include a small basic UI that supports most of the functio
 </p>
 
    By clicking on the **Delete Model** icon, the model enters a **deleted** status. After a short while, if you refresh the browser the model will have disappeared.  The other options (*run*,*schedule*) are commented on the next subsections.
-   
+<br/>   
    
    - **Running a model (creating an instance)**: Once you have published and deployed a model (see previous step), you should be able to run the model. For that, just click on the **Run model** action button, and you should see a new page with a list of executions associated to that model. After a fresh installation, there will be no item in the list. 
 
@@ -345,11 +345,12 @@ The Operational Tools include a small basic UI that supports most of the functio
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM5.jpg" alt="ot-user-rM5" align="center"/>
 </p>
 
-   Here you have two **action icons**. The **Delete instance** is obvious, whereas the **view instance** allows to visualize the details of the instance. It is pretty much the same as the input data provided when the instance was created ,with some additional info added by the backend process (*creation time, start, otStatus, dockerId*)
+   Here you have two **action icons**. The **Delete instance** is obvious, whereas the **view instance** allows to visualize the details of the instance. It is pretty much the same as the input data provided when the instance was created ,with some additional info added by the backend process (*creation time, start, otStatus, dockerId*). Note that the result of the execution is stored in Elasticsearch; the visualization of such result is model dependent as it provided by the PIXEL Dashboard.   
  
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM6.jpg" alt="ot-user-rM6" align="center"/>
 </p> 
+<br/>
    
    - **Schedule a model (creating an scheduledInstance)**: Some models are useful every day, every week, etc, and can be run automatically (scheduled), without any reason for user presence. To shedule a model,  
 
