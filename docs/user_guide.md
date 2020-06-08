@@ -321,7 +321,7 @@ The Operational Tools include a small basic UI that supports most of the functio
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM1.jpg" alt="ot-user-rM1" align="center"/>
 </p>
    
-   Let's create a new execution by clickin on the **New Instance** button. A modal dialog appears where you will have to enter a JSON file describing the details of the execution.
+   Let's create a new execution by clicking on the **New Instance** button. A modal dialog appears where you will have to enter a JSON file describing the details of the execution.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM2.jpg" alt="ot-user-rM2" align="center"/>
@@ -333,19 +333,19 @@ The Operational Tools include a small basic UI that supports most of the functio
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM3.jpg" alt="ot-user-rM3" align="center"/>
 </p>   
 
-   There is a backend process that periodically reads this table and runs the pending instances. You can track this activity by monitoring the **/var/log*tomcat8/otpixelEngineCreateInstances.log**:
+   There is a backend process that periodically reads this table and runs the pending instances. You can track this activity by monitoring the **/var/log/tomcat8/otpixelEngineCreateInstances.log**:
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM4.jpg" alt="ot-user-rM4" align="center"/>
 </p>
    
-   After the execution, if you refresh your browser, you will see the details of the execution (instance) in the list
+   After the execution, if you refresh your browser, you will see the details of the execution (instance) in the list.
  
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM5.jpg" alt="ot-user-rM5" align="center"/>
 </p>
 
-   Here you have two **action icons**. The **Delete instance** is obvious, whereas the **view instance** allows to visualize the details of the instance. It is pretty much the same as the input data provided when the instance was created ,with some additional info added by the backend process (*creation time, start, otStatus, dockerId*). Note that the result of the execution is stored in Elasticsearch; the visualization of such result is model dependent as it provided by the PIXEL Dashboard.   
+   Here you have two **action icons**. The **Delete instance** is obvious, whereas the **View instance** allows to visualize the details of the instance. It is pretty much the same as the input data provided when the instance was created, with some additional information added by the backend process (*creation time, start, otStatus, dockerId*). Note that the result of the execution is stored in Elasticsearch; the visualization of such result is model dependent as is provided by the PIXEL Dashboard.   
  
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM6.jpg" alt="ot-user-rM6" align="center"/>
