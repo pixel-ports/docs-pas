@@ -352,7 +352,64 @@ The Operational Tools include a small basic UI that supports most of the functio
 </p> 
 <br/>
    
-   - **Schedule a model (creating an scheduledInstance)**: Some models are useful every day, every week, etc, and can be run automatically (scheduled), without any reason for user presence. To shedule a model,  
+   - **Schedule a model (creating an scheduledInstance)**: Some models are useful every day, every week, etc., and can be run automatically (scheduled), without any reason for user presence. The process of scheduling a model is analogous to the previous one (running a model), just click on the **Schedule model** action icon of the models list and you should be able to follow a similar process.   
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-schM1.jpg" alt="ot-user-schM1" align="center"/>
+</p> 
+<br/>
+
+   The only difference here resides in the fact that the model is going to be launched periodically in this case, not just once. Therefore, when we enter the JSON data of a scheduled instance, we need to include such data, which follows the structure:
+
+```
+"scheduleInfo": {
+		"start": 1546300800,
+		"unit": "minute",
+		"value": 1
+}
+```
+   
+   The **start** field indicates (Unix time) when the model must be first launched, the **unit** filed represents the possible units (second, minute, hour, day) and the **value** field represents the amount of units to wait between consecutive executions. In the example above, model will be run every minute.
+The given start time should typically represent one timestamp in the future. However, if the given start time is any time in the past, the OT engine will recalculate the **nearest point** of time in the future as result of the **N-th multiple** of the given amount of time (here multiples are count every minute). 
+You can trace the backend process that periodically reads the corresponding table and runs the pending scheduled instances. The log is on **/var/log/tomcat8/otpixelEngineCreateScheduledInstances.log**:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-schM2.jpg" alt="ot-user-schM2" align="center"/>
+</p> 
+<br/>
+
+   Now in the list of scheduled instances you should see the added scheduled instance. The **Last status** column should say running, unless there is an error (error trying to execute the Docker instance) in any of the executions. 
+   
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-schM3.jpg" alt="ot-user-schM3" align="center"/>
+</p> 
+<br/>
+
+   There is one final comment and relates to timing issues. If one of the inputs for the execution of the model is a **time dependent parameter**, e.g. current day of the execution, then this should be parametrized and interpreted by the OT engine. The user cannot provide here a fixed timestamp (otherwise this would provide the same result continuously). As example, let’s suppose a model that requires as inputs a start time and an end time to make its internal calculation; this could be the case of getting vessels calls in a time window. If we want to run the model every day, then we need to parametrize this somehow in the JSON data structure. An example could be:
+
+```
+{
+		"name": "start",
+		"type": "datetime (Unix time)",
+		"description": "start of calculation period",
+		"value": "${DATE_DAY_init}"
+}, {
+		"name": "end",
+		"type": "datetime (Unix Time)",
+		"description": "end of calculation period",
+		"value": "${DATE_DAY_last}"
+}
+```
+
+   Here, every time the model is executed, the OT engine previously interprets the parametrized date values (${}) and changes it with the corresponding operation. Currently the OT engine supports the following ones:
+   
+|Format|Description(Unix format - millis)|Potential Use|
+|---|---|---|
+|${DATE_current}|Current date|Models started by triggers?|
+|${DATE_DAY_init}|Date of the first second of the current day|PAS|
+|${DATE_DAY_last}|Date of the last second of the current day|PAS|
+|${DATE_WEEK_init}|Date of the first second of the current week|PEI|
+|${DATE_WEEK_last}|Date of the last second of the current week|PEI|
 
    
 </div>
