@@ -429,7 +429,7 @@ The management of predictive algorithms is completely **analogous** as for model
 
 Key Performance Indicators (KPIs) are special indicators set by port operators (it may differ from port to port) to better track, qualify and quantify the performance of their operations. The Operational Tools allow to create such KPIs, as long as they refer to specific data available in the Information Hub (Elasticsearch).
 
-The data in the Information Hub has to comply with the KPI data model as defined by FIWARE ( click [here](https://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html) for further information). Some fields of the model are mandatory, other are optional. For PIXEL we will potentially add new fields that include specific information (e.g. PEI).
+The data in the Information Hub has to comply with the KPI data model as defined by FIWARE (click [here](https://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html) for further information). Some fields of the model are mandatory, other are optional. For PIXEL we will potentially add new fields that include specific information (e.g. PEI).
 
 In order to create a KPI at OT level, just click on the **KPIs** from the **Left Menu**. You should see a list of available KPIs (or an empty list, if it is a fresh installation).
 
