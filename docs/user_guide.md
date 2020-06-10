@@ -427,6 +427,54 @@ The management of predictive algorithms is completely **analogous** as for model
 ### KPIs
 <div align="justify">
 
+Key Performance Indicators (KPIs) are special indicators set by port operators (it may differ from port to port) to better track, qualify and quantify the performance of their operations. The Operational Tools allow to create such KPIs, as long as they refer to specific data available in the Information Hub (Elasticsearch).
+
+The data in the Information Hub has to comply with the KPI data model as defined by FIWARE ( click [here](https://fiware-datamodels.readthedocs.io/en/latest/KeyPerformanceIndicator/doc/spec/index.html) for further information). Some fields of the model are mandatory, other are optional. For PIXEL we will potentially add new fields that include specific information (e.g. PEI).
+
+In order to create a KPI at OT level, just click on the **KPIs** from the **Left Menu**. You should see a list of available KPIs (or an empty list, if it is a fresh installation).
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-kpis1.jpg" alt="ot-user-kpis1" align="center"/>
+</p> 
+<br/>
+
+Click on the **Add a new KPI** button and a new modal will appear, where you will have to enter the JSON description of the KPI. This is a representation of the data already available in the Information Hub, therefore the format is here not the FIWARE data model. A possible example will be the following:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-kpis2.jpg" alt="ot-user-kpis2" align="center"/>
+</p> 
+<br/>
+
+Important fields to comment here are:
+
+   - **indexRef**: this refers to the Elastisearch index to search for the info
+   - **idRef**: the identifier of the specific KPI within the Elasticsearch index
+   - **category**: associated category to classify your KPIs. Currently only environmental and operational have been identified as main categories.
+   - **kpiThresholds**: a set of thresholds (upper and lower) associated to this KPI. This is optional, but may allow later monitoring of KPIs, visualization and possible alarms.  
+   
+After clicking on the **Save** button, you will see that the KPI is inserted in the list:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-kpis3.jpg" alt="ot-user-kpis3" align="center"/>
+</p> 
+<br/>
+
+Similar to the models, here there is a set of actions icons you may use. 
+   - The **Edit** icon will show you the description of the KPI (similar to the JSON structure given at creation time). 
+   - The **Delete** icon allows you to delete the KPI. Here you are only deleting the KPI at OT level, the data is still available in the Information Hub, there is no deletion of data in Elasticsearch.
+   - The **Show details** icon allows you to inspect the content of the KPI, that means, to retrieve the information from the Information Hub (Elasticsearch). In the Figure below you can see an example for the created KPI. The OT retrieve the information from the **last KPI** in Elasticsearch, as it is supposed to be a time series. Note that this structure is compliant with the FIWARE KPI data model. As there are several time fields in the JSON structure, the time field used for retrieving the last KPI is **calculationPeriod.from** (but you may change it at code level).
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-kpis4.jpg" alt="ot-user-kpis4" align="center"/>
+</p> 
+<br/>
+
+   - Finally, the **Show trends** icon allows to retrieve some trends of the given KPI (the API also supports an optional timeframe). The OT will provide some statistical info about the KPI values throughout time: mean, standard deviation, max and min, as well as the set of KPIs as JSON structure for potential representation (this is offered in the Dashboard, not in this GUI). The Figure below represents an example for the created KPIs. Looking at the statistical info, one can easily deduce that the value has not change across time.  
+ 
+ <p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-kpis5.jpg" alt="ot-user-kpis5" align="center"/>
+</p> 
+<br/>
 
    
 </div>
