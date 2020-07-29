@@ -59,9 +59,13 @@ Therefore, only the **default.configuration.xml** file needs to be edited:
 </p>
 
 Here you will have to edit/change some parameters, such as the location of the Elasticsearch server (elastic element) and some server elements: 
+
    - **frontHost**: this is the host giving access to the service from the outside. This may represent the host running the Docker daemon or the proxy endpoint in case there is one.
+   
    - **frontPort**: associated port to the frontHost.
+   
    - **dockerSubnet**: As the OT are typpically running within the PIXEL platform, several internal (Docker) networks are created to isolate management and increase security. Therefore,  all models and predictive algoritms that are launched from the OT as Docker instances will run under this network.
+   
    - **createDockerSubnet**: You may leave as it is. It allows to create the (docker) network, but this task is usually created by the PIXEL platform installation scripts in charge of deploying the whole platform. Anyway, if you set it to **no**, make sure that the network is created before launching the service. You can do that via the command **docker network create <your_network_name>**. 
 
 The location of the MongoDB server (datasource element) maps with the docker-compose.yaml file, so you can leave it as it is. You can leave also the other parameters as they are (e.g. frequency).
@@ -73,7 +77,9 @@ After the proper configuration you are able to run the service:
 </p>
 
 If everything goes well, you should be able to access with your browser:
+
    - **Swagger UI**: *http://frontHost:frontPort/otpixel/doc* 
+   
    - **basic UI**: *http://frontHost:frontPort/otpixel/ui*
 
 </div>
