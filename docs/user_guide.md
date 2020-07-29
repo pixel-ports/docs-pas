@@ -1,19 +1,87 @@
 # User's Guide
 <br/>
 
-## Installation and Deployment
+## Installation and Deployment (via Docker)
 <br/>
 
-### Note about Docker
+### Requirements
 <div align="justify">
-
-Though it was intended to provide a Docker image for every component of the architecture in order to generate a common **docker-compose** approach, the Operational Tools have special requirements that imposed additional barriers:
-
-   - **Docker execution**: Running a Docker within a Docker (DiD, Docker in Docker) is difficult, tricky and not recommended in various cases. See this [article](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) for more information about it.
-   - **Docker client libraries**: OT is developed in Java and there exist the possibility to use a docker-java client to build a Docker image. However, current implementations of the library in Maven are giving strong library dependency problems and are not well documented. It is envisioned to make a port of the current implementation to support a Java docker client, but it will take time and is envisioned for the next version. 
-   
+  
+The Operational Tools have been tested on **Linux Ubuntu Server 18.04 LTS**. Basically, you will need to install **docker**, and **docker-compose** in your HOST operating system. 
 </div>
 <br/><br/>
+
+### Installation
+<div align="justify">
+  
+Download the installation code, which is composed of a docker-compose.yaml file and a configuration directory with 3 files:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-1.jpg" alt="OT_DOCKER_1" align="center" />
+</p>
+
+The docker-compose.yaml files just uses 2 images: a Mongo database and the OT-core deployed on a tomcat8 image:
+
+
+```
+ot-mongo:
+   image: mongo:3.6
+   container_name: ot-mongo
+   command: --nojournal
+   volumes:
+     - ./ot-mongodata:/data/db
+ ot-core:
+   image: pixelh2020/ot:0.1
+   container_name: ot-core
+   links:
+     - ot-mongo
+   volumes:
+     - /var/run/docker.sock:/var/run/docker.sock
+     - ./ot-config/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml:ro
+     - ./ot-config/context.xml:/usr/local/tomcat/conf/Catalina/localhost/manager.xml:ro
+     - ./ot-config/context.xml:/usr/local/tomcat/conf/Catalina/localhost/host-manager.xml:ro
+     - ./ot-config/default.configuration.xml:/usr/local/tomcat/default.configuration.xml
+     - ./ot-logs:/usr/local/tomcat/logs
+   ports:
+     - "8080:8080"
+```
+The ot-mongo docker instance will persist the data in the **ot-mongodata** folder. The logging of the ot-core instance is persisted in the **ot-logs** folder. Therefore, you will have to create it in your intallation directory.
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-2.jpg" alt="OT_DOCKER_2" align="center" />
+</p>
+
+Before running the model, you will have to edit the configuration files under the **ot-config** directory. The files **tomcat-users.xml** and **context.xml** can be left as they are if you intend to run everything via Docker. It is intended only if you plan to update applications (WAR files) via the tomcat management interface.
+Therefore, only the **default.configuration.xml** file needs to be edited:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-3.jpg" alt="OT_DOCKER_3" align="center" />
+</p>
+
+Here you will have to edit/change some parameters, such as the location of the Elasticsearch server (elastic element) and some server elements: 
+   - **frontHost**: this is host giving access to the service from the outside. This may represent the host running the Docker daemon or the proxy endpoint in case there is one.
+   - **port**: associated port to the frontHost.
+   - **dockerSubnet**: As the OT are typpically running within the PIXEL platform, several internal (Docker) networks are createdto isolate management and increase security. Therefore,  all models and predictive algoritms that are launched from the OT as Docker instances will run under this network
+   - **createDockerSubnet**: You may leave as it is. It allows to create the (docker) network, but this task is usually created by the PIXEL platform installation scripts in charge of deploying the whole platform. Anyway, if you set it to **no**, make sure that the network is created before launching the service. You can do that via the command ***docker network create <your_network_name> ***. 
+
+The location of the MongoDB server (datasource element) maps with the docker-compose.yaml file, so you can leave it as it is. You can leave also the other parameters as they are (e.g. frequency).
+
+After the proper configuration you are able to run the service:
+
+<p align="center">
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-4.jpg" alt="OT_DOCKER_4" align="center" />
+</p>
+
+If everything goes well, you should be able to access with your browser:
+   - **Swagger UI**: http://<frontHost>:<port>/otpixel/doc 
+   - **basic UI**: http://<frontHost>:<port>/otpixel/ui
+
+</div>
+<br/><br/>
+
+
+## Installation and Deployment (without Docker - Deprecated)
+<br/>
 
 ### Requirements
 <div align="justify">
@@ -98,7 +166,7 @@ This will rebuild the WAR taking into account the configuration files under the 
 <br/><br/>
 
 
-## Configuration and Validation
+## Configuration and Validation (without Docker - Deprecated)
 <div align="justify">
 
 The configuration has already been provided at installation time (see previous step). No further action is necessary. All services should be up and running (mongo, tomcat8 server and tomcat8 application). 
