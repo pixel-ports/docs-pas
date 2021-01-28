@@ -18,7 +18,7 @@ The Operational Tools have been tested on **Linux Ubuntu Server 18.04 LTS**. Bas
 Download the installation code, which is composed of a docker-compose.yaml file and a configuration directory with 3 files:
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-1.jpg" alt="OT_DOCKER_1" align="center" width="500" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-1.jpg" alt="OT_DOCKER_1" align="center" width="800" />
 </p>
 
 The docker-compose.yaml files just uses 2 images: a Mongo database and the OT-core deployed on a tomcat8 image:
