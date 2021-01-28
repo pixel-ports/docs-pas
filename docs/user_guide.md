@@ -108,7 +108,7 @@ If you want to perform a basic test, then go to **Models** on the Left Menu and 
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check2.jpg" alt="OT_UI_CHECK2" align="center"/>
 </p>
 
-You will see that the new model should have been entered in the list of models, with a status of **created**. Just wait a couple of minutes (the Docker image needs to be pulled from the Dockerhub repository and this could take a while) and refresh the screen. Now the *status* should have change to one of:
+You will see that the new model should have been entered in the list of models, with a status of **created**. The status changes to **pulling**. Just wait a couple of minutes (the Docker image needs to be pulled from the Dockerhub repository and this could take a while) and refresh the screen. Now the *status* should have change to one of:
 
 |Status|Description|
 |---|---|
@@ -117,7 +117,9 @@ You will see that the new model should have been entered in the list of models, 
 <br/>
 
    - **Tomcat OT application - Swagger**: Open a web browser and go to *http://your-server-ip:8080/otpixel/doc*
-You should be able to see the Swagger UI of the application. You can click on **Authorize**, enter your **apiKey** and start testing the API. As there are no models or predictive algorithms, you should get an empty array.
+You should be able to see the Swagger UI of the application. You can click on **Authorize**, enter your **apiKey** and start testing the API. 
+You can use the **GET /models/list** to retrieve all available published  models. Currently only the dummypas model will appear, if you did the actions in the previous step.
+As there are no instances, you should get an empty array here
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-swagger-check.jpg" alt="OT_SWAGGER_CHECK" align="center"/>
@@ -132,7 +134,9 @@ You should be able to see the Swagger UI of the application. You can click on **
 ### Deploy/update a new OT version
 <div align="justify">
 
-As commented before, new updates are released a tomcat application (WAR files), therefore the only action to perform consists in redeploying the WAR file in the Tomcat8 server. However, it is recommendable to undeploy the previous OT application first, as it uses several threads to manage different tasks internally. Redeploying on top of a running application does not prevent the previous threads to stop running.
+In order to generate a new version, you will need to perform 2 steps:
+- Generate the tomcat application (otpixel.war) from the pom.xml in the code
+- Copy the WAR file under the docker-build folder and regenerate the image  (docker-compose up --build). There is a README.md file in the code 
 
 </div>
 <br/>
@@ -151,6 +155,8 @@ The Operational Tools includes a series of different log files to monitor the ac
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-logs-check.jpg" alt="OT_LOGS_CHECK" align="center"/>
 </p>
+
+Since the new version (0.2) logs are also written into the console, so that you can get all information from a **docker logs** command. Additionaly the  API incorporates a functionality to show the logs from the executions of instances and scheduledinstances (in this last case from the last execution) 
 
 </div>
 <br/><br/>
