@@ -268,7 +268,7 @@ The Operational Tools include a small basic UI that supports most of the functio
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM3.jpg" alt="ot-user-crM3" align="center"/>
 </p>
                                                                                                                           
-   Note that there is still no name nor category for the model, as it needs to be first otained (pulled) from the Docker repository. You can track this activity by monitoring the **/var/log/tomcat8/otpixelEngineCreateModel.log** file:
+   Note that there is still no name nor category for the model, as it needs to be first otained (pulled) from the Docker repository. You can track this activity by monitoring the **otpixelEngineCreateModel.log** file:
    
  <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-crM4.jpg" alt="ot-user-crM4" align="center"/>
@@ -307,7 +307,7 @@ The Operational Tools include a small basic UI that supports most of the functio
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM3.jpg" alt="ot-user-rM3" align="center"/>
 </p>   
 
-   There is a backend process that periodically reads this table and runs the pending instances. You can track this activity by monitoring the **/var/log/tomcat8/otpixelEngineCreateInstances.log**:
+   There is a backend process that periodically reads this table and runs the pending instances. You can track this activity by monitoring the **otpixelEngineCreateInstances.log**:
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-rM4.jpg" alt="ot-user-rM4" align="center"/>
@@ -337,15 +337,15 @@ The Operational Tools include a small basic UI that supports most of the functio
 
 ```
 "scheduleInfo": {
-		"start": 1546300800,
+		"start": "2021-01-20T11:11:11+02:00",
 		"unit": "minute",
 		"value": 1
 }
 ```
    
-   The **start** field indicates (Unix time) when the model must be first launched, the **unit** filed represents the possible units (second, minute, hour, day) and the **value** field represents the amount of units to wait between consecutive executions. In the example above, model will be run every minute.
+   The **start** field indicates (ISO 8601) when the model must be first launched, the **unit** filed represents the possible units (second, minute, hour, day) and the **value** field represents the amount of units to wait between consecutive executions. In the example above, model will be run every minute.
 The given start time should typically represent one timestamp in the future. However, if the given start time is any time in the past, the OT engine will recalculate the **nearest point** of time in the future as result of the **N-th multiple** of the given amount of time (here multiples are count every minute). 
-You can trace the backend process that periodically reads the corresponding table and runs the pending scheduled instances. The log is on **/var/log/tomcat8/otpixelEngineCreateScheduledInstances.log**:
+You can trace the backend process that periodically reads the corresponding table and runs the pending scheduled instances. The log is on **otpixelEngineCreateScheduledInstances.log**:
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-user-schM2.jpg" alt="ot-user-schM2" align="center"/>
@@ -364,14 +364,14 @@ You can trace the backend process that periodically reads the corresponding tabl
 ```
 {
 		"name": "start",
-		"type": "datetime (Unix time)",
+		"type": "date-time (ISO 8601)",
 		"description": "start of calculation period",
-		"value": "${DATE_DAY_init}"
+		"value": "${DATE_DAY_INIT}"
 }, {
 		"name": "end",
-		"type": "datetime (Unix Time)",
+		"type": "date-time (ISO 8601)",
 		"description": "end of calculation period",
-		"value": "${DATE_DAY_last}"
+		"value": "${DATE_DAY_INIT}"
 }
 ```
 
@@ -380,10 +380,16 @@ You can trace the backend process that periodically reads the corresponding tabl
 |Format|Description(Unix format - millis)|Potential Use|
 |---|---|---|
 |${DATE_current}|Current date|Models started by triggers?|
-|${DATE_DAY_init}|Date of the first second of the current day|PAS|
-|${DATE_DAY_last}|Date of the last second of the current day|PAS|
-|${DATE_WEEK_init}|Date of the first second of the current week|PEI|
-|${DATE_WEEK_last}|Date of the last second of the current week|PEI|
+|${DATE_MINUTE_INIT}|Date of the first second of the current minute|test,RT data|
+|${DATE_INUTE_LAST}|Date of the last second of the current minute|test,RT data|
+|${DATE_HOUR_INIT}|Date of the first second of the current hour|traffic,weather|
+|${DATE_HOUR_LAST}|Date of the last second of the current minute|traffic,weather|
+|${DATE_DAY_INIT}|Date of the first second of the current day|PAS|
+|${DATE_DAY_LAST}|Date of the last second of the current day|PAS|
+|${DATE_WEEK_INIT}|Date of the first second of the current week|PEI|
+|${DATE_WEEK_LAST}|Date of the last second of the current week|PEI|
+|${DATE_MONTH_INIT}|Date of the first second of the current month|PEI|
+|${DATE_MONTH_LAST}|Date of the last second of the current month|PEI|
 
    
 </div>
