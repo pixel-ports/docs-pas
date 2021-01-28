@@ -161,7 +161,7 @@ Since the new version (0.2) logs are also written into the console, so that you 
 </div>
 <br/><br/>
 
-## Backend Interface
+## API - Swagger Interface
 <div align="justify">
 
 The Operational Tools are able to publish models, predictive algorithms and schedule them. Furthermore, there is also support for KPIs and events. The API has been specified as a REST API that includes a Swagger (Open API) interface to be tested. You can also use other developer tools such as Postman. The Swagger UI is very user friendly and allows to easily check all possible requests, its input parameters and the outputs. We will just provide a basic example for a dummy model in order to highlight the process, which should be considered as a scheme for all other requests (analogous process).
