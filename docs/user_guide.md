@@ -49,7 +49,7 @@ ot-mongo:
 The ot-mongo docker instance will persist the data in the **ot-mongodata** folder. The logging of the ot-core instance is persisted in the **ot-logs** folder. Therefore, you will have to create it in your intallation directory.
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-2.jpg" alt="OT_DOCKER_2" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot-docker-2.jpg" alt="OT_DOCKER_2" align="center" width="800" />
 </p>
 
 Before running the model, you will have to edit the configuration files under the **ot-config** directory. The files **tomcat-users.xml** and **context.xml** can be left as they are if you intend to run everything via Docker. It is intended only if you plan to update applications (WAR files) via the tomcat management interface.
