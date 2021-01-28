@@ -7,7 +7,8 @@
 ### Requirements
 <div align="justify">
   
-The Operational Tools have been tested on **Linux Ubuntu Server 18.04 LTS**. Basically, you will need to install **docker** and **docker-compose** in your HOST operating system. 
+The Operational Tools have been tested on **Linux Ubuntu Server 18.04 LTS**. Basically, you will need to install **docker** and **docker-compose** in your HOST operating system.
+ Probably it should also work under Windows if you have Docker (WSL 2) installed.
 </div>
 <br/>
 
