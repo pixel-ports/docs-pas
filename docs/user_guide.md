@@ -31,7 +31,7 @@ ot-mongo:
    volumes:
      - ./ot-mongodata:/data/db
  ot-core:
-   image: pixelh2020/ot:0.1
+   image: pixelh2020/ot:0.2
    container_name: ot-core
    links:
      - ot-mongo
