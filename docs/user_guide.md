@@ -88,7 +88,7 @@ If everything goes well, you should be able to access with your browser:
 
 
 
-## Configuration and Validation (without Docker - Deprecated)
+## Initial Check and Validation 
 
 
    - **Tomcat OT application - UI**: Open a web browser and go to *http://your-server-ip:8080/otpixel/ui*
@@ -98,7 +98,7 @@ You should be able to see the UI of the application. Even if you cannot see neit
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-ui-check.jpg" alt="OT_UI_CHECK" align="center"/>
 </p>
 
-If you want to perform a more advanced test, then go to **Models** on the Left Menu and click on the **Add a new Model** button. Just enter the following:
+If you want to perform a basic test, then go to **Models** on the Left Menu and click on the **Add a new Model** button. Just enter the following:
 
 |Docker name|Label|
 |---|---|
