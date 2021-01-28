@@ -89,30 +89,7 @@ If everything goes well, you should be able to access with your browser:
 
 
 ## Configuration and Validation (without Docker - Deprecated)
-<div align="justify">
 
-The configuration has already been provided at installation time (see previous step). No further action is necessary. All services should be up and running (mongo, tomcat8 server and tomcat8 application). 
-If you want to verify that the service has been correctly deployed, you can do the following:
-
-   - **Mongo-database**: Supposing Mongo is running as service within the host server, just type in the command line.
-
-<p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-mongo-check.jpg" alt="OT_MONGO_CHECK" align="center" />
-</p>
-
-You should see (in green) if the server is active and running properly; otherwise, you will see an error.
-
-If Mongo has been installed elsewhere (not localhost) or as a docker instance, you can use the command **docker-compose ps** to check that the service is in **Up** status, and with the command **telnet IP 27001** that the TCP port is listening.
-*Note*: Remember to configure Mongo server to support non-localhost requests, if necessary 
-
-
-   - **Tomcat8 server**: Similar as for Mongo, just type in the command line
-
-<p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/OT-tomcat8-check.jpg" alt="OT_TOMCAT8_CHECK" align="center"/>
-</p>
-
-You should see (in green) if the server is active and running properly; otherwise, you will see an error
 
    - **Tomcat OT application - UI**: Open a web browser and go to *http://your-server-ip:8080/otpixel/ui*
 You should be able to see the UI of the application. Even if you cannot see neither models nor predictive algorithms (not yet deployed), you should not see any error in the *Developer's panel* of the browser.
@@ -137,6 +114,7 @@ You will see that the new model should have been entered in the list of models, 
 |---|---|
 |deployed|this means that everything went properly. By clicking on the 'Edit' icon of this model, you may see the details.|
 |error|there has been an error. More information may be obtained by checking the log file (otpixelEngineCreateModel.log); this is commented in the next section.|
+<br/>
 
    - **Tomcat OT application - Swagger**: Open a web browser and go to *http://your-server-ip:8080/otpixel/doc*
 You should be able to see the Swagger UI of the application. You can click on **Authorize**, enter your **apiKey** and start testing the API. As there are no models or predictive algorithms, you should get an empty array.
