@@ -183,7 +183,7 @@ Note here some optional parameters to be included in the request:
 
 |Parameter|Description|
 |---|---|
-|otStatus|status of the models to be retrieved, which can be one of: created, deployed, error, deleted. If not given, all are provided|
+|otStatus|status of the models to be retrieved, which can be one of: **created, pulling, deployed, error, deleted**. If not given, all are provided|
 |type|type to be considered: **model,pa**. If not given, all are provided|
 
 Note also that you have an example of a CURL request
