@@ -13,7 +13,7 @@ As commented in the **Main concepts and Architecture subsection**, the OT intera
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_interf1.jpg" alt="OT interfaces 1" align="center" />
 </p>
 
-The Figure below depicts these 3 interfaces from the point of view of the internal blocks of the main components of the Operational Tools. As can be observed, the PIXEL Dashboard will invoke **Interface 2** to manage the publication and execution of models. The **Engine block** of the OT, whenever a model or predictive algorithm needs to be executed, invokes the corresponding **Docker instance**, which incorporates an OT adaptor component able to understand the exchange of parameters through the **Interface 3**. The **Interface 1** refers to the use of the **Information Hub API** to retrieve information. Storage of information as output of the execution of models and predictive algorithms is done by the **Docker instanc**e by means of the **OT adaptor**. 
+The Figure below depicts these 3 interfaces from the point of view of the internal blocks of the main components of the Operational Tools. As can be observed, the PIXEL Dashboard will invoke **Interface 2** to manage the publication and execution of models. The **Engine block** of the OT, whenever a model or predictive algorithm needs to be executed, invokes the corresponding **Docker instance**, which incorporates an OT adaptor component able to understand the exchange of parameters through the **Interface 3**. The **Interface 1** refers to the use of the **Information Hub API** to retrieve information. Storage of information as output of the execution of models and predictive algorithms is done by the **Docker instanc**e by means of the **OT adaptor**.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_interf2.jpg" alt="OT interfaces 2" align="center" />
@@ -47,16 +47,17 @@ GET / HTTP/1.1
 Host: ot_host
 Authorization: ApiKey <your-key>
 ```
-Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoint under the path ``http://<your_server>:8080/otpixel/doc/#/`` where you have a Swagger UI to test the API 
+Once the OT main component is deployed, it provides an Swagger (OpenAPI) endpoint under the path ``http://<your_server>:8080/otpixel/doc/#/`` where you have a Swagger UI to test the API.
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_swagger.jpg" alt="OT_swaggerUI" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_swagger2.jpg" alt="OT_swaggerUI" align="center" />
 </p>
 
-A complete list of **all methods** is available as a standalone HTML page [here](ot-api.html), containing **examples of code** for various programming languages (Java, JS, PHP, C#, Python ,etc.). You can also see the different fields of the **dataformats** as well as the **response codes**.
+A complete list of **all methods** is available as a standalone HTML page [here](ot-api2.html), containing **examples of code** for various programming languages (Java, JS, PHP, C#, Python ,etc.). You can also see the different fields of the **dataformats** as well as the **response codes**.
+
 
 <p align="center">
-<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/otapi_html.jpg" alt="OT_API_HTML" align="center" />
+<img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/otapi_html2.jpg" alt="OT_API_HTML" align="center" />
 </p>
 
 Exploiting the potential of Swagger (OpenAPI) specifications, the OT management API has also been ported to **apiary**. You can access the cloud [here](https://pixelot.docs.apiary.io/#). Note that there is no proper real backend server to test the data, but you can see the functions as well as the JSON datatypes.
@@ -79,7 +80,7 @@ The OT Engine block is able to run Dockerized models and predictive algorithms i
   - **Step 3**:  If there is a need to transform the input data, the **Input Transformer** is invoked. This might happen when the input dataformats are not natively supported by the model itself, and some adaptation is needed.
   - **Step 4**: The **model algorithm is launched** passing all the obtained inputs from the Information Hub. The controller shall **monitor stdout, stderr** to check whether the execution is going well or some errors appear.
   - **Step 5**: If there is a need to transform the output data, the **Output Transformer** is invoked. The required transformations (if any) are mainly conditioned by latter efficient queries (e.g. visualization in the Dashboard).
-  - **Step 6**: The resulting (transformed) **output is written in the IH** via the **Output writer**. This module should be able to use the Extractor and/or the Broker (Kafka) API. 
+  - **Step 6**: The resulting (transformed) **output is written in the IH** via the **Output writer**. This module should be able to use the Extractor and/or the Broker (Kafka) API.
 
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_dockerInt.jpg" alt="OT_Docker" align="center" />
@@ -112,7 +113,7 @@ In case of success, a typical logging table after an execution will look like
 
 ## Software Extensions
 <div align="justify">
-   
+
 There are several potential extensions to be added to the existing implementation of the Operational Tools. Some of them are commented below
 <br/><br/>
 </div>
@@ -120,14 +121,14 @@ There are several potential extensions to be added to the existing implementatio
 
 ### Include an additional resource
 <div align="justify">
-   
+
 There are several potential extensions to be added to the existing implementation of the Operational Tools. One of the consists in extending the API to include a new resource in its Management API, in case you need it to your specific needs. In this case, and assuming that you have already imported the code from github, you should follow these steps:
 
 - **1.Add POJO class**: Add new POJO class that represents the new resource in Java resources `eu.pixel.otpixel.model`. It is advisable that the class extends the utility class `eu.pixel.otpixel.model.IdentifiableObject`. For example, just copy `Model.java` into `YourClass.java` and adapt it accordingly, then generate Setters/Getters with Eclipse.
 - **2.Create provide**: Create a new provider interface in the package `eu.pixel.otpixel.datasource.dao.providers` with methods to interact with the new resource. If you want to add CRUD capabilities to the interface it is easier if the interface extends the utility interface `eu.pixel.otpixel.datasource.dao.CRUD<T>` where `T` is your new POJO resource class. Then you can add specific methods to that interface (see `eu.pixel.otpixel.datasource.dao.providers.ModelProvider`). For example, copy `ModelProvider.java` into `YourClassProvider.java` and change the basics to have something like
 
 ```
-import eu.pixel.otpixel.model.YourClass; 
+import eu.pixel.otpixel.model.YourClass;
 public interface YourClassProvider extends CRUD<YourClass>{..}
 ```
 
@@ -141,7 +142,7 @@ public YourClassProvider getYourClassProvider();
 
 - **5.Create resource**: Once the DAO (Database Access Objects) are all well-defined and the project compiles again, create a new API resource access class in `eu.pixel.otpixel.api.resources`. You should follow REST compliance guidelines for that and keep consistency throught the project. To ensure that, the most easiest approach is to copy an already existing class such as `eu.pixel.otpixel.api.resources.ModelResource` and modify it for your new resource
 
-- **6.Create converters**: There is still something to add: the converters, for MongoDB implementation it is located at `eu.pixel.otpixel.datasource.impl.mongodb.converters`. First add the converter, similar to `eu.pixel.otpixel.datasource.impl.mongodb.converters.ModelConverter.java`, and then add a new method to `eu.pixel.otpixel.datasource.impl.mongodb.converters.MongoDBConverters.java`. For example, create `eu.pixel.otpixel.datasource.impl.mongodb.converters.YourClassConverter.java` from `eu.pixel.otpixel.datasource.impl.mongodb.converters.ModelConverter.java` and adapt it accordingly. Then add a new method in `eu.pixel.otpixel.datasource.impl.mongodb.converters.MongoDBConverters.java` in the static list of methods: 
+- **6.Create converters**: There is still something to add: the converters, for MongoDB implementation it is located at `eu.pixel.otpixel.datasource.impl.mongodb.converters`. First add the converter, similar to `eu.pixel.otpixel.datasource.impl.mongodb.converters.ModelConverter.java`, and then add a new method to `eu.pixel.otpixel.datasource.impl.mongodb.converters.MongoDBConverters.java`. For example, create `eu.pixel.otpixel.datasource.impl.mongodb.converters.YourClassConverter.java` from `eu.pixel.otpixel.datasource.impl.mongodb.converters.ModelConverter.java` and adapt it accordingly. Then add a new method in `eu.pixel.otpixel.datasource.impl.mongodb.converters.MongoDBConverters.java` in the static list of methods:
 
 
 ```
@@ -157,7 +158,7 @@ converters.put(YourClass.class, new YourclassConverter());
 
 ### Enhance the Dockerized model
 <div align="justify">
-   
+
 There are several ways in which you may be willling to enhance the provided Dockerized models and/or predictive algorithms, or just add new functionalities to your newly created ones. Some examples will be:
 
  - **Add new connector**: currently all models are obtaining the information via the Information Hub, which stores all needed information under a common place. This requires that all needed information to be placed in the Information Hub via NGSI Agents and a connected Data Acquistiion Layer (DAL). However, for a certain model, you are able to add a new **connector** able to retrieve directly opendata from external data sources. In that case, it is the **Input Retriever** component who is in charge of implementing this functionality. From the point of view of the Dashboard and the OT main component it should be a seamless upgrade, as long as the connector is well defined in the **GetInfo.json** and **instance.json** files.  
@@ -192,7 +193,7 @@ There are several ways in which you may be willling to enhance the provided Dock
 	]		
 },
 ```
- 
+
   - **Add verbosity level**: Typically, the model implementation has a way to log and trace the execution of the model, with some log4j or similar functionality to store such information into a file. However, this is stored inside the Docker container and is lost once the execution finishes. Currently Dockerized models are mainly logging start and end of execution, without any intermediate trace being mandatory (only errors). However, you could add additional levels in the in the **verbose option field** of the **logging element**. For example, the **GetInfo.json** file could look like
 
 ```
@@ -212,21 +213,21 @@ There are several ways in which you may be willling to enhance the provided Dock
 	}
  ]
 ```
-  
+
 <br/>
 </div>
 
 
 ## Compilation from the sources
 <div align="justify">
-   
+
 If you just want to install the software without compiling the sources for yourself, then you should check the **User's Guide** in the *Left Menu*.
 <br/>
 </div>
 
 ### Development environment
 <div align="justify">
-   
+
 The following requirements apply to this software component (Java part):
 
 - **JDK 1.8+**: you should be able to compile the code both in Linux and Windows environments.
@@ -245,7 +246,7 @@ The following requirements apply to this software component (Javascript part for
 
 ### Configuration
 <div align="justify">
-   
+
 Before compiling, you will have to create various configuration files from the given templates:
 
 * **build.local.properties**: It should server as template to create a file **build.properties** with the configuration parameters of your project. You can leave everything as it is and just change *localhost* with your server's IP or hostname.
@@ -280,12 +281,12 @@ Additionally, for the UI, which is developed in Vue (javascript), you will need 
 
 ### Compilation
 <div align="justify">
-   
-**STEP 1**: Compile the UI code. 
+
+**STEP 1**: Compile the UI code.
 
 If you don't need nor want to compile it, there is already a precompiled version under the folder 'www/ui'. In this case, just adapt the configuration file:
 
-* **settings.local.js**: Located under www --> ui --> cfg. It should serve as template to create a file **settings.js** with the configuration parameters of your project. 
+* **settings.local.js**: Located under www --> ui --> cfg. It should serve as template to create a file **settings.js** with the configuration parameters of your project.
 
 If you want to compile it, just open a command line window on the location of the code (extra/ui) and type
 
@@ -294,12 +295,12 @@ If you want to compile it, just open a command line window on the location of th
 
 If everything goes well (several warnings might appear) then just replace the content of the 'www/ui' of your Eclipse project with the content of the 'dist' folder you have just compiled.
 
-**STEP 2**: Compile the WAR application. 
+**STEP 2**: Compile the WAR application.
 
 In order to package the program into a *WAR* file, just right click on the **pom.xml** file --> Run As --> *maven build*:
 
 The goal should be **mvn clean compile tomcat7:redeploy**
-    
+
 If you have configured the files properly, the code should be compiled and uploaded directly to your Tomcat server. The process will also generate a Swagger environment to test the backend. Open a browser and check if it works:
 
 **http://*<your_tomcat_server>*:8080/otpixel/ui**		(vue UI)
