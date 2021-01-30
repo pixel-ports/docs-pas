@@ -356,6 +356,7 @@ The logged info is basically described in the Figure below:
 <p align="center">
 <img src="https://github.com/pixel-ports/docs-hub-ot/raw/master/docs/img/ot_framework_logging.jpg" alt="publication of a model (Steps)" align="center" />
 </p>
+The timestamp is given in ISO 8601 format since the current version v0.2 (in the previous version -v0.1 it was in UNIX time).
 
 
 ## Execution of a model (instance.json)
@@ -648,16 +649,147 @@ The arrays *output* and *logging* remain the same.
 <br/>
 
 ## Scheduling executions of a model (scheduledInstance.json)
-### Introduction
+
+### Introduction. Instances
 <div align="justify">
 
-TBD
+An scheduledInstance is an extension of an instance (see previous section) that can be launched several times according to a certain schedule. The set of parameters are identical to an instance, but additionally there is a new element called *scheduleInfo*:
+
+```
+"scheduleInfo" : {
+        "start" : "2021-01-20T11:11:11+02:00",
+        "unit" : "minute",
+        "value" : 5
+    }
+```
+This element is telling the OT when the model needs to be run:
+- **First execution**: will start at *start* time (in the example 2021-01-20T11:11:11+02:00). The date-time value is given in ISO 8601 format in the new version v0.2 (in previous version -v0.1 - it was UNIX time).
+
+- **Next executions**: will be launched every 5 minutes starting from *start* time.
+
+If the start time had already passed by the time the scheduledInstance is created, the OT will act as if it had actually started in that time and will launch the first execution in the nearest 5-minute interval (according to the example) from the current date.
+
 </div>
 <br/>
 
+
 ### JSON format
 <div align="justify">
-TBD
-</div>
 
-#
+In the previous section we provided a two *instance.json* examples (with and without *forceinputs*). For *scheduledInstances* this is irrelevant, as the main difference lies in the inclusion of the *scheduleInfo* element. Typically it will use more the *input* than the *forceinput*, so we provide an example with *input* for the *pingcount* model:
+
+The JSON format is as follows:
+```
+{
+   "idRef": "601088c715f76f0007542876",   
+   "name": "pingcount-scheduledExecution1",
+   "description": "pingcount execution 1",
+   "mode": "ExecAsync",
+   "user": null,
+   "active":true,
+   "scheduleInfo" : {
+        "start" : "2021-01-20T11:11:11+02:00",
+        "unit" : "minute",
+        "value" : 5
+    },
+   "input": [{
+         "name": "pingset",
+         "category": "ih-api",
+         "type": "[urn:pixel:DataSource:Ping]",
+         "description": "array of JSON documents of type urn:pixel:DataSource:Ping",
+         "metadata": {},
+         "options": [{
+               "name": "url",
+               "type": "string",
+               "description": "URL string representing the API to reach the IH",
+               "value": "http://172.24.1.17:8080/archivingSystem/extractor/v1/data"
+            }, {
+               "name": "sourceId",
+               "type": "string",
+               "description": "sourceId, mapped to Index, within the IH where the NGSI generated pings are stored",
+               "value": "urn:pixel:DataSource:Ping"
+            }, {
+               "name": "from",
+               "type": "date-time",
+               "description": "From timestamp. ISO8601 format",
+               "value": "${DATE_MINUTE_INIT}"
+            }, {
+               "name": "to",
+               "type": "date-time",
+               "description": "To timestamp. ISO8601 format",
+               "value": "${DATE_MINUTE_LAST}"
+            }
+         ]
+      }
+   ],   
+   "output": [{
+         "name": "output",
+         "category": "es-api",
+         "type": "urn:pixel:DataModelResult:PingCount",
+         "description": "output provided by the PingCount execution",
+         "metadata": {},
+         "options": [{
+               "name": "url",
+               "type": "string",
+               "description": "URL string representing the API to reach Elasticsearch",
+               "value": "http://172.24.1.11:9200"
+            }, {
+               "name": "es_index",
+               "type": "string",
+               "description": "Elasticsearch index to store the result  of the execution.",
+               "value": "models-output-pingcount"
+            }
+         ]
+      }
+   ],
+   "logging": [{
+         "name": "logging",
+         "category": "es-api",
+         "type": "pixel-logging-format",
+         "description": "activity logging for the pingCount model. id_execution, idRef/id_model are given by the OT at invocation time",
+         "verbose" : null,
+         "metadata": {},
+         "options": [{
+               "name": "url",
+               "type": "string",
+               "description": "URL string representing the API to reach Elasticsearch",
+               "value": "http://172.24.1.11:9200"
+            }, {
+               "name": "es_index",
+               "type": "string",
+               "description": "Elasticsearch index to store the logs of the execution. start, end, error",
+               "value": "models-logging"
+            }
+         ]
+      }
+   ]
+}
+```
+You can easily see that there is practically no difference compared to an instance, except for:
+- **scheduleInfo**: this has already been commented before
+
+- **timing functions**: you should have notices that timing parameters in the input element, such as *from* and *to*, have a special value (*${DATE_MINUTE_INIT}, ${DATE_MINUTE_INIT}*). This makes absolutely sense as otherwise, the *pingcount* model would always make the same operation with the same input. By means of theses special functions, data will always refer to the current minute, every 5 minutes (according to *cheduleInfo* in the example). Thus:
+      - every 5 minutes the *pingcount* model will be launched
+      - input data will be taken from the last minutes
+      - calculation will be performed and the result will be stored in the IH
+
+The timing functions are pre-processed by the OT, so the *pingcount* model will get an ISO 8601 date every time it is launched. This functionality is particularly useful to make periodic calculations every hour, day, week, month.
+The set of timing functions currently supported by the OT (v0.2 version) are:
+
+|Format|Description(Unix format - millis)|Potential Use|
+|---|---|---|
+|${DATE_current}|Current date|Models started by triggers?|
+|${DATE_MINUTE_INIT}|Date of the first second of the current minute|test,RT data|
+|${DATE_MINUTE_LAST}|Date of the last second of the current minute|test,RT data|
+|${DATE_HOUR_INIT}|Date of the first second of the current hour|traffic,weather|
+|${DATE_HOUR_LAST}|Date of the last second of the current minute|traffic,weather|
+|${DATE_DAY_INIT}|Date of the first second of the current day|PAS|
+|${DATE_DAY_LAST}|Date of the last second of the current day|PAS|
+|${DATE_WEEK_INIT}|Date of the first second of the current week|PEI|
+|${DATE_WEEK_LAST}|Date of the last second of the current week|PEI|
+|${DATE_MONTH_INIT}|Date of the first second of the current month|PEI|
+|${DATE_MONTH_LAST}|Date of the last second of the current month|PEI|
+
+*Note: Additional timing functions could be added (by demand) on further versions of the OT*
+
+</div>
