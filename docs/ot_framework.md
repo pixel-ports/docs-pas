@@ -768,6 +768,8 @@ The JSON format is as follows:
 You can easily see that there is practically no difference compared to an instance, except for:
 - **scheduleInfo**: this has already been commented before
 
+- **active**: this field is no longer used since version v0.2 (you can leave it to true, or just remove it)
+
 - **timing functions**: you should have notices that timing parameters in the input element, such as *from* and *to*, have a special value (*${DATE_MINUTE_INIT}, ${DATE_MINUTE_INIT}*). This makes absolutely sense as otherwise, the *pingcount* model would always make the same operation with the same input. By means of theses special functions, data will always refer to the current minute, every 5 minutes (according to *cheduleInfo* in the example). Thus:
       - every 5 minutes the *pingcount* model will be launched
       - input data will be taken from the last minutes
@@ -793,3 +795,13 @@ The set of timing functions currently supported by the OT (v0.2 version) are:
 *Note: Additional timing functions could be added (by demand) on further versions of the OT*
 
 </div>
+
+
+## JSON schemas
+
+For formality, JSON schemas are also provided for getInfo, instances and scheduledInstances. Therefore, you can cross-check/validate with your favourite libraries or with an online tool (e.g. *https://www.jsonschemavalidator.net/*) if a particular JSON file is valid.
+You can see the getInfo schema [here](schema_getInfo.json)
+You can see the instance schema [here](schema_instance.json)
+You can see the scheduledInstance schema [here](schema_scheduledInstance.json)
+
+With the help of the schemas you can also generate online forms with the help of tools such as [JSON Editor](https://github.com/json-editor/json-editor). You can find in this github repo mor eexamples and a [JSON-Editor Interactive Playground](https://pmk65.github.io/jedemov2/dist/demo.html)
