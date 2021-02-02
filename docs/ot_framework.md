@@ -800,8 +800,11 @@ The set of timing functions currently supported by the OT (v0.2 version) are:
 ## JSON schemas
 
 For formality, JSON schemas are also provided for getInfo, instances and scheduledInstances. Therefore, you can cross-check/validate with your favourite libraries or with an online tool (e.g. *https://www.jsonschemavalidator.net/*) if a particular JSON file is valid.
-You can see the getInfo schema [here](schema_getInfo.json)
-You can see the instance schema [here](schema_instance.json)
-You can see the scheduledInstance schema [here](schema_scheduledInstance.json)
+
+- You can see the getInfo schema [here](schema_getInfo.json)
+
+- You can see the instance schema [here](schema_instance.json)
+
+- You can see the scheduledInstance schema [here](schema_scheduledInstance.json)
 
 With the help of the schemas you can also generate online forms with the help of tools such as [JSON Editor](https://github.com/json-editor/json-editor). You can find in this github repo mor eexamples and a [JSON-Editor Interactive Playground](https://pmk65.github.io/jedemov2/dist/demo.html)
