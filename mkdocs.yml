@@ -16,7 +16,7 @@ extra_css:
 
 repo_url: https://github.com/pixel-ports/ot-docs-hub
 
-pages:
+nav:
     - Home: index.md
     - OT Framework: 'ot_framework.md'
     - User's Guide: 'user_guide.md'
