@@ -150,7 +150,7 @@ The JSON format is as follows:
          "name":"pingset",
          "type":"[urn:pixel:DataSource:Ping]",
          "description":"array of JSON documents of type urn:pixel:DataSource:Ping. Additional info to retrieve the data is given in 'options' array",
-         "supportedConnectors": ["ih_api"],
+         "supportedConnectors": ["ih-api"],
          "metadata":{},
          "required":true,
          "forceinput": true,
