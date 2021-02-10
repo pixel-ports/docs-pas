@@ -81,8 +81,14 @@ If everything goes well, you should be able to access with your browser:
 
    - **Swagger UI**: *http://frontHost:frontPort/otpixel/doc* 
    
-   - **basic UI**: *http://frontHost:frontPort/otpixel/ui*
+   - **Basic UI**: *http://frontHost:frontPort/otpixel/ui*
 
+*Note: The current code in Docker container (pixelh2020:ot:0.2) is intended to be launched within PIXEL, which includes a proxy that includes '/otpixel' path in the translation. Therefore, you might check the eu.pixel.otpixel.api.utils.DockerUtils java class to see the adaptations made. Typically you will access this tools via:*
+
+  - **Swagger UI**: *https://pixel-frontHost/doc* 
+   
+   - **Basic UI**: *https://pixel-frontHost/ui*
+   
 </div>
 <br/><br/>
 
