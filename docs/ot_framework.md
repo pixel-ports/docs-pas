@@ -807,4 +807,4 @@ For formality, JSON schemas are also provided for getInfo, instances and schedul
 
 - You can see the scheduledInstance schema [here](schema_scheduledInstance.json)
 
-With the help of the schemas you can also generate online forms with the help of tools such as [JSON Editor](https://github.com/json-editor/json-editor). You can find in this github repo mor eexamples and a [JSON-Editor Interactive Playground](https://pmk65.github.io/jedemov2/dist/demo.html)
+With the help of the schemas you can also generate online forms with the help of tools such as [JSON Editor](https://github.com/json-editor/json-editor). You can find in this github repo more examples and a [JSON-Editor Interactive Playground](https://pmk65.github.io/jedemov2/dist/demo.html)
