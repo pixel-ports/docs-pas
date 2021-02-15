@@ -167,7 +167,7 @@ The JSON format is as follows:
             {
                "name":"from",
                "type":"date-time",
-               "value": "last-hour",
+               "value": "",
                "description":". From timestamp. ISO8601 format. If a value is given in getInfo.json, it represents a default value",
                "pattern":null,
                "metadata":{},               
@@ -176,7 +176,7 @@ The JSON format is as follows:
             {
                "name":"to",
                "type":"date-time",
-               "value": "now",
+               "value": "",
                "description":". To timestamp. ISO8601 format. If a value is given in getInfo.json, it represents a default value",
                "pattern":null,
                "metadata":{},               
