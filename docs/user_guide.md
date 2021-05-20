@@ -383,7 +383,7 @@ You can trace the backend process that periodically reads the corresponding tabl
 
    Here, every time the model is executed, the OT engine previously interprets the parametrized date values (${}) and changes it with the corresponding operation. Currently the OT engine supports the following ones:
    
-|Format|Description(Unix format - millis)|Potential Use|
+|Format|Description(ISO format -)|Potential Use|
 |---|---|---|
 |${DATE_current}|Current date|Models started by triggers?|
 |${DATE_MINUTE_INIT}|Date of the first second of the current minute|test,RT data|
