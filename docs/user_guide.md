@@ -387,7 +387,7 @@ You can trace the backend process that periodically reads the corresponding tabl
 |---|---|---|
 |${DATE_current}|Current date|Models started by triggers?|
 |${DATE_MINUTE_INIT}|Date of the first second of the current minute|test,RT data|
-|${DATE_INUTE_LAST}|Date of the last second of the current minute|test,RT data|
+|${DATE_MINUTE_LAST}|Date of the last second of the current minute|test,RT data|
 |${DATE_HOUR_INIT}|Date of the first second of the current hour|traffic,weather|
 |${DATE_HOUR_LAST}|Date of the last second of the current minute|traffic,weather|
 |${DATE_DAY_INIT}|Date of the first second of the current day|PAS|
