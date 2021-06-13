@@ -789,8 +789,8 @@ The set of timing functions currently supported by the OT (v0.2 version) are:
 |${DATE_DAY_LAST}|Date of the last second of the current day|PAS|
 |${DATE_WEEK_INIT}|Date of the first second of the current week (starts in Sunday)|PEI|
 |${DATE_WEEK_LAST}|Date of the last second of the current week (ends in Saturday)|PEI|
-|${DATE_WEEK_AGO_INIT}|Date of the first second of the last week (starts in Sunday)|PEI|
-|${DATE_WEEK_AGO_LAST}|Date of the last second of the last week (ends in Saturday)|PEI|
+|${DATE_WEEK_AGO_INIT}|Date of the first second of the last week (starts in Sunday)|PEI,PAS|
+|${DATE_WEEK_AGO_LAST}|Date of the last second of the last week (ends in Saturday)|PEI,PAS|
 |${DATE_MONTH_INIT}|Date of the first second of the current month|PEI|
 |${DATE_MONTH_LAST}|Date of the last second of the current month|PEI|
 
