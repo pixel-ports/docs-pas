@@ -394,6 +394,8 @@ You can trace the backend process that periodically reads the corresponding tabl
 |${DATE_DAY_LAST}|Date of the last second of the current day|PAS|
 |${DATE_WEEK_INIT}|Date of the first second of the current week|PEI|
 |${DATE_WEEK_LAST}|Date of the last second of the current week|PEI|
+|${DATE_WEEK_AGO_INIT}|Date of the first second of the last week (starts in Sunday)|PEI|
+|${DATE_WEEK_AGO_LAST}|Date of the last second of the last week (ends in Saturday)|PEI|
 |${DATE_MONTH_INIT}|Date of the first second of the current month|PEI|
 |${DATE_MONTH_LAST}|Date of the last second of the current month|PEI|
 
