@@ -1,6 +1,6 @@
-site_name: Operational Tools
-site_description: 'PIXEL Operational Tools Documentation Hub'
-site_author: 'Benjamin Molina'
+site_name: PAS model
+site_description: 'PIXEL PAS model description and user guide'
+site_author: 'CATIE'
 
 # this allows visualizing content in github as anonympus user without having to log in
 edit_uri: blob/master/docs/
@@ -14,7 +14,7 @@ extra_css:
     - css/monokai_sublime_.css
     - css/pigments-monokai.css
 
-repo_url: https://github.com/pixel-ports/ot-docs-hub
+repo_url: https://github.com/ES-catie/docs-PAS-model
 
 nav:
     - Home: index.md
