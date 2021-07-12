@@ -17,7 +17,7 @@ extra_css:
 repo_url: https://github.com/ES-catie/docs-PAS-model
 
 nav:
-    - Home: index.md
+    - Home: index.rst
     - OT Framework: 'ot_framework.md'
     - User's Guide: 'user_guide.md'
     - Developer's Guide: 'devel_guide.md'
