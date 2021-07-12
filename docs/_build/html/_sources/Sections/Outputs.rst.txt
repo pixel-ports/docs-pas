@@ -1,13 +1,12 @@
-.. _features:
+.. _outputs:
 
-FEATURES ROADMAP
+OUTPUTS
 =====================================
 
-Active
+There is 2 categories for outputs. 
+
+Results
 -------------------------------------
 
-Under developpment
--------------------------------------
-
-Possible in future
+Logging
 -------------------------------------

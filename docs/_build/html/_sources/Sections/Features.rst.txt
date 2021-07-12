@@ -1,5 +1,13 @@
-# first title
-===================
+.. _features:
 
-some text
-hop hop hop
+FEATURES ROADMAP
+=====================================
+
+Active
+-------------------------------------
+
+Under developpment
+-------------------------------------
+
+Possible in future
+-------------------------------------

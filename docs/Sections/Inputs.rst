@@ -1,13 +1,13 @@
-.. _features:
+.. _inputs:
 
-FEATURES ROADMAP
+INPUTS
 =====================================
 
-Active
+Vessel-calls
 -------------------------------------
 
-Under developpment
+Port's parameters
 -------------------------------------
 
-Possible in future
+Settings
 -------------------------------------
