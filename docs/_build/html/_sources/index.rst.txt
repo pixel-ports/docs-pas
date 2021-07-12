@@ -3,19 +3,17 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to PAS model's documentation! test
-==========================================
+Welcome to Port's Activities Scenario model's documentation!
+==========================================================================
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: This documentation contains 4 sections:
 
-   ./doc_overview.rst
-
+   ./PAS documentation.md
 
 Indices and tables
-==================
+=======================================================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
