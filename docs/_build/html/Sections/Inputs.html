@@ -35,14 +35,122 @@
             
   <section id="inputs">
 <span id="id1"></span><h1>INPUTS<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
+<p>The PAS model use 3 non-direct inputs, passed to the model by the Operational Tool throught a json call model instance.</p>
+<section id="model-instance">
+<span id="pas-instance"></span><h2>Model Instance<a class="headerlink" href="#model-instance" title="Permalink to this headline">¶</a></h2>
+<p>To run the PAS model, informations have to be provided, mainly “where to find the inputs?” and “where to export the outputs?”.
+The detail of those inputs and outputs will be exposed thereafter. The present section focus on the Operational Tools interface that need to be fullfiled in order to execute the PAS model.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../_images/PAS_instance_overview.png"><img alt="../_images/PAS_instance_overview.png" src="../_images/PAS_instance_overview.png" style="width: 800px;" /></a>
+<figcaption>
+<p><span class="caption-text">The Operational Tools interface to execute the PAS model.</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the <strong>Input</strong> section, the user provides localisation of the inputs in the Information Hub. That is to say an index and a document id. Some default values are preset, but to use them, user have to actualy store the input in this location.</p>
+<p>In the <strong>Output</strong> section, the user provide localisation where the PAS model will export its results in the Information Hub. That is to say an index and a document id. Note that if a document with the same document id is already present in the index, it will be overwrite.</p>
+<p>The <strong>Logging</strong> section is similar to the Output one, but dedicated to information about the PAS model run. Those outputs are more contextual informations than actual results.</p>
+<p>The <strong>Forceinput</strong> allows to directly provide values for inputs, without using documents in Information Hub. Note that the provided values should mimic the json format of the corresponding documents.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For vessel-calls, documents in Information Hub have a specific structure, with actual data inside the field “data”. Then when using forceinut for vessel-call data, this structure have to be respected, as illustred here.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<dl>
+<dt>{</dt><dd><dl>
+<dt>“forceinput”: [</dt><dd><dl>
+<dt>{</dt><dd><p>“name”: “vessel_call”,
+“value”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><dl>
+<dt>“data”: {</dt><dd><p>“name”: “a first vessel-call example”,
+“departure_dock”: 0000,
+“loading_cargo_type”: “xxxx”,
+“scheduled_departure_dock”: 0000,
+“IMO”: “xxxx”,
+“loading_berth”: “xxxx”,
+“source”: “<a class="reference external" href="urn:pixel:DataSource">urn:pixel:DataSource</a>:<a href="#id2"><span class="problematic" id="id3">**</span></a><strong>:VesselCall”,
+“loading_cargo_fiscal_type”: “xxxx”,
+“journeyid”: **</strong>,
+“loading_dangerous”: false,
+“unloading_tonnage”: 0000,
+“arrival_dock”: 0000,
+“unloading_cargo_fiscal_type”: “xxxx”,
+“loading_tonnage”: 0000,
+“unloading_cargo_type”: “”,
+“unloading_agent”: “xxxx”,
+“unloading_berth”: “xxxx”,
+“unloading_dangerous”: false,
+“location”: {</p>
+<blockquote>
+<div><p>“lat”: 0000,
+“lon”: 0000</p>
+</div></blockquote>
+<p>},
+“dataProvider”: “<a class="reference external" href="http://">http://</a><a href="#id4"><span class="problematic" id="id5">**</span></a><a href="#id6"><span class="problematic" id="id7">**</span></a>/vcall”,
+“loading_agent”: “xxxx”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><dl>
+<dt>“data”: {</dt><dd><p>“name”: “a second vessel-call example”,
+“departure_dock”: 0000,
+“loading_cargo_type”: “xxxx”,
+“scheduled_departure_dock”: 0000,
+“IMO”: “xxxx”,
+“loading_berth”: “xxxx”,
+“source”: “<a class="reference external" href="urn:pixel:DataSource">urn:pixel:DataSource</a>:<a href="#id8"><span class="problematic" id="id9">**</span></a><strong>:VesselCall”,
+“loading_cargo_fiscal_type”: “xxxx”,
+“journeyid”: **</strong>,
+“loading_dangerous”: false,
+“unloading_tonnage”: 0000,
+“arrival_dock”: 0000,
+“unloading_cargo_fiscal_type”: “xxxx”,
+“loading_tonnage”: 0000,
+“unloading_cargo_type”: “”,
+“unloading_agent”: “xxxx”,
+“unloading_berth”: “xxxx”,
+“unloading_dangerous”: false,
+“location”: {</p>
+<blockquote>
+<div><p>“lat”: 0000,
+“lon”: 0000</p>
+</div></blockquote>
+<p>},
+“dataProvider”: “<a class="reference external" href="http://">http://</a><a href="#id10"><span class="problematic" id="id11">**</span></a><a href="#id12"><span class="problematic" id="id13">**</span></a>/vcall”,
+“loading_agent”: “xxxx”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>]</p>
+</dd>
+</dl>
+<p>}</p>
+</div>
+</section>
 <section id="vessel-calls">
-<span id="id2"></span><h2>Vessel-calls<a class="headerlink" href="#vessel-calls" title="Permalink to this headline">¶</a></h2>
+<span id="id14"></span><h2>Vessel-calls<a class="headerlink" href="#vessel-calls" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="port-s-parameters">
 <span id="port-parameters"></span><h2>Port’s parameters<a class="headerlink" href="#port-s-parameters" title="Permalink to this headline">¶</a></h2>
 </section>
 <section id="settings">
-<span id="id3"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
+<span id="id15"></span><h2>Settings<a class="headerlink" href="#settings" title="Permalink to this headline">¶</a></h2>
 </section>
 </section>
 
@@ -69,6 +177,7 @@
 <li class="toctree-l1"><a class="reference internal" href="Features.html">FEATURES ROADMAP</a></li>
 <li class="toctree-l1"><a class="reference internal" href="FAQ.html">FAQ</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">INPUTS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#model-instance">Model Instance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#vessel-calls">Vessel-calls</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#port-s-parameters">Port’s parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a></li>
