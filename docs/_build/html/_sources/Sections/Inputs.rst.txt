@@ -13,6 +13,7 @@ The detail of those inputs and outputs will be exposed thereafter. The present s
 
 .. figure:: ../img/OT_call_overview.png
   :width: 800
+  :alt: title
   
   The Operational Tools interface to execute the PAS model.
 
@@ -197,14 +198,16 @@ From PAS model point of view, required items are Machines, Areas, Supply-chains 
 The whole set is stored as an unique document in the Information Hub. The localisation of the document (index & doc_id), or a forced value, is required to run the PAS model.
 An interface is proposed to edit the port's parameters ("PAS information" in the navigation panel, see figure <<). This interface exports the created document in an index designed by user (usualy *pas_inputs_port_parameter*), with a random doc_id. This doc_id must be specified to run the model.
 
-.. figure:: ../img/Inputs_PP_GUI_-_access.png
+.. figure:: ../img/inputs_pp_gui_-_access.png
     :width: 800
+    :alt: title
 
     The graphical interface to edit port's parameters.
 
 
-.. figure:: ../img/Inputs_PP_GUI_-_export.png
+.. figure:: ./img/Inputs_PP_GUI_-_export.png
     :width: 800
+    :alt: title
 
     The graphical interface allows to export port's parameters into IH.
 
