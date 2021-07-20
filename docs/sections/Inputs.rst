@@ -11,7 +11,7 @@ Model Instance
 To run the PAS model, informations have to be provided, mainly "where to find the inputs?" and "where to export the outputs?". Throught a json named model instance, the Operational Tool pass to the PAS model those informations to retrives inputs et export outputs <<Add OT doc link.
 The detail of those inputs and outputs will be exposed thereafter. The present section focus on the Operational Tools interface that need to be fullfiled in order to execute the PAS model.
 
-.. figure:: ../img/OT_call_overview.png
+.. figure:: ../img/inputs/ot_call_overview.png
   :width: 800
   
   
@@ -198,7 +198,7 @@ From PAS model point of view, required items are Machines, Areas, Supply-chains 
 The whole set is stored as an unique document in the Information Hub. The localisation of the document (index & doc_id), or a forced value, is required to run the PAS model.
 An interface is proposed to edit the port's parameters ("PAS information" in the navigation panel, see figure <<). This interface exports the created document in an index designed by user (usualy *pas_inputs_port_parameter*), with a random doc_id. This doc_id must be specified to run the model.
 
-.. figure:: ../img/inputs_pp_gui_-_access.png
+.. figure:: ../img/
     :width: 800
     :alt: title
 
