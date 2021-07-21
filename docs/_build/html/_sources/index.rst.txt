@@ -12,10 +12,7 @@ Welcome to Port's Activities Scenario model's documentation!
 
    sections/overview/Overview
    sections/inputs/Inputs
-   .. Sections/Inputs.rst
-   .. Sections/Outputs.rst
-   .. Sections/Troubleshooting.rst
-
+   
 Indices and tables
 ==================
 
