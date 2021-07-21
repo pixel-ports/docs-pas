@@ -16,7 +16,7 @@ Firstly, the model build the Port's Activities Scenario (PAS). This mean to eluc
 Secondly, from the PAS can be calculate outcomes, likes **energy consumption**, **pollutant emission**, or **area occupancy**. From these primary metrics, secondary metrics could be derived, such as utilization rate, energy efficiency, or the existence of bottlenecks.
 
 ## Why: PAS uses
-Considering a list of vessel-calls to handle, a set of port's parameters and several options ([see Inputs section](../inputs/inputs.md)), the model aims to establish the required activities in port (among other [see Outputs section](../ouputs/outputs.md)).
+Considering a list of vessel-calls to handle, a set of port's parameters and several options ([see Inputs section](../inputs/inputs.md)), the model aims to establish the required activities in port (among other [see Outputs section](../outputs/outputs.md)).
 Depending on the type of data provided as input, four use can be proposed, as show in table X
 
 | Input data                                                   | Use case   |
@@ -27,7 +27,7 @@ Depending on the type of data provided as input, four use can be proposed, as sh
 | « What if » scenario (e.g. change a machine, traffic evolution) | Explore    |
 
 ## How: run the PAS model
-The model can be use by itself, considering it receive a proper model_instance ([see section OT call to the PAS model](./inputs/inputs.md#OT-call-to-the-PAS-model)). But is mean to be deployed in PIXEL platform thought a Docker image.
+The model can be use by itself, considering it receive a proper model_instance ([see section OT call to the PAS model](../inputs/inputs.md#OT-call-to-the-PAS-model)). But is mean to be deployed in PIXEL platform thought a Docker image.
 
 From python (requirements available in `./pipfile`):
 `PAS_model.py --from_file "path/to/pas_instance.json"`

@@ -18,7 +18,7 @@ The **Forceinput** allows to directly provide values for inputs, without having 
 
 ------
 
-Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose ([see section Uses](./overview/overview.md#Uses)), or even distinct version of the PAS model.
+Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose ([see section Uses](../overview/overview.md#Uses)), or even distinct version of the PAS model.
 
 ------
 
