@@ -2,7 +2,6 @@
 # Inputs
 
 ## Vessel-calls
-
 Vessel calls are information about vessels calling at the port to load or unload cargo. A vessel-call can contains distinct cargo unloading and loading. Each will be decompose by the PAS model as "handling". As an example, if a vessel-call point to unload X tons of cargo A and load Y tons of cargo B, it will be converted to 2 handlings. The first handling correspond to unload X tons of cargo A, the second handling correspond to load Y tons of cargo B, both can have distinct vessel docking area.
 
 ### Overview
@@ -36,11 +35,9 @@ The current format of the vessel call data is inherited from the first port that
 ------
 
 ### IH and GUI
-
 Each vessel-calls are stored as distinct documents in Information Hub. To run the PAS model, the index containing vessel-calls have to be provided (usually "arh-lts-vesselcall"). 
 
 #### Filtering on date
-
 All VCs in this index will be use, except if dates are provided for filtering purpose. Then the VCs would be filtered to restrict to the one present inside the port after a starting date and/or before an end date. The date format is ISO 8601. The OT provides a GUI for this purpose, as show in figure X
 
 | ![](./vc_filtering_on_date.png)|
@@ -48,37 +45,28 @@ All VCs in this index will be use, except if dates are provided for filtering pu
 | The OT GUI for VCs filtering on date (with optional automatic date identification) |
 
 #### Passing VCs in forceinput 
-
 When using forceinput for vessel-call data, the fallowing structure have to be respected:
 
 ```json
-{
-     "forceinput": [
-         {
-             "name": "vessel_call",
-             "value": [
-                 {
-                     "data": {
-                        ...(first vessel-call)...
-                     }
-                 },
-                 {
-                     "data": {
-                         ...(second vessel-call)...
-                     }
-                 }
-             ]
-         }
-    ]
-}
+"forceinput": [
+    {
+        "name": "vessel_call",
+        "value": [
+            {
+                "data": {...}
+            },
+            {
+                "data": {...}
+            }
+        ]
+    }
+]
 ```
 
 ## Port's parameters
-
 The port's parameters describes resources (machines, areas, content-types, energies, pollutants), process (supply-chains, timetables) and their assignation to vessel-calls. 
 
 ### Overview
-
 An extensive description can be found in [the corresponding json-schema](https://gitpixel.satrdlab.upv.es/Erwan/pas_modelling/src/master/SAMPLES/inputs/UPP_schema.json) (with details for each field, such as textual description, allowed type and example values). 
 
 ------
@@ -100,7 +88,6 @@ The port's parameter
 | Content type | Yes | Characterizes content of vessel-call (cargoes, passengers, containers) handled in the port. For each, a set of rules to associate it with the proper supply-chain. The assignation rules can also involve direction, docking area or amount of cargo | General description and list suitable supply-chains (with corresponding sub-rules) |
 
 ### IH and GUI
-
 The whole set is stored as an unique document in the Information Hub. The localization of the document (index & doc_id), or a forced value, is required to run the PAS model. An interface is proposed to edit the port's parameters ("PAS information" in the navigation panel, see figure X). 
 
 | ![](./pp_gui_access.png) |
@@ -116,15 +103,12 @@ This interface exports the created document in an index designed by user (defaul
 ## Settings
 
 ### Overview
-
 PAS model have options that can be turn on or off (e.g. delay handling if overload a specific type of resource) or customized (e.g. time resolution for scheduling or outcomes calculation). This is set through the settings document. Each module have its entry on this document. The most remarkable are listed below. 
 
 #### Pipeline
-
 This global setting list the sequence of modules that will be run. Turning off some module can speed up the running time, and lower required inputs. Such deep control on PAS model behavior require good understanding of the PAS model internal functioning.
 
 #### Handling converter
-
 ```json
 "handling_converter": {
     "TS_format": "epoch_miliseconde",
@@ -150,7 +134,6 @@ This global setting list the sequence of modules that will be run. Turning off s
 **filters** The tolerance level of the filter of the handlings designated as "aberrant" can be modulated through the content of the field `filter` . The 6 filters can independently be turned on (more coercive) or off (less coercive).
 
 #### Handling assignment
-
 ```json
 "handling_assignment": {
         "default_SC": false,
@@ -171,7 +154,6 @@ This global setting list the sequence of modules that will be run. Turning off s
 **restrictions** To manage handling assignment to the correct supply-chain, the main parameters is the content-type involved (e.g. corn, cars, chopped wood). But this is refined with sub-rules. Here those sub-rules can be globally dis-activated.
 
 #### Handling delayer
-
 ```json
 "handling_delayer": {
     "time_resolution": 15,

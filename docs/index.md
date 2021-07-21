@@ -1,3 +1,3 @@
 # Port Activities Scenario - Documentation
 
-Main user documentation about the PAS model
+Welcome to the Port Activities Scenario (PAS) model's documentation for users.
