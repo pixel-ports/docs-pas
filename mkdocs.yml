@@ -1,5 +1,5 @@
 site_name: PAS documentation
-site_url: https://docs-pas-model.readthedocs.io/en/latest/
+site_url: https://pixel-pas.readthedocs.io/en/latest/
 
 nav:
     - Home: index.md

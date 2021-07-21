@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://docs-pas-model.readthedocs.io/en/latest/inputs/inputs/">
+  <link rel="canonical" href="https://pixel-pas.readthedocs.io/en/latest/inputs/inputs/">
   <link rel="shortcut icon" href="../../img/favicon.ico">
   <title>Inputs - PAS documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
@@ -56,49 +56,13 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Inputs</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#ot-call-to-the-pas-model">OT call to the PAS model</a>
+    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#vessel-calls">Vessel-calls</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ih-and-gui">IH and GUI</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#ih-and-gui">IH and GUI</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#filtering-on-date">Filtering on date</a>
+    <li class="toctree-l2"><a class="reference internal" href="#filtering-on-date">Filtering on date</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#passing-vcs-in-forceinput">Passing VCs in forceinput</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ports-parameters">Port's parameters</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#overview_1">Overview</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#ih-and-gui_1">IH and GUI</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#overview_2">Overview</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#pipeline">Pipeline</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#handling-converter">Handling converter</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#handling-assignment">Handling assignment</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#handling-delayer">Handling delayer</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#machine-auto-emission-factor">Machine auto emission factor</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#ih-and-gui_2">IH and GUI</a>
-    </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#passing-vcs-in-forceinput">Passing VCs in forceinput</a>
     </li>
     </ul>
                     </li>
@@ -146,32 +110,9 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="inputs">Inputs</h1>
-<h2 id="ot-call-to-the-pas-model">OT call to the PAS model</h2>
-<p>The present section focus on the Operational Tools interface that need to be fulfilled in order to execute the PAS model.
-To run the PAS model, informations have to be provided, mainly "where to find the inputs?" and "where to export the outputs?". Through a json named model instance, the Operational Tool pass to the PAS model informations to retrieve inputs et export outputs (<a href="https://docs-hub-ot.readthedocs.io/en/latest/ot_framework/">see OT documentation</a>).</p>
-<table>
-<thead>
-<tr>
-<th align="center"><img alt="" src="../ot_call_overview.png" /></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="center">The OT interface to execute the PAS</td>
-</tr>
-</tbody>
-</table>
-<p>In the <strong>Input</strong> section, the user provides localization of the inputs in the Information Hub. That is to say an index and a document id. Default values are preset, but to use them, user have to actually store the input in those locations.</p>
-<p>In the <strong>Output</strong> section, the user provide localization where the PAS model will export its results in the Information Hub. That is to say an index and a document id. Note that if a document with the same document id is already present in the index, it will be overwrite.</p>
-<p>The <strong>Logging</strong> section is similar to the Output one, but dedicated to information about the PAS model run. Those outputs are more contextual informations than actual results.</p>
-<p>The <strong>Forceinput</strong> allows to directly provide values for inputs, without having the corresponding documents in Information Hub. The provided values should mimic the json format of the corresponding documents (for a set of document, use an list of object like <code>"value":[{doc 1 content}, {doc 2 content}]</code>.</p>
-<hr />
-<p>Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose (<a href="../../overview/overview/#Uses">see section Uses</a>), or even distinct version of the PAS model.</p>
-<hr />
-<h2 id="vessel-calls">Vessel-calls</h2>
+                <h1 id="vessel-calls">Vessel-calls</h1>
 <p>Vessel calls are information about vessels calling at the port to load or unload cargo. A vessel-call can contains distinct cargo unloading and loading. Each will be decompose by the PAS model as "handling". As an example, if a vessel-call point to unload X tons of cargo A and load Y tons of cargo B, it will be converted to 2 handlings. The first handling correspond to unload X tons of cargo A, the second handling correspond to load Y tons of cargo B, both can have distinct vessel docking area.</p>
-<h3 id="overview">Overview</h3>
+<h2 id="overview">Overview</h2>
 <p>Inside a <code>"data"</code> field, a vessel-call document contains the fallowing fields:</p>
 <table>
 <thead>
@@ -252,9 +193,9 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 <hr />
 <p>The current format of the vessel call data is inherited from the first port that provided data. This format is peculiar in that it mixes various information in an arbitrary manner. To make the PAS model work on raw data in a different format, a port can incorporate into the PAS model a vessel-call conversion module (from its own raw format to the format expected by the PA model).</p>
 <hr />
-<h3 id="ih-and-gui">IH and GUI</h3>
+<h2 id="ih-and-gui">IH and GUI</h2>
 <p>Each vessel-calls are stored as distinct documents in Information Hub. To run the PAS model, the index containing vessel-calls have to be provided (usually "arh-lts-vesselcall"). </p>
-<h4 id="filtering-on-date">Filtering on date</h4>
+<h2 id="filtering-on-date">Filtering on date</h2>
 <p>All VCs in this index will be use, except if dates are provided for filtering purpose. Then the VCs would be filtered to restrict to the one present inside the port after a starting date and/or before an end date. The date format is ISO 8601. The OT provides a GUI for this purpose, as show in figure X</p>
 <table>
 <thead>
@@ -268,7 +209,7 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 </tr>
 </tbody>
 </table>
-<h4 id="passing-vcs-in-forceinput">Passing VCs in forceinput</h4>
+<h2 id="passing-vcs-in-forceinput">Passing VCs in forceinput</h2>
 <p>When using forceinput for vessel-call data, the fallowing structure have to be respected:</p>
 <pre><code class="language-json">{
      &quot;forceinput&quot;: [
@@ -290,9 +231,9 @@ To run the PAS model, informations have to be provided, mainly "where to find th
     ]
 }
 </code></pre>
-<h2 id="ports-parameters">Port's parameters</h2>
+<h1 id="ports-parameters">Port's parameters</h1>
 <p>The port's parameters describes resources (machines, areas, content-types, energies, pollutants), process (supply-chains, timetables) and their assignation to vessel-calls. </p>
-<h3 id="overview_1">Overview</h3>
+<h2 id="overview_1">Overview</h2>
 <p>An extensive description can be found in <a href="https://gitpixel.satrdlab.upv.es/Erwan/pas_modelling/src/master/SAMPLES/inputs/UPP_schema.json">the corresponding json-schema</a> (with details for each field, such as textual description, allowed type and example values). </p>
 <hr />
 <p>From PAS model point of view, required items are Machines, Areas, Supply-chains and Content-types. Optional items are Time-table, Pollutants and Energies. However, in the graphical interface from the dashboard, to create some required items, optional items may have to be created previously. Thus when created from the graphical interface, all items can be considered as required (even with empty values).</p>
@@ -352,7 +293,7 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 </tr>
 </tbody>
 </table>
-<h3 id="ih-and-gui_1">IH and GUI</h3>
+<h2 id="ih-and-gui_1">IH and GUI</h2>
 <p>The whole set is stored as an unique document in the Information Hub. The localization of the document (index &amp; doc_id), or a forced value, is required to run the PAS model. An interface is proposed to edit the port's parameters ("PAS information" in the navigation panel, see figure X). </p>
 <table>
 <thead>
@@ -379,12 +320,12 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 </tr>
 </tbody>
 </table>
-<h2 id="settings">Settings</h2>
-<h3 id="overview_2">Overview</h3>
+<h1 id="settings">Settings</h1>
+<h2 id="overview_2">Overview</h2>
 <p>PAS model have options that can be turn on or off (e.g. delay handling if overload a specific type of resource) or customized (e.g. time resolution for scheduling or outcomes calculation). This is set through the settings document. Each module have its entry on this document. The most remarkable are listed below. </p>
-<h4 id="pipeline">Pipeline</h4>
+<h2 id="pipeline">Pipeline</h2>
 <p>This global setting list the sequence of modules that will be run. Turning off some module can speed up the running time, and lower required inputs. Such deep control on PAS model behavior require good understanding of the PAS model internal functioning.</p>
-<h4 id="handling-converter">Handling converter</h4>
+<h2 id="handling-converter">Handling converter</h2>
 <pre><code class="language-json">&quot;handling_converter&quot;: {
     &quot;TS_format&quot;: &quot;epoch_miliseconde&quot;,
     &quot;filters&quot;: {
@@ -421,7 +362,7 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 </tbody>
 </table>
 <p><strong>filters</strong> The tolerance level of the filter of the handlings designated as "aberrant" can be modulated through the content of the field <code>filter</code> . The 6 filters can independently be turned on (more coercive) or off (less coercive).</p>
-<h4 id="handling-assignment">Handling assignment</h4>
+<h2 id="handling-assignment">Handling assignment</h2>
 <pre><code class="language-json">&quot;handling_assignment&quot;: {
         &quot;default_SC&quot;: false,
         &quot;discart_unassigned&quot;: true,
@@ -436,7 +377,7 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 <p><strong>default_SC</strong> If true, for handling with no supply-chain explicitly suitable, try to force assign a default one (if available). </p>
 <p><strong>discart_unassigned</strong> If false, handlings without supply-chain explicitly suitable are discarded.</p>
 <p><strong>restrictions</strong> To manage handling assignment to the correct supply-chain, the main parameters is the content-type involved (e.g. corn, cars, chopped wood). But this is refined with sub-rules. Here those sub-rules can be globally dis-activated.</p>
-<h4 id="handling-delayer">Handling delayer</h4>
+<h2 id="handling-delayer">Handling delayer</h2>
 <pre><code class="language-json">&quot;handling_delayer&quot;: {
     &quot;time_resolution&quot;: 15,
     &quot;constraints_activation&quot;: {
@@ -447,9 +388,9 @@ To run the PAS model, informations have to be provided, mainly "where to find th
 </code></pre>
 <p><strong>time_resolution</strong> The time duration in minutes that is used to discretize the time dimension during scheduling process</p>
 <p><strong>constraints_activation</strong> When an activity to process an handling requires more resources than available at that time, the activity is identified with the status "overloading". Handling with activity overloading can be re-scheduled to avoid any overloading. Currently, two constraint are available. If <code>areas capacity</code> is turned on, the global schedule (all handlings) will avoid having more operators in an area than its capacity. If <code>machines avilability</code> is turned on, the global schedule (all handlings) will avoid having more instance of any machines than available.</p>
-<h4 id="machine-auto-emission-factor">Machine auto emission factor</h4>
+<h2 id="machine-auto-emission-factor">Machine auto emission factor</h2>
 <p>This settings contains references for pollutants emissions calculation, then PEI calculation. It allows to assignee emission factors to machines.</p>
-<h3 id="ih-and-gui_2">IH and GUI</h3>
+<h2 id="ih-and-gui_2">IH and GUI</h2>
 <p>There is no GUI available to edit settings, that have to be edited manually and pushed in IH. For settings, the default index is <code>pas_inputs_settings</code> and the default doc_id <code>default_settings</code>. For user convenience, typical set of settings are provided <a href="https://gitpixel.satrdlab.upv.es/Erwan/pas_modelling/src/master/SAMPLES/inputs/settings">here</a>.</p>
               
             </div>

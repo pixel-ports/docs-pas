@@ -1,4 +1,4 @@
-# PAS overview
+# Overview
 
 ## What : PAS concept
 This model of the PIXEL platform aims to allows user to convert raw data into actionable information.
@@ -27,6 +27,8 @@ Depending on the type of data provided as input, four use can be proposed, as sh
 | « What if » scenario (e.g. change a machine, traffic evolution) | Explore    |
 
 ## How: run the PAS model
+
+### Localy
 The model can be use by itself, considering it receive a proper model_instance ([see section OT call to the PAS model](../inputs/inputs.md#OT-call-to-the-PAS-model)). But is mean to be deployed in PIXEL platform thought a Docker image.
 
 From python (requirements available in `./pipfile`):
@@ -36,6 +38,27 @@ From docker:
 `docker build -t pas_model -f ./DOCKERISE/Dockerfile .`
 `docker run pas_model python3 PAS_model.py {mode_instance}`
 
+### On pixel platform
+The present section focus on the Operational Tools interface that need to be fulfilled in order to execute the PAS model.
+Through a json named model instance, the Operational Tool pass to the PAS model informations to retrieve its inputs and export its outputs ([see OT documentation](https://docs-hub-ot.readthedocs.io/en/latest/ot_framework/)).
+
+|![](./ot_call_overview.png)|
+|:--:|
+|The OT interface to execute the PAS|
+
+In the **Input** section, the user provides localization of the inputs in the Information Hub. That is to say an index and a document id. Default values are preset, but to use them, user have to actually store the input in those locations.
+
+In the **Output** section, the user provide localization where the PAS model will export its results in the Information Hub. That is to say an index and a document id. Note that if a document with the same document id is already present in the index, it will be overwrite.
+
+The **Logging** section is similar to the Output one, but dedicated to information about the PAS model run. Those outputs are more contextual informations than actual results.
+
+The **Forceinput** allows to directly provide values for inputs, without having the corresponding documents in Information Hub. The provided values should mimic the json format of the corresponding documents (for a set of document, use an list of object like `"value":[{doc 1 content}, {doc 2 content}]`.
+
+------
+
+Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose ([see section Uses](../overview/overview.md#Uses)), or even distinct version of the PAS model.
+
+------
 <!-- ## Features -->
 
 <!-- **Functional**

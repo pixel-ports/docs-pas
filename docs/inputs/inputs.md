@@ -1,26 +1,5 @@
+
 # Inputs
-
-## OT call to the PAS model
-The present section focus on the Operational Tools interface that need to be fulfilled in order to execute the PAS model.
-To run the PAS model, informations have to be provided, mainly "where to find the inputs?" and "where to export the outputs?". Through a json named model instance, the Operational Tool pass to the PAS model informations to retrieve inputs et export outputs ([see OT documentation](https://docs-hub-ot.readthedocs.io/en/latest/ot_framework/)).
-
-|![](./ot_call_overview.png)|
-|:--:|
-|The OT interface to execute the PAS|
-
-In the **Input** section, the user provides localization of the inputs in the Information Hub. That is to say an index and a document id. Default values are preset, but to use them, user have to actually store the input in those locations.
-
-In the **Output** section, the user provide localization where the PAS model will export its results in the Information Hub. That is to say an index and a document id. Note that if a document with the same document id is already present in the index, it will be overwrite.
-
-The **Logging** section is similar to the Output one, but dedicated to information about the PAS model run. Those outputs are more contextual informations than actual results.
-
-The **Forceinput** allows to directly provide values for inputs, without having the corresponding documents in Information Hub. The provided values should mimic the json format of the corresponding documents (for a set of document, use an list of object like `"value":[{doc 1 content}, {doc 2 content}]`.
-
-------
-
-Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose ([see section Uses](../overview/overview.md#Uses)), or even distinct version of the PAS model.
-
-------
 
 ## Vessel-calls
 
@@ -203,16 +182,12 @@ This global setting list the sequence of modules that will be run. Turning off s
 }
 ```
 
-
-
 **time_resolution** The time duration in minutes that is used to discretize the time dimension during scheduling process
 
 **constraints_activation** When an activity to process an handling requires more resources than available at that time, the activity is identified with the status "overloading". Handling with activity overloading can be re-scheduled to avoid any overloading. Currently, two constraint are available. If `areas capacity` is turned on, the global schedule (all handlings) will avoid having more operators in an area than its capacity. If `machines avilability` is turned on, the global schedule (all handlings) will avoid having more instance of any machines than available.
 
 #### Machine auto emission factor
-
 This settings contains references for pollutants emissions calculation, then PEI calculation. It allows to assignee emission factors to machines.
 
 ### IH and GUI
-
 There is no GUI available to edit settings, that have to be edited manually and pushed in IH. For settings, the default index is `pas_inputs_settings` and the default doc_id `default_settings`. For user convenience, typical set of settings are provided [here](https://gitpixel.satrdlab.upv.es/Erwan/pas_modelling/src/master/SAMPLES/inputs/settings).
