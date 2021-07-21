@@ -1,17 +1,16 @@
 site_name: PAS documentation
-site_url: https://example.com/
+site_url: https://docs-pas-model.readthedocs.io/en/latest/
 
 nav:
     - Home: index.md
     - Reference material: 
-        - "Overview": overview.md
-        - "Features": features.md
-        - "Inputs": inputs.md
-        - "Outputs": outputs.md
-    - User guidance:
-        - "FAQ": faq.md
-        - "Best practice & Recommandation": best_pract.md
-        - "Troubleshooting": trouble.md #Ajouter l'arbre diagnostic ou le tableau 
+        - "Overview":   ./overview/overview.md
+        - "Inputs":     ./inputs/inputs.md
+        - "Outputs":    ./outputs/outputs.md
+    # - User guidance:
+        # - "FAQ": faq.md
+        # - "Best practice & Recommandations": best_pract.md
+        # - "Troubleshooting": trouble.md #Ajouter l'arbre diagnostic ou le tableau 
     - About: about.md # The PIXEL project
 
 

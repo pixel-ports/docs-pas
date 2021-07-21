@@ -1,35 +1,39 @@
-# PAS model overview
+# PAS overview
 
-## What is it
-This model of the PIXEL platform aims to allows user to convert raw data into actionnable information.
+## What : PAS concept
+This model of the PIXEL platform aims to allows user to convert raw data into actionable information.
 
 | ![](pas_core_principes.png )
 |:--:|
-| Illustration of the PAS model core principes
+| Illustration of the basic operating principle of the PAS
 
-Firstly, the model build the Port's Activities Scenario (PAS). This mean to elucidate the required activities in port to handle cargo between vessels and yard.For each of the activities, the scenario precise **what** are the resouces used, **when** does it occur they occur and **where** in the port.
+Firstly, the model build the Port's Activities Scenario (PAS). This mean to elucidate the required activities in port to handle cargoes in port (e.g. unload from vessel to warehouse storage). For each of the activities, the scenario precise **what** are the goods, **when** does it occurs and **how** (resources and process used).
 
 | ![](pas_scope.png )
 |:--:|
-| The PAS model aims to figures and schedule required activities in port to handle vessel-calls
+| The purpose of the PAS is to identify and schedule the activities required in the port to process cargoes
 
-Secondly, from the PAS can be calcul outcomes, likes **energy consumption**, **pollutant emission**, or **area occupancy**. From these primary metrics, secondary metrics could be derived, such as utilization rate, energy efficiency, or the existence of bottlenecks.
+Secondly, from the PAS can be calculate outcomes, likes **energy consumption**, **pollutant emission**, or **area occupancy**. From these primary metrics, secondary metrics could be derived, such as utilization rate, energy efficiency, or the existence of bottlenecks.
 
-## How to use it
-Considering a list of vessel-calls to handle, a set of port's parameters and several options (:ref:`inputs`), the model aims to establish the required activities in port (among other :ref:`outputs`).
-Depending on the type of data provided as input, four use can be identified, as show in table :ref:`table_toto`
+## Why: PAS uses
+Considering a list of vessel-calls to handle, a set of port's parameters and several options ([see Inputs section](../inputs/inputs.md)), the model aims to establish the required activities in port (among other [see Outputs section](../ouputs/outputs.md)).
+Depending on the type of data provided as input, four use can be proposed, as show in table X
 
-.. list-table:: The PAS model uses
-  :widths: 50 50
-  :header-rows: 1
+| Input data                                                   | Use case   |
+| ------------------------------------------------------------ | ---------- |
+| Live stream (e.g. IoT)                                       | Monitoring |
+| Consolidated historical (e.g. invoices & registers)          | Assessment |
+| Estimated future (e.g. predictive algorithms)                | Forecast   |
+| « What if » scenario (e.g. change a machine, traffic evolution) | Explore    |
 
-  * - Input data 
-    - Use case
-  * - Live stream
-    - Monitoring
-  * - Consolidated historical
-    - Assessment
-  * - Estimated future	
-    - Forecast
-  * - « What if » scenario	
-    - Explore
+## How: run the PAS model
+The model can be use by itself, considering it receive a proper model_instance ([see section OT call to the PAS model](./inputs/inputs.md#OT-call-to-the-PAS-model)). But is mean to be deployed in PIXEL platform thought a Docker image.
+
+From python (requirements available in `./pipfile`):
+`PAS_model.py --from_file "path/to/pas_instance.json"`
+
+From docker:
+`docker build -t pas_model -f ./DOCKERISE/Dockerfile .`
+`docker run pas_model python3 PAS_model.py {mode_instance}`
+
+<!-- ## Features -->
