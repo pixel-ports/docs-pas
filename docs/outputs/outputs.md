@@ -1,3 +1,4 @@
+
 # Outputs
 The PAS model produces several outputs, which can be classified into two groups, the intended results and the context information.
 
@@ -32,7 +33,6 @@ All output have a json structure, with key information in `info` and actual data
 }
 
 ```
-
 
 ## Results
 
