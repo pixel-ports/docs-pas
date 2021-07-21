@@ -54,6 +54,18 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#concept-of-the-pas-model">Concept of the PAS model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uses-of-the-pas-model">Uses of the PAS model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-the-pas-model">Run the PAS model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#localy">Localy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#on-pixel-platform">On pixel platform</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                     <li class="toctree-l1"><a class="reference internal" href="../../inputs/inputs/">Inputs</a>
@@ -102,7 +114,8 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="what-pas-concept">What : PAS concept</h1>
+                <h1 id="overview">Overview</h1>
+<h2 id="concept-of-the-pas-model">Concept of the PAS model</h2>
 <p>This model of the PIXEL platform aims to allows user to convert raw data into actionable information.</p>
 <table>
 <thead>
@@ -130,7 +143,7 @@
 </tbody>
 </table>
 <p>Secondly, from the PAS can be calculate outcomes, likes <strong>energy consumption</strong>, <strong>pollutant emission</strong>, or <strong>area occupancy</strong>. From these primary metrics, secondary metrics could be derived, such as utilization rate, energy efficiency, or the existence of bottlenecks.</p>
-<h1 id="why-pas-uses">Why: PAS uses</h1>
+<h2 id="uses-of-the-pas-model">Uses of the PAS model</h2>
 <p>Considering a list of vessel-calls to handle, a set of port's parameters and several options (<a href="../../inputs/inputs/">see Inputs section</a>), the model aims to establish the required activities in port (among other <a href="../../outputs/outputs/">see Outputs section</a>).
 Depending on the type of data provided as input, four use can be proposed, as show in table X</p>
 <table>
@@ -159,15 +172,15 @@ Depending on the type of data provided as input, four use can be proposed, as sh
 </tr>
 </tbody>
 </table>
-<h1 id="how-run-the-pas-model">How: run the PAS model</h1>
-<h2 id="localy">Localy</h2>
-<p>The model can be use by itself, considering it receive a proper model_instance (<a href="../../inputs/inputs/#OT-call-to-the-PAS-model">see section OT call to the PAS model</a>). But is mean to be deployed in PIXEL platform thought a Docker image.</p>
+<h2 id="run-the-pas-model">Run the PAS model</h2>
+<h3 id="localy">Localy</h3>
+<p>The model can be run localy, considering it receives a proper model instance (<a href="../../inputs/inputs/#OT-call-to-the-PAS-model">see section OT call to the PAS model</a>).</p>
 <p>From python (requirements available in <code>./pipfile</code>):
 <code>PAS_model.py --from_file "path/to/pas_instance.json"</code></p>
 <p>From docker:
 <code>docker build -t pas_model -f ./DOCKERISE/Dockerfile .</code>
 <code>docker run pas_model python3 PAS_model.py {mode_instance}</code></p>
-<h2 id="on-pixel-platform">On pixel platform</h2>
+<h3 id="on-pixel-platform">On pixel platform</h3>
 <p>The present section focus on the Operational Tools interface that need to be fulfilled in order to execute the PAS model.
 Through a json named model instance, the Operational Tool pass to the PAS model informations to retrieve its inputs and export its outputs (<a href="https://docs-hub-ot.readthedocs.io/en/latest/ot_framework/">see OT documentation</a>).</p>
 <table>
@@ -187,9 +200,9 @@ Through a json named model instance, the Operational Tool pass to the PAS model 
 <p>The <strong>Logging</strong> section is similar to the Output one, but dedicated to information about the PAS model run. Those outputs are more contextual informations than actual results.</p>
 <p>The <strong>Forceinput</strong> allows to directly provide values for inputs, without having the corresponding documents in Information Hub. The provided values should mimic the json format of the corresponding documents (for a set of document, use an list of object like <code>"value":[{doc 1 content}, {doc 2 content}]</code>.</p>
 <hr />
-<p>Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose (<a href="./#Uses">see section Uses</a>), or even distinct version of the PAS model.</p>
+<p>Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose (<a href="./#Uses-of-the-PAS-model">see section Uses</a>), or even distinct version of the PAS model.</p>
 <hr />
-<!-- # Features -->
+<!-- ## Features -->
 
 <!-- **Functional**
 - Create scenario for handlings

@@ -59,8 +59,32 @@
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">Outputs</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#results">Results</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scenario">Scenario</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resources-uses">Resources uses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gantts-views">Gantts views</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#energy-consumptions">Energy consumptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#area-occupancy">Area occupancy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pollutant-emissions">Pollutant emissions</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#loggings">Loggings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#port-parameters">Port Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ot-call">OT call</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+        </ul>
     </li>
     </ul>
                     </li>
@@ -106,22 +130,179 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="outputs">Outputs</h2>
-<h3 id="results">Results</h3>
-<p>The PAS output provide for each vessel-call the list of activities in the dock to process it. Activities correspond to atomic operations described in supply-chains. Briefly, for each activity is provided:
-- information (operation description),
-- scheduling (start, duration, end),
-- resources used (such as machines or buildings)</p>
-<p>Furthermore, depending on outcome modules activated (settings), additional information can be added to each resource used, as :
-- energy consumption (nature, quantity),
-- pollutant emission (nature, quantity)
-Those information can be </p>
-<p><strong>Handlings</strong></p>
-<p><strong>energy...</strong></p>
-<h3 id="loggings">Loggings</h3>
-<p><strong>Logs</strong></p>
-<p><strong>OT call</strong></p>
-<p><strong>PP</strong></p>
+                <h1 id="outputs">Outputs</h1>
+<p>The PAS model produces several outputs, which can be classified into two groups, the intended results and the context information.</p>
+<hr />
+<p>The table X list all PAS model outputs exported in IH and their default location.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Default index</th>
+<th>Default doc_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scenario</td>
+<td>pas_outputs_results</td>
+<td>default_handlings</td>
+</tr>
+<tr>
+<td>Gantts views</td>
+<td>pas_outputs_results</td>
+<td>default_gantt_view</td>
+</tr>
+<tr>
+<td>Resources uses</td>
+<td>pas_outputs_results</td>
+<td>default_resource_use</td>
+</tr>
+<tr>
+<td>Energy consumptions</td>
+<td>pas_outputs_results</td>
+<td>default_energies_consumptions</td>
+</tr>
+<tr>
+<td>Areas occupancy</td>
+<td>pas_outputs_results</td>
+<td>default_areas_occupancy</td>
+</tr>
+<tr>
+<td>Pollutant emissions</td>
+<td>pas_outputs_results</td>
+<td>default_pollutants_emissions</td>
+</tr>
+<tr>
+<td>Logs</td>
+<td>pas_outputs_loggings</td>
+<td>default_logs</td>
+</tr>
+<tr>
+<td>Port parameters</td>
+<td>pas_outputs_loggings</td>
+<td>default_port_parameters</td>
+</tr>
+<tr>
+<td>OT call</td>
+<td>pas_outputs_loggings</td>
+<td>default_ot_call</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>pas_outputs_loggings</td>
+<td>default_settings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>All output have a json structure, with key information in <code>info</code> and actual data in <code>data</code></p>
+<pre><code>{
+    &quot;info&quot;: {
+        &quot;url&quot;: null,
+        &quot;index&quot;: &quot;pas_outputs_results_5.3&quot;,
+        &quot;doc_ID&quot;: &quot;default_area_occupancy&quot;,
+        &quot;creation_TS&quot;: &quot;2021-07-21T13:04:43&quot;
+    },
+    &quot;data&quot;: {...}
+}
+
+</code></pre>
+<h2 id="results">Results</h2>
+<h3 id="scenario">Scenario</h3>
+<p>The scenario provide for each handling the list of activities in the port to process it. Activities correspond to atomic operations described in supply-chains. Briefly, for each activity is provided:
+- a general description,
+- its scheduling (start, duration, end),
+- resources it require (machines, areas, operators).</p>
+<p>Furthermore, depending on outcome modules activated (settings), additional information can be added to each resource used, such as:</p>
+<ul>
+<li>energy consumption (nature, quantity),</li>
+<li>pollutant emission (nature, quantity).</li>
+</ul>
+<p>The scenario is actually the outcome with the highest density of information. Schematically, others results are specific views of the scenario, simplified by isolating a specific information dimension.</p>
+<hr />
+<p>Currently, there is no user friendly interface available on pixel platform for this output.</p>
+<h3 id="resources-uses">Resources uses</h3>
+<p>For respectively all machines and areas from the <code>port parameters</code>, gives:</p>
+<ul>
+<li>its global use time series - for each timestamp, number of machine instance or operators in the area,</li>
+<li>its maximal capacity - an activity that would require going above this threshold would have its status equal to overload or would be delayed,</li>
+<li>the detail of its uses - pointing for each handling that required this resource, the corresponding activity, the timestamps and quantity required.</li>
+</ul>
+<hr />
+<p>Currently, there is no user friendly interface available on pixel platform for this output.</p>
+<h3 id="gantts-views">Gantts views</h3>
+<p>This output contains data to plot to Gantt graphs, allowing to see:
+- handlings sequence from:
+    - docks view,
+    - ships view,
+    - agents view,
+    - content-type view,
+    - supplychaines view,
+- activities sequence from:
+    - handlings view,
+    - areas view,
+    - machines view,</p>
+<p>As an example, activities:machines view mean to plot all machines on Y axis and time on X axis. A succession of horizontal rectangles represents activities using the machine y between x_i and x_j (optionally colored according to their status: ok, hs, overload, delayed).</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../gantt_views.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A graphical tool is available to display 2 of the available views (handlings:dock view and handlings:ships view).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="energy-consumptions">Energy consumptions</h3>
+<p>This output contains data to plot all energy consumption in port across time.
+Optionally, status with respect to energy threshold could be added.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../energy_consumptions.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A graphical tool is available to display energy consumption (both instantaneous and cumulative) for a given energy category.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="area-occupancy">Area occupancy</h3>
+<p>This output contains data to plot the number of operators in the areas, with additional information with respect to its maximal countenance.</p>
+<hr />
+<p>For this output, a graphical tool is available to display areas occupancy.</p>
+<h3 id="pollutant-emissions">Pollutant emissions</h3>
+<p>This output contains data to plot all energy consumption in port across time.
+Optionally, status with respect to energy threshold could be added.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../pollutant_emissions.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A graphical tool is available to display pollutant emission (both instantaneous and cumulative) for a given pollutant category.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="loggings">Loggings</h2>
+<p>Those outputs are contextual information. They can be used to explain the results, or ensure information storage to reproduce identical PAS model run context (useful to compare scenario).</p>
+<h3 id="logs">Logs</h3>
+<p>A first section resume most important informations about the PAS model run. All modules list their critica message (if any) and sumary of their actions.
+A second section displays all the information, in an exhaustive way, in the order of appearance of the elements.</p>
+<hr />
+<p>Currently, there is no user friendly interface available on pixel platform for this output.</p>
+<h3 id="port-parameters">Port Parameters</h3>
+<p>The content of the <code>port_parameter</code> used by the PAS model. This corresponds to the original value (from document or forced input) plus several modifications, like adding automatically calculated emission factors to the machines.</p>
+<h3 id="ot-call">OT call</h3>
+<p>The content of the <code>model instance</code> send by the OT to the PAS model. This corresponds to the original value (from document or forced input) without modifications.</p>
+<h3 id="settings">Settings</h3>
+<p>The content of the <code>setting</code> used by the PAS model. This corresponds to the original value (from document or forced input) without modifications.</p>
               
             </div>
           </div>
