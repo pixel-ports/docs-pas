@@ -146,17 +146,18 @@ This global setting list the sequence of modules that will be run. Turning off s
 
 #### Handling converter
 
-```
-    "handling_converter": {
-    "TS_format": "epoch_miliseconde"
+```json
+"handling_converter": {
+    "TS_format": "epoch_miliseconde",
     "filters": {
-         "ET_consistency": true,
-         "content_amount": true,
-         "content_type": true,
-         "handling_direction": true,
-         "handling_dock": true,
-         "stopover_ETA": true
-     }
+        "ET_consistency": true,
+        "content_amount": true,
+        "content_type": true,
+        "handling_direction": true,
+        "handling_dock": true,
+        "stopover_ETA": true
+    }
+}
 ```
 
 **TS_format** Used to specify the timestamps format used inside VCs. Indeed, depending of the port IT infrastructure, VCs may have different format for `arrival_dock` and `departur_dock`, the proper one have to be specified here. The PAS model can handle 3 formats :
@@ -171,17 +172,17 @@ This global setting list the sequence of modules that will be run. Turning off s
 
 #### Handling assignment
 
-```
-    "handling_assignment": {
-         "default_SC": false,
-         "discart_unassigned": true,
-         "restrictions": {
-             "amount_max": false,
-             "amount_min": false,
-             "direction": false,
-             "dock": false
-        }
+```json
+"handling_assignment": {
+        "default_SC": false,
+        "discart_unassigned": true,
+        "restrictions": {
+            "amount_max": false,
+            "amount_min": false,
+            "direction": false,
+            "dock": false
     }
+}
 ```
 
 **default_SC** If true, for handling with no supply-chain explicitly suitable, try to force assign a default one (if available). 
@@ -192,13 +193,13 @@ This global setting list the sequence of modules that will be run. Turning off s
 
 #### Handling delayer
 
-```
+```json
 "handling_delayer": {
-     "time_resolution": 15,
-     "constraints_activation": {
-         "areas capacity": true,
-         "machines availability": true
-     }
+    "time_resolution": 15,
+    "constraints_activation": {
+        "areas capacity": true,
+        "machines availability": true
+    }
 }
 ```
 

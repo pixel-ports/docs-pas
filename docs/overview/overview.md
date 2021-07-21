@@ -37,3 +37,25 @@ From docker:
 `docker run pas_model python3 PAS_model.py {mode_instance}`
 
 <!-- ## Features -->
+
+<!-- **Functional**
+- Create scenario for handlings
+- Create outcomes "views":
+    - energy consumptions
+    - area occupancies
+    - pollutant emissions
+- Allows several timestamp formats in vessel-call 
+
+**In progress**
+- Delay handlings for ressources constraints
+- Outcomes updates:
+    - add "gost" records with value = 0
+    - post calculation (aggregated (e.g. sum, mean etc) or normalized (e.g. quantity/ton).)
+
+**Standby**
+- priority order
+- non-cargo (unloading or full load)
+- consumption supports :
+    - refrigerated containers
+    - lights
+    - buildings -->
