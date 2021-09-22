@@ -1,0 +1,19 @@
+{
+    "forceinput": [
+        {
+            "name": "vessel_call",
+            "value": [
+                {
+                    "data": {
+                       ...(first vessel-call)...
+                    }
+                },
+                {
+                    "data": {
+                        ...(second vessel-call)...
+                    }
+                }
+            ]
+        }
+    ]
+}

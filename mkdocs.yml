@@ -1,0 +1,33 @@
+site_name: Port Activities Scenario
+site_url: https://pixel-pas.readthedocs.io/en/latest/
+repo_url: https://github.com/pixel-ports/ot-docs-hub
+
+# this allows visualizing content in github as anonympus user without having to log in
+edit_uri: blob/master/docs/
+
+nav:
+    - Home: index.md
+    - Reference material: 
+        - "Overview":   ./overview/overview.md
+        - "Inputs":     ./inputs/inputs.md
+        - "Outputs":    ./outputs/outputs.md
+    # - User guidance:
+        # - "FAQ": faq.md
+        # - "Best practice & Recommandations": best_pract.md
+        # - "Troubleshooting": trouble.md #Ajouter l'arbre diagnostic ou le tableau 
+    - About: about.md # The PIXEL project
+
+
+theme: readthedocs
+# we will use the same style as for the general PIXEL documentation hub (based on FIWARE and a readthedocs theme)
+extra_css:
+    - css/pixel_a.css
+    - css/pixel_b.css
+    - css/monokai_sublime_.css
+    - css/pigments-monokai.css
+
+copyright: Apache License 2.0
+
+extra:
+  version: 1.0.0
+  color: 26b3c3

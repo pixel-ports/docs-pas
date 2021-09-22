@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://pixel-pas.readthedocs.io/en/latest/inputs/inputs/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Inputs - PAS documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Inputs";
+    var mkdocs_page_input_path = "inputs/inputs.md";
+    var mkdocs_page_url = "/en/latest/inputs/inputs/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> PAS documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Reference material</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../overview/overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Inputs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#vessel-calls">Vessel-calls</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ih-and-gui">IH and GUI</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#filtering-on-date">Filtering on date</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#passing-vcs-in-forceinput">Passing VCs in forceinput</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ports-parameters">Port's parameters</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#overview_1">Overview</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ih-and-gui_1">IH and GUI</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#overview_2">Overview</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pipeline">Pipeline</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handling-converter">Handling converter</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handling-assignment">Handling assignment</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#handling-delayer">Handling delayer</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#machine-auto-emission-factor">Machine auto emission factor</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ih-and-gui_2">IH and GUI</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../outputs/outputs/">Outputs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">PAS documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference material &raquo;</li>
+        
+      
+    
+    <li>Inputs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="inputs">Inputs</h1>
+<h2 id="vessel-calls">Vessel-calls</h2>
+<p>Vessel calls are information about vessels calling at the port to load or unload cargo. A vessel-call can contains distinct cargo unloading and loading. Each will be decompose by the PAS model as "handling". As an example, if a vessel-call point to unload X tons of cargo A and load Y tons of cargo B, it will be converted to 2 handlings. The first handling correspond to unload X tons of cargo A, the second handling correspond to load Y tons of cargo B, both can have distinct vessel docking area.</p>
+<h3 id="overview">Overview</h3>
+<p>Inside a <code>"data"</code> field, a vessel-call document contains the fallowing fields:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Relate to</th>
+<th>Illustrative value(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>No</td>
+<td>Vessel</td>
+<td>"Titanic"</td>
+</tr>
+<tr>
+<td>IMO</td>
+<td>No</td>
+<td>Vessel</td>
+<td>1131428</td>
+</tr>
+<tr>
+<td>journeyid</td>
+<td>No</td>
+<td>Vessel</td>
+<td>"2021072015423tit"</td>
+</tr>
+<tr>
+<td>(un)loading_bert</td>
+<td>Yes</td>
+<td>Docking</td>
+<td>dock_42</td>
+</tr>
+<tr>
+<td>arrival_dock</td>
+<td>Yes</td>
+<td>Docking</td>
+<td>1626776488 (epoch second), 1626776488000 (epoch millisecond), "1921-07-20T10:23:02" (ISO 8601)</td>
+</tr>
+<tr>
+<td>departure_dock</td>
+<td>Yes</td>
+<td>Docking</td>
+<td>1626776488 (epoch second), 1626776488000 (epoch millisecond), "1921-07-20T10:23:02" (ISO 8601)</td>
+</tr>
+<tr>
+<td>(un)loading_cargo_type</td>
+<td>Yes</td>
+<td>Content</td>
+<td>"corn", "cars", "chopped wood"</td>
+</tr>
+<tr>
+<td>(un)loading_cargo_fiscal_type</td>
+<td>No</td>
+<td>Content</td>
+<td>"cereal"</td>
+</tr>
+<tr>
+<td>(un)loading_dangerous</td>
+<td>Yes</td>
+<td>Content</td>
+<td>true, false</td>
+</tr>
+<tr>
+<td>(un)loading_tonnage</td>
+<td>Yes</td>
+<td>Content</td>
+<td>31415</td>
+</tr>
+</tbody>
+</table>
+<p>NB 1: (un)loading_ can figure both loading_ or unloading_</p>
+<p>NB 2: for arrival_dock and departure_dock, <a href="#Timestamp-format">see corresponding option in Settings</a></p>
+<hr />
+<p>Currently the PAS model focuses on the loading and unloading of ships. But it is possible to extend it to the loading and unloading of other vehicles such as trucks, river barges or trains, even to monitor transfer of goods between storage areas.</p>
+<hr />
+<p>The current format of the vessel call data is inherited from the first port that provided data. This format is peculiar in that it mixes various information in an arbitrary manner. To make the PAS model work on raw data in a different format, a port can incorporate into the PAS model a vessel-call conversion module (from its own raw format to the format expected by the PA model).</p>
+<hr />
+<h3 id="ih-and-gui">IH and GUI</h3>
+<p>Each vessel-calls are stored as distinct documents in Information Hub. To run the PAS model, the index containing vessel-calls have to be provided (usually "arh-lts-vesselcall"). </p>
+<h4 id="filtering-on-date">Filtering on date</h4>
+<p>All VCs in this index will be use, except if dates are provided for filtering purpose. Then the VCs would be filtered to restrict to the one present inside the port after a starting date and/or before an end date. The date format is ISO 8601. The OT provides a GUI for this purpose, as show in figure X</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../vc_filtering_on_date.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The OT GUI for VCs filtering on date (with optional automatic date identification)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="passing-vcs-in-forceinput">Passing VCs in forceinput</h4>
+<p>When using forceinput for vessel-call data, the fallowing structure have to be respected:</p>
+<pre><code class="language-json">&quot;forceinput&quot;: [
+    {
+        &quot;name&quot;: &quot;vessel_call&quot;,
+        &quot;value&quot;: [
+            {
+                &quot;data&quot;: {...}
+            },
+            {
+                &quot;data&quot;: {...}
+            }
+        ]
+    }
+]
+</code></pre>
+<h2 id="ports-parameters">Port's parameters</h2>
+<p>The port's parameters describes resources (machines, areas, content-types, energies, pollutants), process (supply-chains, timetables) and their assignation to vessel-calls. </p>
+<h3 id="overview_1">Overview</h3>
+<p>An extensive description can be found in <a href="https://gitpixel.satrdlab.upv.es/Erwan/pas_modelling/src/master/SAMPLES/inputs/UPP_schema.json">the corresponding json-schema</a> (with details for each field, such as textual description, allowed type and example values). </p>
+<hr />
+<p>From PAS model point of view, required items are Machines, Areas, Supply-chains and Content-types. Optional items are Time-table, Pollutants and Energies. However, in the graphical interface from the dashboard, to create some required items, optional items may have to be created previously. Thus when created from the graphical interface, all items can be considered as required (even with empty values).</p>
+<hr />
+<p>The port's parameter</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Required</th>
+<th>Use</th>
+<th>Main sub-fields</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time tables</td>
+<td>No</td>
+<td>Assign working hours to resources</td>
+<td>For each day of the week, start and end of working hours</td>
+</tr>
+<tr>
+<td>Pollutants</td>
+<td>No</td>
+<td>Extend the default pollutants tracked if additional data regarding them can be provide in other entries (such custom emission factors for machines). Furthermore, the alert threshold allows to identify over-emission situation. <br />Note possible partial overlap with default preset for PEI calculation</td>
+<td>General description, Alert threshold</td>
+</tr>
+<tr>
+<td>Energies</td>
+<td>Yes</td>
+<td>Track energy use in port. Optionally, default emission-factors can be assigned to machines using this energy. Furthermore, the alert threshold allows to identify over-consumption situation. <br />Note possible partial overlap with default preset for PEI calculation</td>
+<td>General description, Alert threshold, Emission-factors (pollutant ID and value)</td>
+</tr>
+<tr>
+<td>Machines</td>
+<td>Yes</td>
+<td>Characterizes machines available in port. For non-differentiated (interchangeable) machines, the characteristics are described only once, but the number of available items is specified.<br />Note that a set of different machines can be describe as an unique machine. And conversely, a machine can be decomposed into its sub-elements</td>
+<td>General description, Use costs, Throughputs, Energy consumption, Pollutants emission factors (if custom values)</td>
+</tr>
+<tr>
+<td>Area</td>
+<td>Yes</td>
+<td>Characterizes areas available in port.</td>
+<td>General description, Use costs, Energy consumption, Geographical coordinates</td>
+</tr>
+<tr>
+<td>Supply chains</td>
+<td>Yes</td>
+<td>Characterizes operations that have to be achieved to process the cargo handling. Equivalent to a Gantt (forward schedule), operations can have complex dependencies between them</td>
+<td>General description and list of operations (for each, resources used and the conditions that trigger operation start or end)</td>
+</tr>
+<tr>
+<td>Content type</td>
+<td>Yes</td>
+<td>Characterizes content of vessel-call (cargoes, passengers, containers) handled in the port. For each, a set of rules to associate it with the proper supply-chain. The assignation rules can also involve direction, docking area or amount of cargo</td>
+<td>General description and list suitable supply-chains (with corresponding sub-rules)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ih-and-gui_1">IH and GUI</h3>
+<p>The whole set is stored as an unique document in the Information Hub. The localization of the document (index &amp; doc_id), or a forced value, is required to run the PAS model. An interface is proposed to edit the port's parameters ("PAS information" in the navigation panel, see figure X). </p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../pp_gui_access.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The graphical interface to edit port's parameters.</td>
+</tr>
+</tbody>
+</table>
+<p>This interface exports the created document in an index designed by user (default <em>pas_inputs_port_parameter</em>), with a random doc_id. This doc_id must be specified to run the model.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../pp_gui_export.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The graphical interface allows to export port's parameters into IH to a designed index (but to a random doc_id)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="settings">Settings</h2>
+<h3 id="overview_2">Overview</h3>
+<p>PAS model have options that can be turn on or off (e.g. delay handling if overload a specific type of resource) or customized (e.g. time resolution for scheduling or outcomes calculation). This is set through the settings document. Each module have its entry on this document. The most remarkable are listed below. </p>
+<h4 id="pipeline">Pipeline</h4>
+<p>This global setting list the sequence of modules that will be run. Turning off some module can speed up the running time, and lower required inputs. Such deep control on PAS model behavior require good understanding of the PAS model internal functioning.</p>
+<h4 id="handling-converter">Handling converter</h4>
+<pre><code class="language-json">&quot;handling_converter&quot;: {
+    &quot;TS_format&quot;: &quot;epoch_miliseconde&quot;,
+    &quot;filters&quot;: {
+        &quot;ET_consistency&quot;: true,
+        &quot;content_amount&quot;: true,
+        &quot;content_type&quot;: true,
+        &quot;handling_direction&quot;: true,
+        &quot;handling_dock&quot;: true,
+        &quot;stopover_ETA&quot;: true
+    }
+}
+</code></pre>
+<p><strong>TS_format</strong> Used to specify the timestamps format used inside VCs. Indeed, depending of the port IT infrastructure, VCs may have different format for <code>arrival_dock</code> and <code>departur_dock</code>, the proper one have to be specified here. The PAS model can handle 3 formats :</p>
+<table>
+<thead>
+<tr>
+<th><code>TS_format</code> value</th>
+<th>Suitable for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>epoch_second</td>
+<td>1620097321 or "1620097321"</td>
+</tr>
+<tr>
+<td>epoch_miliseconde</td>
+<td>1620097321123 or "1620097321123"</td>
+</tr>
+<tr>
+<td>iso8601</td>
+<td>"2021-05-04T03:02:01.00" or "2021-05-04T03:02:01.00Z" or "2021-05-04T03:02:01.00 +02:00" (or several similar string)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>filters</strong> The tolerance level of the filter of the handlings designated as "aberrant" can be modulated through the content of the field <code>filter</code> . The 6 filters can independently be turned on (more coercive) or off (less coercive).</p>
+<h4 id="handling-assignment">Handling assignment</h4>
+<pre><code class="language-json">&quot;handling_assignment&quot;: {
+        &quot;default_SC&quot;: false,
+        &quot;discart_unassigned&quot;: true,
+        &quot;restrictions&quot;: {
+            &quot;amount_max&quot;: false,
+            &quot;amount_min&quot;: false,
+            &quot;direction&quot;: false,
+            &quot;dock&quot;: false
+    }
+}
+</code></pre>
+<p><strong>default_SC</strong> If true, for handling with no supply-chain explicitly suitable, try to force assign a default one (if available). </p>
+<p><strong>discart_unassigned</strong> If false, handlings without supply-chain explicitly suitable are discarded.</p>
+<p><strong>restrictions</strong> To manage handling assignment to the correct supply-chain, the main parameters is the content-type involved (e.g. corn, cars, chopped wood). But this is refined with sub-rules. Here those sub-rules can be globally dis-activated.</p>
+<h4 id="handling-delayer">Handling delayer</h4>
+<pre><code class="language-json">&quot;handling_delayer&quot;: {
+    &quot;time_resolution&quot;: 15,
+    &quot;constraints_activation&quot;: {
+        &quot;areas capacity&quot;: true,
+        &quot;machines availability&quot;: true
+    }
+}
+</code></pre>
+<p><strong>time_resolution</strong> The time duration in minutes that is used to discretize the time dimension during scheduling process</p>
+<p><strong>constraints_activation</strong> When an activity to process an handling requires more resources than available at that time, the activity is identified with the status "overloading". Handling with activity overloading can be re-scheduled to avoid any overloading. Currently, two constraint are available. If <code>areas capacity</code> is turned on, the global schedule (all handlings) will avoid having more operators in an area than its capacity. If <code>machines avilability</code> is turned on, the global schedule (all handlings) will avoid having more instance of any machines than available.</p>
+<h4 id="machine-auto-emission-factor">Machine auto emission factor</h4>
+<p>This settings contains references for pollutants emissions calculation, then PEI calculation. It allows to assignee emission factors to machines.</p>
+<h3 id="ih-and-gui_2">IH and GUI</h3>
+<p>There is no GUI available to edit settings, that have to be edited manually and pushed in IH. For settings, the default index is <code>pas_inputs_settings</code> and the default doc_id <code>default_settings</code>. For user convenience, typical set of settings are provided <a href="https://gitpixel.satrdlab.upv.es/Erwan/pas_modelling/src/master/SAMPLES/inputs/settings">here</a>.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../outputs/outputs/" class="btn btn-neutral float-right" title="Outputs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../overview/overview/" class="btn btn-neutral" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../overview/overview/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../outputs/outputs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

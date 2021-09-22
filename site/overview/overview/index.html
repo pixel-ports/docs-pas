@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://pixel-pas.readthedocs.io/en/latest/overview/overview/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Overview - PAS documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Overview";
+    var mkdocs_page_input_path = "overview/overview.md";
+    var mkdocs_page_url = "/en/latest/overview/overview/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> PAS documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Reference material</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Overview</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#concept-of-the-pas-model">Concept of the PAS model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#uses-of-the-pas-model">Uses of the PAS model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#run-the-pas-model">Run the PAS model</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#localy">Localy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#on-pixel-platform">On pixel platform</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../inputs/inputs/">Inputs</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../outputs/outputs/">Outputs</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">PAS documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference material &raquo;</li>
+        
+      
+    
+    <li>Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<h2 id="concept-of-the-pas-model">Concept of the PAS model</h2>
+<p>This model of the PIXEL platform aims to allows user to convert raw data into actionable information.</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="" src="../pas_core_principes.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">Illustration of the basic operating principle of the PAS</td>
+</tr>
+</tbody>
+</table>
+<p>Firstly, the model build the Port's Activities Scenario (PAS). This mean to elucidate the required activities in port to handle cargoes in port (e.g. unload from vessel to warehouse storage). For each of the activities, the scenario precise <strong>what</strong> are the goods, <strong>when</strong> does it occurs and <strong>how</strong> (resources and process used).</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="" src="../pas_scope.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">The purpose of the PAS is to identify and schedule the activities required in the port to process cargoes</td>
+</tr>
+</tbody>
+</table>
+<p>Secondly, from the PAS can be calculate outcomes, likes <strong>energy consumption</strong>, <strong>pollutant emission</strong>, or <strong>area occupancy</strong>. From these primary metrics, secondary metrics could be derived, such as utilization rate, energy efficiency, or the existence of bottlenecks.</p>
+<h2 id="uses-of-the-pas-model">Uses of the PAS model</h2>
+<p>Considering a list of vessel-calls to handle, a set of port's parameters and several options (<a href="../../inputs/inputs/">see Inputs section</a>), the model aims to establish the required activities in port (among other <a href="../../outputs/outputs/">see Outputs section</a>).
+Depending on the type of data provided as input, four use can be proposed, as show in table X</p>
+<table>
+<thead>
+<tr>
+<th>Input data</th>
+<th>Use case</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Live stream (e.g. IoT)</td>
+<td>Monitoring</td>
+</tr>
+<tr>
+<td>Consolidated historical (e.g. invoices &amp; registers)</td>
+<td>Assessment</td>
+</tr>
+<tr>
+<td>Estimated future (e.g. predictive algorithms)</td>
+<td>Forecast</td>
+</tr>
+<tr>
+<td>« What if » scenario (e.g. change a machine, traffic evolution)</td>
+<td>Explore</td>
+</tr>
+</tbody>
+</table>
+<h2 id="run-the-pas-model">Run the PAS model</h2>
+<h3 id="localy">Localy</h3>
+<p>The model can be run localy, considering it receives a proper model instance (<a href="../../inputs/inputs/#OT-call-to-the-PAS-model">see section OT call to the PAS model</a>).</p>
+<p>From python (requirements available in <code>./pipfile</code>):
+<code>PAS_model.py --from_file "path/to/pas_instance.json"</code></p>
+<p>From docker:
+<code>docker build -t pas_model -f ./DOCKERISE/Dockerfile .</code>
+<code>docker run pas_model python3 PAS_model.py {mode_instance}</code></p>
+<h3 id="on-pixel-platform">On pixel platform</h3>
+<p>The present section focus on the Operational Tools interface that need to be fulfilled in order to execute the PAS model.
+Through a json named model instance, the Operational Tool pass to the PAS model informations to retrieve its inputs and export its outputs (<a href="https://docs-hub-ot.readthedocs.io/en/latest/ot_framework/">see OT documentation</a>).</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="" src="../ot_call_overview.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">The OT interface to execute the PAS</td>
+</tr>
+</tbody>
+</table>
+<p>In the <strong>Input</strong> section, the user provides localization of the inputs in the Information Hub. That is to say an index and a document id. Default values are preset, but to use them, user have to actually store the input in those locations.</p>
+<p>In the <strong>Output</strong> section, the user provide localization where the PAS model will export its results in the Information Hub. That is to say an index and a document id. Note that if a document with the same document id is already present in the index, it will be overwrite.</p>
+<p>The <strong>Logging</strong> section is similar to the Output one, but dedicated to information about the PAS model run. Those outputs are more contextual informations than actual results.</p>
+<p>The <strong>Forceinput</strong> allows to directly provide values for inputs, without having the corresponding documents in Information Hub. The provided values should mimic the json format of the corresponding documents (for a set of document, use an list of object like <code>"value":[{doc 1 content}, {doc 2 content}]</code>.</p>
+<hr />
+<p>Using distinct index and doc_id allows to run multiple PAS model in paralleled for distinct purpose (<a href="./#Uses-of-the-PAS-model">see section Uses</a>), or even distinct version of the PAS model.</p>
+<hr />
+<!-- ## Features -->
+
+<!-- **Functional**
+- Create scenario for handlings
+- Create outcomes "views":
+    - energy consumptions
+    - area occupancies
+    - pollutant emissions
+- Allows several timestamp formats in vessel-call 
+
+**In progress**
+- Delay handlings for ressources constraints
+- Outcomes updates:
+    - add "gost" records with value = 0
+    - post calculation (aggregated (e.g. sum, mean etc) or normalized (e.g. quantity/ton).)
+
+**Standby**
+- priority order
+- non-cargo (unloading or full load)
+- consumption supports :
+    - refrigerated containers
+    - lights
+    - buildings -->
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../inputs/inputs/" class="btn btn-neutral float-right" title="Inputs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../inputs/inputs/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

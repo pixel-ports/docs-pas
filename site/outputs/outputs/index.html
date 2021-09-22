@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="canonical" href="https://pixel-pas.readthedocs.io/en/latest/outputs/outputs/">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Outputs - PAS documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Outputs";
+    var mkdocs_page_input_path = "outputs/outputs.md";
+    var mkdocs_page_url = "/en/latest/outputs/outputs/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> PAS documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Reference material</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../../overview/overview/">Overview</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../inputs/inputs/">Inputs</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Outputs</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#results">Results</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#scenario">Scenario</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#resources-uses">Resources uses</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gantts-views">Gantts views</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#energy-consumptions">Energy consumptions</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#area-occupancy">Area occupancy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pollutant-emissions">Pollutant emissions</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#loggings">Loggings</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#logs">Logs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#port-parameters">Port Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ot-call">OT call</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../about/">About</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">PAS documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference material &raquo;</li>
+        
+      
+    
+    <li>Outputs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="outputs">Outputs</h1>
+<p>The PAS model produces several outputs, which can be classified into two groups, the intended results and the context information.</p>
+<hr />
+<p>The table X list all PAS model outputs exported in IH and their default location.</p>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Default index</th>
+<th>Default doc_id</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scenario</td>
+<td>pas_outputs_results</td>
+<td>default_handlings</td>
+</tr>
+<tr>
+<td>Gantts views</td>
+<td>pas_outputs_results</td>
+<td>default_gantt_view</td>
+</tr>
+<tr>
+<td>Resources uses</td>
+<td>pas_outputs_results</td>
+<td>default_resource_use</td>
+</tr>
+<tr>
+<td>Energy consumptions</td>
+<td>pas_outputs_results</td>
+<td>default_energies_consumptions</td>
+</tr>
+<tr>
+<td>Areas occupancy</td>
+<td>pas_outputs_results</td>
+<td>default_areas_occupancy</td>
+</tr>
+<tr>
+<td>Pollutant emissions</td>
+<td>pas_outputs_results</td>
+<td>default_pollutants_emissions</td>
+</tr>
+<tr>
+<td>Logs</td>
+<td>pas_outputs_loggings</td>
+<td>default_logs</td>
+</tr>
+<tr>
+<td>Port parameters</td>
+<td>pas_outputs_loggings</td>
+<td>default_port_parameters</td>
+</tr>
+<tr>
+<td>OT call</td>
+<td>pas_outputs_loggings</td>
+<td>default_ot_call</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>pas_outputs_loggings</td>
+<td>default_settings</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p>All output have a json structure, with key information in <code>info</code> and actual data in <code>data</code></p>
+<pre><code>{
+    &quot;info&quot;: {
+        &quot;url&quot;: null,
+        &quot;index&quot;: &quot;pas_outputs_results_5.3&quot;,
+        &quot;doc_ID&quot;: &quot;default_area_occupancy&quot;,
+        &quot;creation_TS&quot;: &quot;2021-07-21T13:04:43&quot;
+    },
+    &quot;data&quot;: {...}
+}
+
+</code></pre>
+<h2 id="results">Results</h2>
+<h3 id="scenario">Scenario</h3>
+<p>The scenario provide for each handling the list of activities in the port to process it. Activities correspond to atomic operations described in supply-chains. Briefly, for each activity is provided:
+- a general description,
+- its scheduling (start, duration, end),
+- resources it require (machines, areas, operators).</p>
+<p>Furthermore, depending on outcome modules activated (settings), additional information can be added to each resource used, such as:</p>
+<ul>
+<li>energy consumption (nature, quantity),</li>
+<li>pollutant emission (nature, quantity).</li>
+</ul>
+<p>The scenario is actually the outcome with the highest density of information. Schematically, others results are specific views of the scenario, simplified by isolating a specific information dimension.</p>
+<hr />
+<p>Currently, there is no user friendly interface available on pixel platform for this output.</p>
+<h3 id="resources-uses">Resources uses</h3>
+<p>For respectively all machines and areas from the <code>port parameters</code>, gives:</p>
+<ul>
+<li>its global use time series - for each timestamp, number of machine instance or operators in the area,</li>
+<li>its maximal capacity - an activity that would require going above this threshold would have its status equal to overload or would be delayed,</li>
+<li>the detail of its uses - pointing for each handling that required this resource, the corresponding activity, the timestamps and quantity required.</li>
+</ul>
+<hr />
+<p>Currently, there is no user friendly interface available on pixel platform for this output.</p>
+<h3 id="gantts-views">Gantts views</h3>
+<p>This output contains data to plot to Gantt graphs, allowing to see:
+- handlings sequence from:
+    - docks view,
+    - ships view,
+    - agents view,
+    - content-type view,
+    - supplychaines view,
+- activities sequence from:
+    - handlings view,
+    - areas view,
+    - machines view,</p>
+<p>As an example, activities:machines view mean to plot all machines on Y axis and time on X axis. A succession of horizontal rectangles represents activities using the machine y between x_i and x_j (optionally colored according to their status: ok, hs, overload, delayed).</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../gantt_views.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A graphical tool is available to display 2 of the available views (handlings:dock view and handlings:ships view).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="energy-consumptions">Energy consumptions</h3>
+<p>This output contains data to plot all energy consumption in port across time.
+Optionally, status with respect to energy threshold could be added.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../energy_consumptions.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A graphical tool is available to display energy consumption (both instantaneous and cumulative) for a given energy category.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="area-occupancy">Area occupancy</h3>
+<p>This output contains data to plot the number of operators in the areas, with additional information with respect to its maximal countenance.</p>
+<hr />
+<p>For this output, a graphical tool is available to display areas occupancy.</p>
+<h3 id="pollutant-emissions">Pollutant emissions</h3>
+<p>This output contains data to plot all energy consumption in port across time.
+Optionally, status with respect to energy threshold could be added.</p>
+<table>
+<thead>
+<tr>
+<th><img alt="" src="../pollutant_emissions.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A graphical tool is available to display pollutant emission (both instantaneous and cumulative) for a given pollutant category.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="loggings">Loggings</h2>
+<p>Those outputs are contextual information. They can be used to explain the results, or ensure information storage to reproduce identical PAS model run context (useful to compare scenario).</p>
+<h3 id="logs">Logs</h3>
+<p>A first section resume most important informations about the PAS model run. All modules list their critica message (if any) and sumary of their actions.
+A second section displays all the information, in an exhaustive way, in the order of appearance of the elements.</p>
+<hr />
+<p>Currently, there is no user friendly interface available on pixel platform for this output.</p>
+<h3 id="port-parameters">Port Parameters</h3>
+<p>The content of the <code>port_parameter</code> used by the PAS model. This corresponds to the original value (from document or forced input) plus several modifications, like adding automatically calculated emission factors to the machines.</p>
+<h3 id="ot-call">OT call</h3>
+<p>The content of the <code>model instance</code> send by the OT to the PAS model. This corresponds to the original value (from document or forced input) without modifications.</p>
+<h3 id="settings">Settings</h3>
+<p>The content of the <code>setting</code> used by the PAS model. This corresponds to the original value (from document or forced input) without modifications.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../inputs/inputs/" class="btn btn-neutral" title="Inputs"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../inputs/inputs/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme_extra.js" defer></script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
