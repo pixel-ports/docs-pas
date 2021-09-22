@@ -1,0 +1,997 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "title": "Port Parameters",
+    "description": "Description of port assets and process used for handling vessel cargo",
+    "type": "object",
+    "definitions": {
+        "identifier": {
+            "type": "object",
+            "title": "Identification",
+            "description": "Several information to clearly identify the item (and regroup items during consolidation)",
+            "required": [
+                "ID",
+                "label"
+            ],
+            "properties": {
+                "ID": {
+                    "type": "string",
+                    "title": "Unique ID",
+                    "description": "Item unique ID in database",
+                    "$comment": "Equivalent to a primary key for  SQL database",
+                    "examples": [
+                        "ID_42"
+                    ]
+                },
+                "label": {
+                    "type": "string",
+                    "title": "Label",
+                    "description": "Free text for item labelling",
+                    "examples": [
+                        "Some name"
+                    ],
+                    "default": ""
+                }
+            }
+        },
+        "category": {
+            "type": "string",
+            "title": "Category",
+            "description": "Higher category to which the item belongs",
+            "$comment": "A preset list of entries is provided (specific to the nature of the item, e.g. content_type, machine, area...), but user can add a new entry to this list"
+        },
+        "unit": {
+            "type": "string",
+            "title": "Unit",
+            "description": "User choice for measure unit. Mostly for display (but some consistency check can be done during calculations)",
+            "$comment": "For the moment, unit is considered as an optional feature (do not spend to much time in this until next version)"
+        },
+        "dependency": {
+            "type": "object",
+            "title": "Dependency",
+            "description": "How other operations control current operation start or end",
+            "required": [
+                "start_or_end",
+                "any_or_all",
+                "operations_IDs"
+            ],
+            "properties": {
+                "start_or_end": {
+                    "type": "string",
+                    "title": "Start or end",
+                    "description": "Current operation trigger when targeted operations start or end",
+                    "enum": [
+                        "start",
+                        "end"
+                    ],
+                    "default": "and"
+                },
+                "any_or_all": {
+                    "type": "string",
+                    "title": "Any or all",
+                    "description": "Current operation trigger whith any (the first one) or all (the last one)",
+                    "enum": [
+                        "any",
+                        "all"
+                    ],
+                    "default": "all"
+                },
+                "operations_IDs": {
+                    "type": "array",
+                    "title": "Operations IDs",
+                    "additionalItems": true,
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "delay": {
+            "type": "integer",
+            "default": 0,
+            "title": "Delay (min)",
+            "description": "Assigns a fixed duration for the operation. Can be used as a proxy-operation to insert temporal lag (positive value) or lead (negative value) between other tasks"
+        },
+        "amount": {
+            "type": "object",
+            "title": "Quantity handled",
+            "description": "The operation last until a fixed amount is handled",
+            "required": [
+                "absolute_or_relative",
+                "value"
+            ],
+            "properties": {
+                "absolute_or_relative": {
+                    "type": "string",
+                    "title": "Absolute or relative",
+                    "description": "(e.g. tons vs %)",
+                    "enum": [
+                        "absolute",
+                        "relative"
+                    ],
+                    "default": "relative"
+                },
+                "value": {
+                    "type": "number",
+                    "minimum": 0,
+                    "default": 100,
+                    "title": "Amount",
+                    "description": "% if relative, cargo unit if absolute (tons, m3...)"
+                }
+            }
+        },
+        "throughput": {
+            "type": "object",
+            "title": "Hourly throughput",
+            "required": [
+                "value",
+                "unit"
+            ],
+            "properties": {
+                "unit": {
+                    "$ref": "#/definitions/unit",
+                    "example": [
+                        "ton/hour",
+                        "m3/hour"
+                    ]
+                },
+                "value": {
+                    "type": [
+                        "null",
+                        "number"
+                    ],
+                    "title": "Value",
+                    "minimun": 0,
+                    "default": 0
+                }
+            }
+        },
+        "energies_consumptions": {
+            "type": "array",
+            "title": "Energy consumptions",
+            "description": "List nominal consumptions (one for each required energy)",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Hourly consumption",
+                "required": [
+                    "energy_ID",
+                    "unit",
+                    "value"
+                ],
+                "properties": {
+                    "energy_ID": {
+                        "type": "string",
+                        "title": "Energy ID"
+                    },
+                    "unit": {
+                        "$ref": "#/definitions/unit",
+                        "example": [
+                            "kW/hour",
+                            "l/hour"
+                        ]
+                    },
+                    "value": {
+                        "type": "number",
+                        "minimum": 0
+                    }
+                }
+            }
+        },
+        "emission_factors": {
+            "type": "array",
+            "title": "Pollutants emissions factors",
+            "description": "Overwrite default values. List nominal pollutant emissions (one for each pollutant)",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Hourly emission",
+                "required": [
+                    "pollutant_ID",
+                    "unit",
+                    "value"
+                ],
+                "properties": {
+                    "pollutant_ID": {
+                        "type": "string",
+                        "title": "Pollutant ID"
+                    },
+                    "unit": {
+                        "$ref": "#/definitions/unit",
+                        "example": [
+                            "mg/hour",
+                            "µg/hour",
+                            "ng/hour",
+                            "mg/liter",
+                            "µg/liter",
+                            "ng/liter",
+                            "mg/kW",
+                            "µg/kW",
+                            "ng/kW"
+                        ]
+                    },
+                    "value": {
+                        "type": "number",
+                        "minimum": 0
+                    }
+                }
+            }
+        },
+        "timetable_ID": {
+            "type": "string",
+            "title": "Timetable ID",
+            "description": "Timetable (aka working hours) assigned to this machine",
+            "default": "Standard week"
+        }
+    },
+    "required": [
+        "content_types",
+        "supplychains",
+        "machines",
+        "areas",
+        "energies",
+        "pollutants",
+        "timetables"
+    ],
+    "properties": {
+        "content_types": {
+            "type": "array",
+            "title": "Content types",
+            "description": "List of vessels' cargoes category and their assignation to supply-chains",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Content type",
+                "required": [
+                    "identifier",
+                    "category",
+                    "full_or_partial",
+                    "unit",
+                    "suitable_supplychains"
+                ],
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": [
+                            "Solid bulk",
+                            "Liquid bulk",
+                            "Non handled",
+                            "Cereal",
+                            "Hydrocarbure",
+                            "Passengers",
+                            "Containers"
+                        ]
+                    },
+                    "full_or_partial": {
+                        "type": "boolean",
+                        "title": "Fully (un)load",
+                        "description": "The full content will be handled. Usualy true for cargoes, but not for containers and passengers",
+                        "default": true
+                    },
+                    "unit": {
+                        "$ref": "#/definitions/unit",
+                        "example": [
+                            "ton",
+                            "m3"
+                        ]
+                    },
+                    "suitable_supplychains": {
+                        "type": "array",
+                        "title": "Suitable supply-chains",
+                        "description": "Top-down prioritized list",
+                        "items": {
+                            "type": "object",
+                            "title": "Supply-chain assignment",
+                            "required": [
+                                "SC_ID",
+                                "restrictions"
+                            ],
+                            "properties": {
+                                "SC_ID": {
+                                    "type": "string",
+                                    "title": "Associated supplychain ID"
+                                },
+                                "restrictions": {
+                                    "type": "object",
+                                    "title": "Restrictions",
+                                    "description": "Several restrictions that the vessel cargo must observe to get assigned to this supplychain. All conditions must be true.",
+                                    "required": [
+                                        "direction",
+                                        "areas_IDs",
+                                        "amount_min",
+                                        "amount_max"
+                                    ],
+                                    "properties": {
+                                        "direction": {
+                                            "type": "string",
+                                            "title": "Handling direction",
+                                            "description": "Limit to loading or unloading",
+                                            "enum": [
+                                                "",
+                                                "loading",
+                                                "unloading",
+                                                "other"
+                                            ],
+                                            "default": ""
+                                        },
+                                        "areas_IDs": {
+                                            "type": "array",
+                                            "title": "Dock ID",
+                                            "description": "Dock of the vessel must one of",
+                                            "$comment": "(futur version): the list should probabily be limited to area with categry == dock",
+                                            "additionalItems": true,
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "amount_min": {
+                                            "type": [
+                                                "null",
+                                                "number"
+                                            ],
+                                            "minimum": 0,
+                                            "title": "Amount above"
+                                        },
+                                        "amount_max": {
+                                            "type": [
+                                                "null",
+                                                "number"
+                                            ],
+                                            "minimum": 0,
+                                            "title": "Amount below"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "supplychains": {
+            "type": "array",
+            "title": "Supply chain",
+            "description": "List of sequence of operation for handling vessel cargo.",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Supply chain",
+                "required": [
+                    "identifier",
+                    "category",
+                    "operations"
+                ],
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": []
+                    },
+                    "operations": {
+                        "type": "array",
+                        "title": "Operations list",
+                        "description": "Atomic operation, with an identifiable start, ending an required resources",
+                        "additionalItems": true,
+                        "items": {
+                            "type": "object",
+                            "title": "Operation",
+                            "required": [
+                                "identifier",
+                                "planning",
+                                "resources_uses"
+                            ],
+                            "properties": {
+                                "identifier": {
+                                    "$ref": "#/definitions/identifier"
+                                },
+                                "planning": {
+                                    "type": "object",
+                                    "title": "Planning",
+                                    "description": "Conditions determining start and end",
+                                    "required": [
+                                        "start",
+                                        "end"
+                                    ],
+                                    "properties": {
+                                        "start": {
+                                            "type": "object",
+                                            "title": "Operation start",
+                                            "description": "How to determine begining",
+                                            "required": [
+                                                "trigger"
+                                            ],
+                                            "properties": {
+                                                "trigger": {
+                                                    "type": "string",
+                                                    "title": "Condition",
+                                                    "description": "This operation starts is triggered by. At least one operation should start a soon as the boat docks",
+                                                    "$comment": "At least one operation should have ASAP as value",
+                                                    "enum": [
+                                                        "asap",
+                                                        "other operations"
+                                                    ],
+                                                    "default": "asap"
+                                                },
+                                                "dependency": {
+                                                    "$ref": "#/definitions/dependency"
+                                                }
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "trigger": {
+                                                                "const": "other operations"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "required": [
+                                                            "trigger",
+                                                            "dependency"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "end": {
+                                            "type": "object",
+                                            "title": "Operation end",
+                                            "description": "How to determine ending (duration)",
+                                            "required": [
+                                                "trigger"
+                                            ],
+                                            "properties": {
+                                                "trigger": {
+                                                    "type": "string",
+                                                    "title": "Condition",
+                                                    "description": "The logic that bring the operation to stops",
+                                                    "enum": [
+                                                        "time elapsed",
+                                                        "amount processed",
+                                                        "other operations"
+                                                    ],
+                                                    "default": "Other operations"
+                                                },
+                                                "delay": {
+                                                    "$ref": "#/definitions/delay"
+                                                },
+                                                "amount": {
+                                                    "$ref": "#/definitions/amount"
+                                                },
+                                                "dependency": {
+                                                    "$ref": "#/definitions/dependency"
+                                                }
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "trigger": {
+                                                                "const": "time elapsed"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "required": [
+                                                            "trigger",
+                                                            "delay"
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "trigger": {
+                                                                "const": "amount processed"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "required": [
+                                                            "trigger",
+                                                            "amount"
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "trigger": {
+                                                                "const": "other operations"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "required": [
+                                                            "trigger",
+                                                            "dependency"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "resources_uses": {
+                                    "type": "object",
+                                    "title": "Resources uses",
+                                    "description": "Resources required for this operation",
+                                    "required": [
+                                        "area_ID",
+                                        "operators",
+                                        "machines_IDs",
+                                        "parallel_or_serie"
+                                    ],
+                                    "properties": {
+                                        "areas_IDs": {
+                                            "type": "object",
+                                            "title": "Areas IDs",
+                                            "description": "List of areas where occuring this operation",
+                                            "required": [
+                                                "source"
+                                            ],
+                                            "properties": {
+                                                "source": {
+                                                    "type": "string",
+                                                    "title": "Fixed by",
+                                                    "description": "Retrive areas for this operation from there",
+                                                    "enum": [
+                                                        "vessel dock",
+                                                        "other operations",
+                                                        "fixed areas"
+                                                    ],
+                                                    "default": "vessel dock"
+                                                },
+                                                "parent_operations_IDs": {
+                                                    "type": "array",
+                                                    "title": "Areas IDs inherited from other operations",
+                                                    "description": "List of operations from which areas IDs are inherited",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "title": "Operation ID"
+                                                    }
+                                                },
+                                                "fixed_areas_IDs": {
+                                                    "type": "array",
+                                                    "title": "Fixed areas IDs",
+                                                    "description": "List of areas where occuring this operation",
+                                                    "items": {
+                                                        "type": "string",
+                                                        "title": "Area ID"
+                                                    }
+                                                }
+                                            },
+                                            "allOf": [
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "source": {
+                                                                "const": "other operations"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "required": [
+                                                            "source",
+                                                            "parent_operations_IDs"
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "if": {
+                                                        "properties": {
+                                                            "source": {
+                                                                "const": "fixed areas"
+                                                            }
+                                                        }
+                                                    },
+                                                    "then": {
+                                                        "required": [
+                                                            "trigger",
+                                                            "fixed_areas_IDs"
+                                                        ]
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "operators": {
+                                            "type": "integer",
+                                            "minimum": 0,
+                                            "title": "No. operators",
+                                            "default": 0,
+                                            "description": "Total number of operators involved in this operation"
+                                        },
+                                        "machines_IDs": {
+                                            "type": "array",
+                                            "title": "Machines IDs",
+                                            "description": "List of machines involved in this operation. Been in the same operation mean that all those machines start and end working with this operation planning. If N identical units are required, add 3 times the corresponding machine ID",
+                                            "additionalItems": true,
+                                            "items": {
+                                                "type": "string",
+                                                "title": "Machine ID"
+                                            }
+                                        },
+                                        "parallel_or_serie": {
+                                            "type": "string",
+                                            "title": "Organisation",
+                                            "description": "If several machines are involve. Parallel: the machines are  independent (machines throughput add up). Serie: the machines done are inter-dependant (the machine with the minimal throughput limite the whole operation progress)",
+                                            "enum": [
+                                                "parallel",
+                                                "serie"
+                                            ],
+                                            "default": "Serie"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "machines": {
+            "type": "array",
+            "title": "Machines",
+            "description": "List of machines used for vessels handling",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Machine",
+                "required": [
+                    "identifier",
+                    "category",
+                    "manufacture_year",
+                    "engine_power",
+                    "nb_unit",
+                    "timetable_ID",
+                    "throughputs",
+                    "energies_consumptions"
+                ],
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": [
+                            "Car loader",
+                            "Chassis rotator",
+                            "Compressor",
+                            "Crane",
+                            "Empty container handler",
+                            "Excavator",
+                            "Forklift",
+                            "Gantry Crane",
+                            "Generator",
+                            "Light tower",
+                            "Manlift",
+                            "Nonroad vehicle",
+                            "Rail pusher",
+                            "Reach Stacker",
+                            "Roller",
+                            "Side Handler",
+                            "Skid Steer Loader",
+                            "Specialized Bulk Handler",
+                            "Sweeper",
+                            "Top Handler",
+                            "Tractor",
+                            "Welder",
+                            "Yard Tractor"
+                        ]
+                    },
+                    "nb_unit": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "title": "Number available",
+                        "description": "Number of identical machine units available",
+                        "default": 1
+                    },
+                    "manufacture_year": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "title": "Manufacture year",
+                        "description": "Year of machine production",
+                        "default": 2000
+                    },
+                    "engine_power": {
+                        "type": "number",
+                        "minimum": 0,
+                        "title": "Engine power",
+                        "description": "The power delivered by the engine in kW",
+                        "default": 100
+                    },
+                    "timetable_ID": {
+                        "$ref": "#/definitions/timetable_ID"
+                    },
+                    "throughputs": {
+                        "type": "object",
+                        "title": "Throughputs",
+                        "description": "Cargo amount handled during one hour",
+                        "required": [
+                            "default_throughput",
+                            "specific_throughputs"
+                        ],
+                        "properties": {
+                            "default_throughput": {
+                                "$ref": "#/definitions/throughput",
+                                "type": "object",
+                                "title": "Default",
+                                "description": "Use as default throughput"
+                            },
+                            "specific_throughputs": {
+                                "type": "array",
+                                "title": "Specifics",
+                                "description": "Beside the default throughput, specific throughputs can be assigned to groups of content-types (will be use when handling the corresponding content-type(s)",
+                                "additionalItems": true,
+                                "items": {
+                                    "type": "object",
+                                    "title": "Specific throughput",
+                                    "required": [
+                                        "content_types_IDs",
+                                        "unit",
+                                        "value"
+                                    ],
+                                    "properties": {
+                                        "content_types_IDs": {
+                                            "type": "array",
+                                            "title": "Content types IDs",
+                                            "additionalItems": true,
+                                            "items": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "unit": {
+                                            "$ref": "#/definitions/unit",
+                                            "example": [
+                                                "ton/hour",
+                                                "m3/hour"
+                                            ]
+                                        },
+                                        "value": {
+                                            "type": [
+                                                "null",
+                                                "number"
+                                            ],
+                                            "title": "Value",
+                                            "minimun": 0
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "energies_consumptions": {
+                        "$ref": "#/definitions/energies_consumptions"
+                    },
+                    "emission_factors": {
+                        "$ref": "#/definitions/emission_factors",
+                        "description": "Specific emission factors for this machine"
+                    }
+                }
+            }
+        },
+        "areas": {
+            "type": "array",
+            "title": "Areas",
+            "description": "List of areas used for vessels handling. For areas with throughputs, specific energy consumptions and so on, creat a corresponding machine.",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Area",
+                "required": [
+                    "identifier",
+                    "category",
+                    "timetable_ID",
+                    "surface",
+                    "indoor_or_outdoor",
+                    "capacity"
+                ],
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": [
+                            "Dock",
+                            "Warehouse",
+                            "Silo",
+                            "Office",
+                            "Yard",
+                            "Parking"
+                        ]
+                    },
+                    "timetable_ID": {
+                        "$ref": "#/definitions/timetable_ID"
+                    },
+                    "cost": {
+                        "$id": "#/definitions/cost"
+                    },
+                    "surface": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "description": "(square meters)"
+                    },
+                    "indoor_or_outdoor": {
+                        "type": "string",
+                        "title": "Indoor or outdoor",
+                        "enum": [
+                            "indoor",
+                            "outdoor"
+                        ],
+                        "default": "outdoor"
+                    },
+                    "vented": {
+                        "type": "boolean",
+                        "title": "Vented",
+                        "description": "For indoor, is the area vented",
+                        "enum": [
+                            true,
+                            false
+                        ],
+                        "default": "false"
+                    },
+                    "capacity": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "title": "Max. operators",
+                        "description": "Indicative threshold for maximal number of operators (capacity)"
+                    },
+                    "energies_consumptions": {
+                        "$ref": "#/definitions/energies_consumptions",
+                        "description": "Typicaly for lights and general energy requirements"
+                    }
+                }
+            }
+        },
+        "energies": {
+            "type": "array",
+            "title": "Energies",
+            "description": "List of energies used for vessels handling",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Energy",
+                "required": [
+                    "identifier",
+                    "category",
+                    "unit"
+                ],
+                "$comment": "For next version, required should extent to cost,alert_threshold,emission_factors",
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": [
+                            "Fosil-Fuel",
+                            "Bio-Fuel",
+                            "Conventional-Electricity",
+                            "Renewable-Electricity"
+                        ]
+                    },
+                    "unit": {
+                        "$ref": "#/definitions/unit",
+                        "example": [
+                            "kW",
+                            "liter"
+                        ],
+                        "$comment": "Should we expect m3 for NGL?"
+                    },
+                    "cost": {
+                        "type": "number",
+                        "minimum": 0,
+                        "title": "Cost",
+                        "description": "Unit cost of the energy"
+                    },
+                    "alert_threshold": {
+                        "type": "number",
+                        "minimum": 0,
+                        "title": "Alert threshold",
+                        "description": "Indicative threshold for energy consumption alert (quantity e.g. kW, )"
+                    },
+                    "emission_factors": {
+                        "$ref": "#/definitions/emission_factors",
+                        "description": "Generic emission factors for this energy"
+                    }
+                }
+            }
+        },
+        "pollutants": {
+            "type": "array",
+            "title": "Pollutants",
+            "description": "List of tracked pollutants",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Pollutant",
+                "required": [
+                    "identifier",
+                    "category",
+                    "unit"
+                ],
+                "$comment": "For next version, required should extent to alert_threshold",
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": [
+                            "GHG",
+                            "PM",
+                            "PAH",
+                            "BTEX"
+                        ]
+                    },
+                    "unit": {
+                        "$ref": "#/definitions/unit",
+                        "example": [
+                            "mg",
+                            "µg",
+                            "ng"
+                        ]
+                    },
+                    "alert_threshold": {
+                        "type": [
+                            "null",
+                            "number"
+                        ],
+                        "minimum": 0,
+                        "title": "Alert threshold",
+                        "description": "Indicative threshold for pollutants amount alert (quantity e.g. mg)",
+                        "$comment": "Slit in 2 categories ? Amount for production monitoring (PAS), concentration for environmental stations monitoring."
+                    }
+                }
+            }
+        },
+        "timetables": {
+            "type": "array",
+            "title": "Time tables",
+            "description": "List of used table tables (working hours) for vessels handling",
+            "additionalItems": true,
+            "items": {
+                "type": "object",
+                "title": "Timetable",
+                "$comment": "#TODO use current datCheck with GUI data-model when available",
+                "required": [
+                    "identifier",
+                    "category",
+                    "value"
+                ],
+                "properties": {
+                    "identifier": {
+                        "$ref": "#/definitions/identifier"
+                    },
+                    "category": {
+                        "$ref": "#/definitions/category",
+                        "example": [
+                            "default",
+                            "holidays",
+                            "extended hours"
+                        ]
+                    },
+                    "value": {
+                        "type": "array",
+                        "items": {
+                            "type": "object"
+                        }
+                    }
+                }
+            }
+        },
+        "priority": {
+            "type": "object",
+            "title": "Priority",
+            "description": "Rules for ranking vessel calls priority (used in case of access concurrency for resources like machines, areas, operators...)",
+            "$comment": "For future version",
+            "properties": {}
+        }
+    }
+}
